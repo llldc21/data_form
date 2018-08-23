@@ -1,0 +1,47 @@
+Passo a passo de como usar Git em  projetos:
+
+1 - Sempre inicie o dia dando um GIT PULL:
+	Entre na pasta do projeto e antes de tudo e pelo terminal, prompt a interface do git
+	digite GIT PULL.
+	* Por que? Estamos trabalhando com um repositorio(pasta) remoto/compartilhado ou seja
+	todos nos podemos e vamos fazer alterações, o comando GIT PULL serve para que consigamos
+	atualizar a versão do repositorio que temos em nossa maquina para a ultima versão disponivel. 
+
+2 - Crie sua branch com GIT BRANCH <NOME_DA_BRANCH>/Entre na sua branch com GIT CHECKOUT <NOME_DA_BRANCH>:
+	Ainda pensando no conceito de repositorio remoto não devemos trabalhar no ramo principal
+	do nosso projeto, simplesmente pelo fato de que podemos errar em algum ponto e precisamos
+	pensar na integridade do nosso projeto, o ideal seria criar uma Branch(ramo).
+	* Explicando: Quando criamos nossa pasta no Github o Git entende que temos um ramo principal
+	o MASTER e tudo o que alteramos vai (quando realizamos todas as etapas) para esse ramo, em
+	um projeto varias pessoas estão utilizando essa pasta, para evitar conflitos o ideal é que
+	cada um trabalhe em um ramo e ao fim do seu trbalho adicione esse ramo ao principal.
+	* Conselho: Para que possamos manter um controle o ideal seria manter um padrão quanto
+	a criação das branches, gosto do padrão YYYYMMDDI, sendo ano, mes, dia e a letra inicial do
+	seu nome. Ex: 20180817L.
+	* Dica: Também é interessante que ao final de cada dia de trabalho ou de cada assunto sua branch
+	seja excluida, por isso, caso se sinta confiante ao finalizar seu trabalho apague sua branch
+	com GIT BRANCH -D <NOME_DA_BRANCH> (o D é maiusculo mesmo).
+
+3 - Adicione seu trabalho com GIT ADD <NOME_DO_ARQUIVO_EM_QUE_TRABALHAVA>:
+	Para que as mudanças realizadas no arquivo possam ser observadas pelo git e consideradas mudanças
+	ao fim de cada trabalho é importanta que você adicione o arquivo/pasta (o que seja), para que
+	seja visualizado.
+
+4 - Comite o trabalho com GIT COMMIT -M 'UMA MENSAGEM SOBRE O QUE FEZ'
+	Após o git add é importante fazer o commit do seu trabalho, para que ele efetivamente esteja
+	pronto para ser enviado ao Github, também é interessante deixar um mensagem relacionada ao 
+	que foi feito nessa trabalho, como uma descrição básica.
+
+5 - Mescle sua branch com o ramo principal com o GIT MERGE <NOME_DA_BRANCH>*:
+	Após ter finalizado seu projeto, para que todos possam ver e você possa colaborar com ele
+	é ideal mesclar o seu trabalho no ramo principal, fazemos isso usando GIT MERGE.
+	* MAS ATENÇÃO: VOCÊ SÓ CONSEGUIRÁ FAZER ESSE PASSO ESTANDO NA BRANCH PRINCIPAL a MASTER.
+	Para isso ao fim do seu trabalho vá para a branch principal com GIT CHECKOUT MASTER 
+	(Reparou que GIT CHECKOUT serve para se movimentar entre as branchs do projeto?)
+	feito isso, agora sim pode mesclar (GIT MERGE <NOME_DA_BRANCH>), sua branch criada anterior-
+	mente, ao ramo principal.
+
+6 - Envie seu trabalho com GIT PUSH ORIGIN MASTER:
+	Para finalizar, após seguir todos os passos é hora de enviar mesmo seu trabalho para o 
+	repositorio e enfim finalizar.
+	Agora é so acessar o Github e conferir se seu projeto esta atualizado.
