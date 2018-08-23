@@ -1,0 +1,14 @@
+.borda1{
+	background-color: white;
+	border-radius: 20px;
+}
+.t1{
+	width: 35%;
+}	
+.center{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+   
+}
+
