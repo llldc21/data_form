@@ -13,8 +13,8 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec) {
 };
 // -----------------
 
-AddCategoria('Administração');
 
+// Funções de controle administrativo, o usuario não deve ter acesso a elas
 function AddCategoria($categoria){
     $sql = 'INSERT INTO `TB_CATEGORIA`(`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES (null, "'.$categoria.'")';
     $res = $GLOBALS['conn']->query($sql);
@@ -24,5 +24,6 @@ function AddCategoria($categoria){
         echo 'Erro!';
     }
 }
+// ------------------------------------------------------------------------
 
 ?>
