@@ -14,14 +14,14 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema llldc21_data_form
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `llldc21_data_form` ;
+CREATE DATABASE IF NOT EXISTS `llldc21_data_form` ;
 USE `llldc21_data_form` ;
 
 -- -----------------------------------------------------
 -- Table `llldc21_data_form`.`TB_USUARIO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_USUARIO` (
-  `CD_USUARIO` INT NULL AUTO_INCREMENT,
+  `CD_USUARIO` INT AUTO_INCREMENT,
   `NM_USUARIO` VARCHAR(100) NOT NULL,
   `DS_EMAIL` VARCHAR(45) NOT NULL,
   `DT_NASCIMENTO` DATE NOT NULL,
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- Table `llldc21_data_form`.`TB_CATEGORIA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_CATEGORIA` (
-  `CD_CATEGORIA` INT NULL AUTO_INCREMENT,
+  `CD_CATEGORIA` INT AUTO_INCREMENT,
   `NM_CATEGORIA` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`CD_CATEGORIA`))
 ENGINE = InnoDB
@@ -46,7 +46,7 @@ DEFAULT CHARACTER SET = armscii8;
 -- Table `llldc21_data_form`.`TB_USER_FORM`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_USER_FORM` (
-  `CD_USER_FORM` INT NULL AUTO_INCREMENT,
+  `CD_USER_FORM` INT AUTO_INCREMENT,
   `NM_USER_FORM` VARCHAR(45) NOT NULL,
   `ID_USUARIO(FK)` INT NOT NULL,
   `ID_CATEGORIA(FK)` INT NOT NULL,
@@ -70,7 +70,7 @@ ENGINE = InnoDB;
 -- Table `llldc21_data_form`.`TB_TIPO_PERGUNTA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_TIPO_PERGUNTA` (
-  `CD_TIPO_PERGUNTA` INT NULL AUTO_INCREMENT,
+  `CD_TIPO_PERGUNTA` INT AUTO_INCREMENT,
   `NM_TIPO_PERGUNTA` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`CD_TIPO_PERGUNTA`))
 ENGINE = InnoDB;
@@ -80,7 +80,7 @@ ENGINE = InnoDB;
 -- Table `llldc21_data_form`.`TB_PERGUNTA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_PERGUNTA` (
-  `CD_PERGUNTA` INT NULL AUTO_INCREMENT,
+  `CD_PERGUNTA` INT AUTO_INCREMENT,
   `NM_PERGUNTA` VARCHAR(45) NOT NULL,
   `ID_TIPO_PERGUNTA(FK)` INT NOT NULL,
   `ID_USER_FORM(FK)` INT NOT NULL,
@@ -105,7 +105,7 @@ COMMENT = 'TB_USER_FORM_TB_USUARIO_CD_USUARIO';
 -- Table `llldc21_data_form`.`TB_ALTERNATIVA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_ALTERNATIVA` (
-  `CD_ALTERNATIVA` INT NULL AUTO_INCREMENT,
+  `CD_ALTERNATIVA` INT AUTO_INCREMENT,
   `NM_ALTERNATIVA` VARCHAR(100) NOT NULL,
   `ID_PERGUNTA(FK)` INT NOT NULL,
   PRIMARY KEY (`CD_ALTERNATIVA`),
@@ -122,8 +122,8 @@ ENGINE = InnoDB;
 -- Table `llldc21_data_form`.`TB_RESPOSTA`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `llldc21_data_form`.`TB_RESPOSTA` (
-  `CD_RESPOSTA` INT NULL AUTO_INCREMENT,
-  `TB_ALTERNATIVA_CD_ALTERNATIVA` INT NOT NULL,
+  `CD_RESPOSTA` INT AUTO_INCREMENT,
+  `ID_ALTERNATIVA(FK)` INT NOT NULL,
   PRIMARY KEY (`CD_RESPOSTA`),
   INDEX `fk_TB_RESPOSTA_TB_ALTERNATIVA1_idx` (`TB_ALTERNATIVA_CD_ALTERNATIVA` ASC) VISIBLE,
   CONSTRAINT `fk_TB_RESPOSTA_TB_ALTERNATIVA1`
