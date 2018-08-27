@@ -23,21 +23,24 @@
 					<!-- CONTEUDO BODY  -->
 
 				<div class="col-10 col-md-4 offset-md-4 offset-1 login">
-					<br>
 					<center>
-							<a href="index.html"><img src="img/login.png" height="70" width="70"></a>
 						<br>
-							<b>Cadastro</b>
+							<img src="img/img.png" style="height:70px;">
+							<b>Data Form</b>
 						<br>
-							Nome <input class="form-control btn-lg btn-secondary" type="text" placeholder="Digite seu Nome" name="nome">
 						<br>
-							Email <input class="form-control btn-lg btn-secondary" type="email" placeholder="Digite seu Email" name="email">
+							Seja bem vindo!
 						<br>
-							Data de Nascimento <input type="date" class="btn-secondary btn-lg form-control" name="nascimento">
 						<br>
-							Digite uma senha <input class="form-control btn-secondary btn-lg" type="password" placeholder="Digite sua Senha" name="senha">
+							Nome <input class="form-control btn-lg btn-outline-secondary" type="text" placeholder="Digite seu Nome" name="nome"> 
 						<br>
-							Repita a senha <input class="form-control btn-secondary btn-lg" type="password" placeholder="Repita sua Senha" name="rep_senha">
+							Email <input class="form-control btn-lg btn-outline-secondary" type="email" placeholder="Digite seu Email" name="email">
+						<br>
+							Data de Nascimento <input type="date" class="btn-outline-secondary btn-lg form-control" name="nascimento">
+						<br>
+							Digite uma senha <input class="form-control btn-outline-secondary btn-lg" type="password" placeholder="Digite uma Senha" name="senha">
+						<br>
+							Repita a senha <input class="form-control btn-outline-secondary btn-lg" type="password" placeholder="Repita sua Senha" name="rep_senha">
 						<br>
 							
 							Selecione uma foto de perfil
@@ -50,7 +53,7 @@
 										</div>
 								<!-- botão de pesquisa -->
 						<br>
-							<button class="btn btn-outlne-primary btn-lg btn-block" onclick="return validar()">Cadastrar</button>
+							<button class="btn btn-outline-primary btn-lg btn-block" onclick="return validar()">Cadastrar</button>
 						<br>
 					</center>
 				</div>
@@ -63,11 +66,11 @@
 function validar() {
 var nome = form.nome.value;
 var email = form.email.value;
+var data = form.nascimento.value;
 var senha = form.senha.value;
 var rep_senha = form.rep_senha.value;
- 
 	if (nome == "") {
-	alert('Preencha o campo com seu nome!');
+	alert("Digite o seu nome");
 	form.nome.focus();
 	return false;
 	}
@@ -76,14 +79,24 @@ var rep_senha = form.rep_senha.value;
 	form.nome.focus();
 	return false;
 	}
-
+	if (email == "") {
+	alert('Preencha o campo com seu e-mail!');
+	form.email.focus();
+	return false;
+	}
+	if (data == "") {
+	alert("Digite ou selecione sua data de nascimento!");
+	form.data.focus();
+	return false;
+	}
 	if (senha != rep_senha) {
 	alert('Digite as senhas iguais!');
 	form.senha.focus();
 	return false;
 	}
-
 }
+
+
 </script>
 
 
@@ -92,30 +105,23 @@ var rep_senha = form.rep_senha.value;
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 			<div class="col-md-12 col-12 asd">
-			        
+				  <a href="#"> DataForm</a> | <a href="#">Ajuda</a> | <a href="#">Sobre</a>       
 			</div>
 </html>
 
 <style type="text/css">
 	.login{
 		background: white; 
-		border-radius: 20px;
 		font-size: 16px;
-		margin-top: 100px;
+		margin-top: 70px;
 		box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
-		border-radius: 0px;
+		border-radius: 5px;
 	}
 	b{
-		 font-family:georgia; 
-		 font-size: 30px;
+		 font-size: 20px;
 	}
 	.painel-login{
 		height: 550px;
-		font-size: 50px;
-		font-family:georgia; 
-	}
-	.button{
-		size: 50px;
 	}
 	.chek{
 		text-align: right;
@@ -124,13 +130,10 @@ var rep_senha = form.rep_senha.value;
 		background-image: url('img/body.png');
 		position: fixed absolute;
 		width:auto;
-		height:auto;
+		height:800px;
 		background-size: cover;
-		font-size: 12px;
 		background-repeat: no-repeat;
-	}
-	nav{
-		background-color: white;
+		font-family: Arciform;
 	}
 	.asd{
 		height: 20px;
@@ -140,5 +143,10 @@ var rep_senha = form.rep_senha.value;
 		position: fixed;
 		background-color: black;
 		opacity: 0.7;
+		text-align:right;
+	}
+	@font-face {
+     font-family: Arciform;
+     src: url('fonte/Arciform.otf');
 	}
 </style>
