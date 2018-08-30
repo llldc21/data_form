@@ -13,6 +13,23 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec) {
 };
 // -----------------
 
+Login('llldc21@gmail.com', '123');
+
+// Login
+function Login($email, $senha){
+    $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        header('location: usuario.php');
+    }else{
+        echo 'Erro';
+    }; 
+};
+
+// Criar tabela
+
+// Perguntas
+
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
 function AddCategoria($categoria){
