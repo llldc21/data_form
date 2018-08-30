@@ -1,113 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <head>
-	<title>Login V4</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+	<title>Date Form</title>
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-49">
-						<img src="images/img.png" style="height:70px;"> Data Form
-					</span>
-						
-						<!-- Login -->
 
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Apelido ou e-mail requerido">
-						<span class="label-input100">Email ou apelido</span>
-						<input class="input100" type="text" name="email" placeholder="Digite seu apelido ou e-mail">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Senha requerida">
-						<span class="label-input100">Senha</span>
-						<input class="input100" type="password" name="senha" placeholder="Digite sua senha">
-						<span class="focus-input100" data-symbol="&#xf190;"></span>
-					</div>
+		<form action="#" method="post">
+			<div class="col-12 col-md-12 painel-login">
 					
-					<div class="text-right p-t-8 p-b-31">
-						<a href="#" class="txt2">
-							Esqueceu a senha?
-						</a>
-					</div>
-						
-						<!-- fim login -->
+					<!-- CONTEUDO BODY  -->
 
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Login
-							</button>
-						</div>
-					</div>
-
+				<div class="col-10 col-md-4 offset-md-4 offset-1 login">
+					<center>
+							<br>
+							<img src="img/img.png" style="height:70px;">
+							<b>Data Form</b>
 						<br>
-						<center>
-							<a href="Cadastro.php" class="txt2">
-								Cadastrar
-							</a>
-						</center>
-					</div>
-				</form>
+						<br>
+						Seja bem vindo!
+						<br>
+						<br>
+							Email <input class="form-control btn-outline-secondary" type="email" placeholder="Digite seu Email" name="email">
+						<br>
+							Senha <input class="form-control btn-outline-secondary" type="password" placeholder="Digite sua senha" name="senha">
+					</center>
+							<a href="#" align="left">Esqueceu a senha?</a>
+						<br>
+					<center>
+						<br>
+							<button class="btn btn-outline-primary btn-lg btn-block " onclick="return logar()">Login</button>
+					</center>
+						<a href="cadastro.html">Cadastrar</a>
+						<br>
+						<br>
+				</div>
+
 			</div>
-		</div>
-	</div>
-	
+		</form>
 
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+<script language="javascript" type="text/javascript">
+function logar() {
+var email = form.email.value;
+var senha = form.senha.value;
 
+	if (email == "") {
+	alert('Preencha o campo com seu e-mail!');
+	form.nome.focus();
+	return false;
+	}
+	if (senha == "") {
+	alert('Digite a senha!');
+	form.senha.focus();
+	return false;
+	}
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+		<div class="col-md-12 col-12 asd">
+			        <a href="#"> DataForm</a> | <a href="#">Ajuda</a> | <a href="#">Sobre</a>  
+		</div>
 </html>
 
-<?php
-include('../../back_end/funcs.php');
+<style type="text/css">
+	.login{
+		background: white; 
+		font-size: 16px;
+		margin-top: 150px;
+		box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+		border-radius: 5px;
+	}
+	b{
+		 font-size: 30px;
+	}
+	.painel-login{
+		height: 550px;
+		font-size: 50px;
+	}
+	.chek{
+		text-align: right;
+	}
+	body{
+		background-image: url('img/body.png');
+		position: fixed absolute;
+		width:auto;
+		height:auto;
+		background-size: cover;
+		background-repeat: no-repeat;
+		font-family: Arciform;
+	}
+	.asd{
+		height: 20px;
+		margin-top: -20px;
+		top: 100%;
+		left: 0%;
+		position: fixed;
+		background-color: black;
+		opacity: 0.7;
+		text-align:right;
+	}
 
-if (isset($_POST['email']) and isset($_POST['senha'])) {
-	Login($_POST['email'], $_POST['senha']);
-	header('location: ../../back_end/usuario.php');
-};
-?>
+	@font-face {
+     font-family: Arciform;
+     src: url('fonte/Arciform.otf');
+	}
+</style>
