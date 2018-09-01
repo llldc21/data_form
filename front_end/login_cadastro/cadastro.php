@@ -14,8 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="css/uti.css">
-	<link rel="stylesheet" type="text/css" href="css/mai.css">
+	<link rel="stylesheet" type="text/css" href="css/utill.css">
+	<link rel="stylesheet" type="text/css" href="css/cad.css">
 </head>
 <body style="background-color: #999999;"> 
 	
@@ -29,7 +29,7 @@
 					
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-59">
-						<img src="images/img.png" style="height:70px;"> Data Form
+						<img src="images/img.png" style="height:60px;"> Data Form
 					</span>
 							<!--nome-->
 							
@@ -93,7 +93,7 @@
 					
 						<!--Fim botão cadastro-->
 					
-						<a href="login.php" class="dis-block txt1 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+						<a href="login.php" class="dis-block txt2 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
 							Login
 							<i class="fa fa-long-arrow-right m-l-5"></i>
 						</a>
