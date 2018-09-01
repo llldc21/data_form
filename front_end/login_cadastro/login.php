@@ -21,7 +21,8 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.png');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
+				
+				<form method="post" action="login.php" class="login100-form validate-form">
 					<span class="login100-form-title p-b-49">
 						<img src="images/img.png" style="height:70px;"> Data Form
 					</span>
@@ -51,7 +52,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type="submit" class="login100-form-btn">
 								Login
 							</button>
 						</div>
@@ -84,4 +85,15 @@
 
 </body>
 </html>
-
+<?php
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+function Login($email, $senha){
+    $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        echo 'Ok';
+    }else{
+        echo 'Erro';
+    }; 
+};
