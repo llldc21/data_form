@@ -1,3 +1,25 @@
+
+<?php
+include('../../back_end/funcs.php');
+session_start();
+
+include("config_db.php");
+include("conexao.php");
+ if(isset($_SESSION['UsuarioLog'])){
+//   header("location: usuario.php");
+//   die();
+ }
+
+if ($_POST){	
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+
+	Login($email, $senha);
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,15 +107,3 @@
 
 </body>
 </html>
-<?php
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-function Login($email, $senha){
-    $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
-    $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        echo 'Ok';
-    }else{
-        echo 'Erro';
-    }; 
-};

@@ -6,23 +6,63 @@ include('conexao.php');
 // Todas as funções não possuem header, ou seja é necessario redirecionar o usuario após a operação
 // no banco de dados.
 
-// Cadastrar usuario
-function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec) {
-    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`) VALUES(null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'")';
-    $res = $GLOBALS['conn']->query($sql);
-};
-// -----------------
 
-// Login
+
+// CADASTRAR USUARIO
+function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec ) {
+    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'")';
+    $res = $GLOBALS['conn']->query($sql);
+    if ($res) {
+      echo ' <script> alert("Cadastrado com Sucesso"); </script>';
+    }else{
+      echo ' <script> alert("Erro ao cadastrar"); </script>';
+    }
+    
+};
+// FIM - CADASTRO USUÁRIO
+
+// LOGIN
 function Login($email, $senha){
     $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        echo 'Ok';
+    if($res->num_rows>0){
+    $usuario = $res->fetch_array();
+    $_SESSION['UsuarioLog'] = true;
+     $_SESSION['Email'] = $usuario ['DS_EMAIL'];
+     $_SESSION['UsuarioLog'] = $usuario ['CD_USUARIO'];
+    $_SESSION['Senha'] = $usuario['DS_SENHA'];
+   header("location: usuario.php");
+echo $_SESSION ['UsuarioLog'];
     }else{
-        echo 'Erro';
+         echo ' <script> alert("Email ou senha incorretos"); </script>';
     }; 
 };
+// FIM - LOGIN
+
+// CADASTRO DO FORMULARIO 
+
+function CadastrarFormulario($nometab, $dataum, $datadois, $usuario, $categoria){
+    $dataum = ($dataum != "" ) ? $dataum : 'null' ;
+    $datadois = ($datadois != "") ? $datadois : 'null';
+    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "'.$nometab.'", "'.$dataum.'", "'.$datadois.'", '.$usuario.', '.$categoria.' )';
+	$res = $GLOBALS['conn']->query($sql);
+	if($res){
+	echo "Cadastrado com sucesso";
+	}else{
+	echo "Erro ao cadastrar" .$sql ;
+	}
+}
+
+//CadastrarFormulario();
+
+
+function ListarCategoria(){
+	$sql = 'SELECT * FROM TB_CATEGORIA';
+	$res = $GLOBALS['conn']->query($sql);
+	return $res;
+}
+
+// FIM CADASTRO FORMULARIO
 
 // Criar tabela
 

@@ -1,3 +1,19 @@
+<?php
+
+include('conexao.php');
+include ('../../back_end/funcs.php');
+      
+ if ($_POST) {
+   $nome = $_POST['nome'];
+   $email = $_POST['email'];
+   $email_rec = $_POST['email_rec'];
+   $nascimento = $_POST['nascimento'];
+   $senha = $_POST['senha'];
+   $data = @date('Y/m/d',strtotime($nascimento));
+      
+CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +43,7 @@
 				
 					<!--Inicio form-->
 					
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="cadastro.php" method="post">
 					<span class="login100-form-title p-b-59">
 						<img src="images/img.png" style="height:60px;"> Data Form
 					</span>
@@ -52,7 +68,7 @@
 							
 					<div class="wrap-input100 validate-input" data-validate="Data requerida">
 						<span class="label-input100">Data de nascimento</span>
-						<input class="input100" type="date" name="data">
+						<input class="input100" type="date" name="nascimento">
 						<span class="focus-input100"></span>
 					</div>
 							<!--fim data-->
@@ -66,6 +82,14 @@
 					</div>
 							
 							<!--FIm senha-->
+									
+							<!--Email recuperação-->
+					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
+						<span class="label-input100">Email Recuperação</span>
+						<input class="input100" type="text" name="email_rec" placeholder="Endereço de email...">
+						<span class="focus-input100"></span>
+					</div>
+							<!--Fim email-->
 							
 							<!--Foto-->
 				
