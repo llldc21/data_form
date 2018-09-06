@@ -11,17 +11,11 @@
       <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Carousel Template for Bootstrap</title>
-
-
-    <!-- Bootstrap core CSS -->
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://v4-alpha.getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
     
-    <script>
+      <script>
     $(document).ready(function(){
           $('.imgf').hover(function(){
             $('.m').toggleClass('m');
@@ -30,20 +24,23 @@
     });
     
     </script>
-    
-  </head>
-  <body>
-    
-       <!--------- NAV BAR -------->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<body>
+
+
+
+
+ <!--------- NAV BAR -------->
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
          <!-- tag navbar -->
               <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <!-- img logo -->
           
             <!-- inicio form -->
-              <div class="input-group mb-3 col-md-8 col-8">
+              <div class="input-group mb-3 col-md-8 col-8 inputNav">
                 <!-- input search -->
                 <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 <!-- input search -->
@@ -94,10 +91,9 @@
             </div>
           </nav>
      
-          
           <!---------- NAV BAR ----->
-
-    <!--------- IMG TOP --------->
+          
+            <!--------- IMG TOP --------->
     <div class="row">
       <div class="col-md-12" id="imgtop">
       
@@ -114,38 +110,37 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette imgf">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Lorem Ipsum. <span class="text-muted">Lorem Ipsum.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <div class="row featurette">
+        <div class="col-md-7 col-sm-11">
+          <h2 class="featurette-heading col-sm-11">Lorem Ipsum. <span class="text-muted">Lorem Ipsum.</span></h2>
+          <p class="lead col-sm-11">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
-        <div class="col-md-5">
-          <img class="m" src="img/index.png" alt="Generic placeholder image">
+        <div class="col-md-5 col-sm-11">
+          <img class="m p img-fluid rounded img-thumbnail float-right" src="img/teste.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
       <hr class="featurette-divider">
 
-      <div class="row featurette imgd">
-        <div class="col-md-5 pull-md-7">
-          <img class="n" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+      <div class="row featurette">
+        <div class="col-md-5 col-sm-11">
+          <img class="m p img-fluid rounded img-thumbnail float-right" src="img/teste.jpg" alt="Generic placeholder image" />
         </div>
-        <div class="col-md-7 push-md-5">
-          <h2 class="featurette-heading">Lorem Ipsum. <span class="text-muted">Lorem Ipsum.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="col-md-7 col-sm-11 text1 float-left">
+          <h2 class="featurette-heading col-sm-11">Lorem Ipsum. <span class="text-muted">Lorem Ipsum.</span></h2>
+          <p class="lead float-left col-sm-11">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
-        
       </div>
 
       <hr class="featurette-divider">
 
-      <div class="row featurette imgf">
+      <div class="row featurette img-responsive">
         <div class="col-md-7">
           <h2 class="featurette-heading">Lorem Ipsum. <span class="text-muted">Lorem Ipsum.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-          <img class="m" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="m p img-fluid rounded img-thumbnail float-right" src="img/teste.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -177,4 +172,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
+</html>
+
+          
+</body>
 </html>
