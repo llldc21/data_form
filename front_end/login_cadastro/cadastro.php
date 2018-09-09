@@ -102,7 +102,7 @@ CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec);
 										
 							<!--Fim foto-->
 							<br>
-							<div style="height:100%; width:100%;"></div>
+							<div style="height:6%; width:100%;"></div>
 							<br>
 							<!--Botão cadastro-->
 							
