@@ -9,8 +9,8 @@ include('conexao.php');
 
 
 // CADASTRAR USUARIO
-function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec ) {
-    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'")';
+function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
+    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$img_usuario.'")';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
       echo ' <script> alert("Cadastrado com Sucesso"); </script>';
@@ -27,14 +27,14 @@ function Login($email, $senha){
     $res = $GLOBALS['conn']->query($sql);
     if($res->num_rows>0){
     $usuario = $res->fetch_array();
-    $_SESSION['UsuarioLog'] = true;
-     $_SESSION['Email'] = $usuario ['DS_EMAIL'];
-     $_SESSION['UsuarioLog'] = $usuario ['CD_USUARIO'];
-    $_SESSION['Senha'] = $usuario['DS_SENHA'];
-   header("location: usuario.php");
-echo $_SESSION ['UsuarioLog'];
+        $_SESSION['UsuarioLog'] = true;
+        $_SESSION['Email'] = $usuario ['DS_EMAIL'];
+        $_SESSION['UsuarioLog'] = $usuario ['CD_USUARIO'];
+        $_SESSION['Senha'] = $usuario['DS_SENHA'];
+        header("location: usuario.php");
+        echo $_SESSION ['UsuarioLog'];
     }else{
-         echo ' <script> alert("Email ou senha incorretos"); </script>';
+        echo ' <script> alert("Email ou senha incorretos"); </script>';
     }; 
 };
 // FIM - LOGIN

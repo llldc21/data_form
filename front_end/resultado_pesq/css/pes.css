@@ -3,9 +3,6 @@
     background-color: green;
     margin-top: 20px;
 }
-.tig{
-    text-align: center;
-}
 .tags{
       margin: 10px;
       background-color: blue;
@@ -40,13 +37,12 @@
 
 
 /*Inicio resolução pequena*/
-@media screen and (max-width:800px) {
+@media screen and (max-width:720px) {
   .main{
-    display: flex;
     margin:0%;
     width: 100%;
-    min-height: 100px;
-    max-height: 100%;
+    margin-top: 0%;
+    margin-bottom:30%;
   }
   .left{
     display: flex;
@@ -62,16 +58,16 @@
        width: 100%;
    }
    .resu{
-      margin: 10px;
-      background-color: blue;
+      background-color: green;
       float:left ;
       height: auto;
-      position: relative;
       width:100%;
+      margin-left: 0%;
+      margin-right: 0%;
     }
-    .tig{
-        margin-left: 5px;
-    }
+    /*.tig{*/
+    /*    font-weight: bold;*/
+    /*}*/
     .tags{
       float:left ;
       height: auto;
@@ -80,6 +76,18 @@
     }
     .hash{
       color: white;
+    }
+    body{
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .navbar{
+        width: 100%;
+    }
+    .inputpes{
+        border-radius: 25px;
     }
     
 }
