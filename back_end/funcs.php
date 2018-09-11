@@ -53,20 +53,22 @@ function CadastrarFormulario($nometab, $dataum, $datadois, $usuario, $categoria)
 	}
 }
 
-//CadastrarFormulario();
+// MOSTRAR FOTO
+function MostraFoto($cd_usuario){
+    $a = "SELECT `IMG_USUARIO` FROM TB_USUARIO WHERE CD_USUARIO =".$cd_usuario;
+    $query = $GLOBALS['conn']->query($a);
+    $q = mysqli_fetch_array($query);
+    echo '<img src="'.$q[0].'" alt="" >';
+}
+// FIM MOSTRAR QUARTO
 
-
+// LISTAR CATEGORIA
 function ListarCategoria(){
 	$sql = 'SELECT * FROM TB_CATEGORIA';
 	$res = $GLOBALS['conn']->query($sql);
 	return $res;
 }
-
-// FIM CADASTRO FORMULARIO
-
-// Criar tabela
-
-// Perguntas
+// FIM LISTAR CATEGORIA
 
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
