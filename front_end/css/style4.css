@@ -256,11 +256,35 @@ a.article:hover {
 
 /* 4 */ 
 #box1 {
-    padding:10px;
-    font-size:13px;
+   
     border:1px solid rgba(51,51,51, 0.2);
     border-radius: 5px;
+    height:250px;
+    font-size:13px;
+    text-align:center;
+    margin: 10px;
+    padding-top:5%;
+    transition: opacity 1s linear;
 }
+
 #box1 h2 {
     font-size:20px;
 }
+#sidebar img {
+    border-radius: 50px
+}
+#sidebar h5 {
+    text-align:center;
+}
+.add {
+    border:1px solid rgba(51,51,51, 0.2);
+    border-radius:5px;
+    font-size:14px;
+    text-align:center;
+    color:#555;
+    height:250px;
+    margin:10px;
+
+    
+}
+

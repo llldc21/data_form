@@ -1,5 +1,12 @@
-
-(function ($) {
+/* JavaScript Time */
+// JS Bootstrap 
+// JS DataForm
+// TCC Project
+// MARK FrontEnd
+// WESLLEN FrontEnd
+// :D
+/*================================================================== */
+( function ($) {
     "use strict";
 
 
@@ -66,6 +73,26 @@
         $(thisAlert).removeClass('alert-validate');
     }
     
+    /*==================================================================
+    [ USER AREA ]*/
     
-
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+            
+    var total = 1;
+    $(document).on('click',"#add",function(){
+    	total++;	
+    	if(total<=6){
+    		var campo = '<div class="col-md-3 col-sm-8" id="box1"><span style="margin-bottom:10px;" class="fas fa-file-alt fa-4x"></span><h5 styl="padding-left:40px;">Heading</h5><button class="remove button">excluir</button></div>';
+    		$('#form').append(campo);
+    	}
+    });
+    
+    	$(document).on('click', ".remove", function(){
+    	    $(this).parent().remove();
+    });
+    
 })(jQuery);

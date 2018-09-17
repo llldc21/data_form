@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Pagina User</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -27,8 +27,8 @@
         <nav id="sidebar">
             <!-- INF DO USER -->
             <div class="sidebar-header">
-                <h3>MEU PAU </h3>
-                <strong>MP</strong>
+                <img src="img/user.jpg" class="img-fluid">
+               
             </div>
             <!-- INF DO USER -->
             
@@ -37,7 +37,7 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                        Home
+                        Ações
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -52,7 +52,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <!--<a href="#">
                         <i class="fas fa-briefcase"></i>
                         link
                     </a>
@@ -89,7 +89,7 @@
                         <i class="fas fa-paper-plane"></i>
                         link
                     </a>
-                </li>
+                </li>-->
             </ul>
             <!-- FECHA LINKS MENU LEFT -->
             
@@ -113,16 +113,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
+                                <a class="nav-link" href="#">Sair</a>
                             </li>
                         </ul>
                     </div>
@@ -135,18 +126,28 @@
             <!-- LINHA -->
             <div class="line"></div>
             <!-- LINHA -->
-            
+            <div id="content">
+            <div class="container">
             <div class="row">
-                <div class="col-md-3 col-10" style="margin-left:50px;" id="box1">
-            <h2>Collapsible Sidebaaasar Using Bootstrap 4</h2>
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div><!-- col3 -->
-        
-                <div class="col-md-3 col-10 offset-1" id="box1">
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            
+                <div class="col-md-12 col-12">
+                        <div class="row" id="form">
+                            
+                        <!-- ADD -->
+                        <button class="col-md-3 col-sm-8 add" id="add">
+                            
+                            <span class="fas fa-plus-circle fa-4x" style="margin-bottom:10px;" ></span>
+                          
+                           
+                            <h5>Create new form</h5>
+                           
+                        </button>
+                        <!-- ADD -->
+                        
+                        
+                        
+                        
+                </div><!-- row -->
+                </div><!-- col 12 -->
             </div><!-- row -->
             
             <!-- LINHA -->
@@ -154,7 +155,8 @@
             <!-- LINHA -->
             
         <!-- FECHA CONTEUDO -->    
-            
+        </div><!-- container -->
+</div><!-- content -->    
         </div>
     </div>
 
@@ -164,13 +166,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
+
+        //$(document).ready(function(){
+
+          //  $('#add').click(function(){
+            //    var texto = ;
+                
+              //  $('#form').append(texto);
+            //});
+
+        //});
+    
     </script>
 </body>
 
