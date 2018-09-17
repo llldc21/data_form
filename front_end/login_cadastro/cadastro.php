@@ -1,6 +1,6 @@
 <?php
 
-include('conexao.php');
+include('../../back_end/conexao.php');
 include ('../../back_end/funcs.php');
       
  if ($_POST) {
@@ -11,7 +11,7 @@ include ('../../back_end/funcs.php');
    $senha = $_POST['senha'];
    $data = @date('Y/m/d',strtotime($nascimento));
       
-CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec);
+CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $_POST['img_usuario']);
 }
 ?>
 <!DOCTYPE html>
@@ -96,7 +96,7 @@ CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec);
 					<span class="label-input100">Selecione uma imagem de perfil</span>
 					<br><br>
 					<div class="custom-file">
-					  	<input type="file" class="custom-file-input" id="customFile">
+					  	<input type="file" class="custom-file-input" name="img_usuario" id="customFile">
 					  	<label class="custom-file-label" for="customFile">Selecionar Arquivo</label>
 					</div>
 										

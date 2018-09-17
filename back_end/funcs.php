@@ -8,14 +8,17 @@ include('conexao.php');
 
 // CADASTRAR USUARIO
 function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
-    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$img_usuario.'")';
-    $res = $GLOBALS['conn']->query($sql);
-    if ($res) {
-      echo ' <script> alert("Cadastrado com Sucesso"); </script>';
-    }else{
-      echo ' <script> alert("Erro ao cadastrar"); </script>';
-    }
-    
+    if ($img_usuario) {
+        $caminho = 'fotos/'+$img_usuario;
+        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$caminho.'")';
+        $res = $GLOBALS['conn']->query($sql);
+        if ($res) {
+          echo ' <script> alert("Cadastrado com Sucesso"); </script>';
+        }else{
+          echo ' <script> alert("Erro ao cadastrar"); </script>';
+        }
+    };
+        
 };
 // FIM - CADASTRO USUÁRIO
 
@@ -36,8 +39,6 @@ function Login($email, $senha){
     }; 
 };
 // FIM - LOGIN
-
-CadastrarFormulario('NodeJS', null, null, 1, 3, 'Esse formulario é sobre NodeJS');
 
 // CADASTRO DO FORMULARIO 
 function CadastrarFormulario($nome, $data_abertura, $data_fechamento, $id_usuario, $id_categoria, $descricao){
