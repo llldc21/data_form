@@ -1,15 +1,15 @@
 
 <?php
-include('../../back_end/funcs.php');
 session_start();
+include('../../back_end/funcs.php');
+include("../../back_end/config_db.php");
+include("../../back_end/conexao.php");
 
-include("config_db.php");
-include("conexao.php");
  if(isset($_SESSION['UsuarioLog'])){
-//   header("location: usuario.php");
-//   die();
+  header("location: usuario.php");
+  die();
  }
-
+ 
 if ($_POST){	
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
@@ -74,7 +74,7 @@ if ($_POST){
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="submit" class="login100-form-btn">
+							<button href="usuario.php" type="submit" class="login100-form-btn">
 								Login
 							</button>
 						</div>

@@ -1,7 +1,7 @@
 <?php
 
 include('conexao.php');
-include ('../../back_end/funcs.php');
+include ''../back_end/funcs.php');
       
  if ($_POST) {
    $nome = $_POST['nome'];
