@@ -1,4 +1,12 @@
+<?php
+include '../back_end/funcs.php';
 
+if (isset($_POST['email'])) {
+	Login($_POST['email'], $_POST['senha']);
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
