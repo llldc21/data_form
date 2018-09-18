@@ -1,8 +1,8 @@
-<<<<<<< HEAD:front_end/login_cadastro/cadastro.php
 <?php
 
-include('conexao.php');
-include ''../back_end/funcs.php');
+include('../back_end/conexao.php');
+include('../back_end/config_db.php');
+include ('../back_end/funcs.php');
       
  if ($_POST) {
    $nome = $_POST['nome'];
@@ -12,11 +12,10 @@ include ''../back_end/funcs.php');
    $senha = $_POST['senha'];
    $data = @date('Y/m/d',strtotime($nascimento));
       
-CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec);
+CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario);
 }
 ?>
-=======
->>>>>>> dd434f507ddcf1aa1898f55c7699283a1056cabb:front_end/cadastro.php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -17,35 +17,23 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
         }else{
           echo ' <script> alert("Erro ao cadastrar"); </script>';
         }
-    };
+    }
         
-};
+}
 // FIM - CADASTRO USUÁRIO
 
-// if (isset($entrar)) {
-             
-//       $verifica = mysql_query("SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'") or die("erro ao selecionar");
-//         if (mysql_num_rows($verifica)<=0){
-//           echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
-//           die();
-//         }else{
-//           setcookie("login",$login);
-//           header("Location:index.php");
-//         }
-//     }
+
 
 // LOGIN
 function Login($email, $senha){
-    $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
+    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
     $res = $GLOBALS['conn']->query($sql);
-    if($res->mysql_num_rows>0){
+    if($res->num_rows>0){
     $usuario = $res->fetch_array();
         $_SESSION['UsuarioLog'] = true;
         $_SESSION['email'] = $usuario ['DS_EMAIL'];
         $_SESSION['cd'] = $usuario ['CD_USUARIO'];
         $_SESSION['senha'] = $usuario['DS_SENHA'];
-        header("location: usuario.php");
-        echo $_SESSION ['UsuarioLog'];
     }else{
         echo ' <script> alert("Erro"); </script>';
     }; 

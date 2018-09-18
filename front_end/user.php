@@ -1,3 +1,11 @@
+<?php
+session_start();
+include('../back_end/funcs.php');
+
+
+echo "Você está logado, Parabéns!!!";
+echo $_SESSION['cd'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -113,7 +121,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Sair</a>
+                                <a class="nav-link" href="../back_end/sair.php">Sair</a>
                             </li>
                         </ul>
                     </div>

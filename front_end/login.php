@@ -1,28 +1,22 @@
-
-<<<<<<< HEAD:front_end/login_cadastro/login.php
 <?php
 session_start();
-include('../../back_end/funcs.php');
-include("../../back_end/config_db.php");
-include("../../back_end/conexao.php");
+include('../back_end/funcs.php');
+
 
  if(isset($_SESSION['UsuarioLog'])){
-  header("location: usuario.php");
-  die();
+  header("location: uasurio.php");
  }
  
 if ($_POST){	
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 
-	Login($email, $senha);
+	 Login($email, $senha);
 
 }
 
 
 ?>
-=======
->>>>>>> dd434f507ddcf1aa1898f55c7699283a1056cabb:front_end/login.php
 <!DOCTYPE html>
 <html lang="en">
 <head>
