@@ -1,21 +1,11 @@
-<?php
+<?php 
+include '../back_end/funcs.php';
 
-include('../back_end/conexao.php');
-include('../back_end/config_db.php');
-include ('../back_end/funcs.php');
-      
- if ($_POST) {
-   $nome = $_POST['nome'];
-   $email = $_POST['email'];
-   $email_rec = $_POST['email_rec'];
-   $nascimento = $_POST['nascimento'];
-   $senha = $_POST['senha'];
-   $data = @date('Y/m/d',strtotime($nascimento));
-      
-CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario);
+if (isset($_POST['nome'])) {
+	$img_usuario = $_FILES['img_usuario']; //Pegando extensão do arquivo
+	CadastraUsuario($_POST['nome'], $_POST['email'], $_POST['nascimento'], $_POST['senha'], $_POST['email_rec'], $img_usuario);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +35,7 @@ CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario);
 				
 					<!--Inicio form-->
 					
-				<form class="login100-form validate-form" action="cadastro.php" method="post">
+				<form class="login100-form validate-form" action="cadastro.php" method="post" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-59">
 						<img src="img/img.png" style="height:60px;"> Data Form
 					</span>

@@ -8,16 +8,34 @@ include('conexao.php');
 
 // CADASTRAR USUARIO
 function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
+    $cadastrado = '';
     if ($img_usuario) {
-        $caminho = 'fotos/'+$img_usuario;
-        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$caminho.'")';
+        // Modificando a data
+        $n_nascimento = @date('Y/m/d', strtotime($nascimento));
+        // ------------------
+
+        // Encryptando senha
+        $encriptada = EncriptarSenha($senha);
+        // -----------------
+
+        // Salvando foto do usuario
+        if (isset($img_usuario)) {
+            $ext = explode('.', $img_usuario['name']);
+            $novo_nome = $email.'.'.$ext[1];
+            $caminho = '../back_end/fotos/'.$novo_nome;
+            move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
+        }
+        // ------------------------
+        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$n_nascimento.'", "'.$encriptada.'", "'.$email_rec.'","'.$caminho.'")';
         $res = $GLOBALS['conn']->query($sql);
         if ($res) {
-          echo ' <script> alert("Cadastrado com Sucesso"); </script>';
+            echo "<script> alert('Cadastro realizado!') </script>";
+            echo "<script> window.location='login.php' </script>";
         }else{
-          echo ' <script> alert("Erro ao cadastrar"); </script>';
-        }
-    }
+            echo "<script> alert('Erro ao cadastrar!') </script>";
+            echo "<script> window.location='cadastro.php' </script>";
+        };
+    };
         
 }
 // FIM - CADASTRO USUÁRIO
@@ -75,6 +93,11 @@ function ListarCategoria(){
 	$sql = 'SELECT * FROM TB_CATEGORIA';
 	$res = $GLOBALS['conn']->query($sql);
 	return $res;
+};
+
+function EncriptarSenha($senha){
+    $codificada = md5($senha);
+    return $codificada;
 };
 // ------------------------------------------------------------------------
 

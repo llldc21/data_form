@@ -4,15 +4,11 @@ include('../back_end/funcs.php');
 
 
  if(isset($_SESSION['UsuarioLog'])){
-  header("location: uasurio.php");
+  header("location: usuario.php");
  }
  
 if ($_POST){	
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-
-	 Login($email, $senha);
-
+	Login($_POST['email'], $_POST['senha']);
 }
 
 
