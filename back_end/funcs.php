@@ -6,18 +6,19 @@ include('conexao.php');
 // Todas as funções não possuem header, ou seja é necessario redirecionar o usuario após a operação
 // no banco de dados.
 
-
-
 // CADASTRAR USUARIO
 function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
-    $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$img_usuario.'")';
-    $res = $GLOBALS['conn']->query($sql);
-    if ($res) {
-      echo ' <script> alert("Cadastrado com Sucesso"); </script>';
-    }else{
-      echo ' <script> alert("Erro ao cadastrar"); </script>';
-    }
-    
+    if ($img_usuario) {
+        $caminho = 'fotos/'+$img_usuario;
+        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$caminho.'")';
+        $res = $GLOBALS['conn']->query($sql);
+        if ($res) {
+          echo ' <script> alert("Cadastrado com Sucesso"); </script>';
+        }else{
+          echo ' <script> alert("Erro ao cadastrar"); </script>';
+        }
+    };
+        
 };
 // FIM - CADASTRO USUÁRIO
 
@@ -52,11 +53,8 @@ function Login($email, $senha){
 // FIM - LOGIN
 
 // CADASTRO DO FORMULARIO 
-
-function CadastrarFormulario($nometab, $dataum, $datadois, $usuario, $categoria){
-    $dataum = ($dataum != "" ) ? $dataum : 'null' ;
-    $datadois = ($datadois != "") ? $datadois : 'null';
-    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "'.$nometab.'", "'.$dataum.'", "'.$datadois.'", '.$usuario.', '.$categoria.' )';
+function CadastrarFormulario($nome, $data_abertura, $data_fechamento, $id_usuario, $id_categoria, $descricao){
+    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "'.$nome.'", "'.$data_abertura.'", "'.$data_fechamento.'", '.$id_usuario.', '.$id_categoria.', "'.$descricao.'")';
 	$res = $GLOBALS['conn']->query($sql);
 	if($res){
 	echo "Cadastrado com sucesso";
@@ -64,23 +62,7 @@ function CadastrarFormulario($nometab, $dataum, $datadois, $usuario, $categoria)
 	echo "Erro ao cadastrar" .$sql ;
 	}
 }
-
-// MOSTRAR FOTO
-function MostraFoto($cd_usuario){
-    $a = "SELECT `IMG_USUARIO` FROM TB_USUARIO WHERE CD_USUARIO =".$cd_usuario;
-    $query = $GLOBALS['conn']->query($a);
-    $q = mysqli_fetch_array($query);
-    echo '<img src="'.$q[0].'" alt="" >';
-}
-// FIM MOSTRAR QUARTO
-
-// LISTAR CATEGORIA
-function ListarCategoria(){
-	$sql = 'SELECT * FROM TB_CATEGORIA';
-	$res = $GLOBALS['conn']->query($sql);
-	return $res;
-}
-// FIM LISTAR CATEGORIA
+// FIM DO CADASTRA FORMULARIO
 
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
@@ -92,7 +74,20 @@ function AddCategoria($categoria){
     }else{
         echo 'Erro!';
     }
-}
+};
+
+function MostraFoto($cd_usuario){
+    $a = "SELECT `IMG_USUARIO` FROM TB_USUARIO WHERE CD_USUARIO =".$cd_usuario;
+    $query = $GLOBALS['conn']->query($a);
+    $q = mysqli_fetch_array($query);
+    echo '<img src="'.$q[0].'" alt="" >';
+};
+
+function ListarCategoria(){
+	$sql = 'SELECT * FROM TB_CATEGORIA';
+	$res = $GLOBALS['conn']->query($sql);
+	return $res;
+};
 // ------------------------------------------------------------------------
 
 ?>
