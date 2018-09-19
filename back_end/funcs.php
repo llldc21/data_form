@@ -8,34 +8,58 @@ include('conexao.php');
 
 // CADASTRAR USUARIO
 function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
+    $cadastrado = '';
     if ($img_usuario) {
-        $caminho = 'fotos/'+$img_usuario;
-        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$nascimento.'", "'.$senha.'", "'.$email_rec.'","'.$caminho.'")';
+        // Modificando a data
+        $n_nascimento = @date('Y/m/d', strtotime($nascimento));
+        // ------------------
+
+        // Encryptando senha
+        $encriptada = EncriptarSenha($senha);
+        // -----------------
+
+        // Salvando foto do usuario
+        if (isset($img_usuario)) {
+            $ext = explode('.', $img_usuario['name']);
+            $novo_nome = $email.'.'.$ext[1];
+            $caminho = '../back_end/fotos/'.$novo_nome;
+            move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
+        }
+        // ------------------------
+        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$n_nascimento.'", "'.$encriptada.'", "'.$email_rec.'","'.$caminho.'")';
         $res = $GLOBALS['conn']->query($sql);
         if ($res) {
-          echo ' <script> alert("Cadastrado com Sucesso"); </script>';
+            echo "<script> alert('Cadastro realizado!') </script>";
+            echo "<script> window.location='login.php' </script>";
         }else{
-          echo ' <script> alert("Erro ao cadastrar"); </script>';
-        }
+            echo "<script> alert('Erro ao cadastrar!') </script>";
+            echo "<script> window.location='cadastro.php' </script>";
+        };
     };
         
-};
+}
 // FIM - CADASTRO USUÁRIO
 
+// LISTAR DADOS DO USUARIO
+function ListarDadosUsuario($cd){
+    $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
+// FIM - LISTAR
 // LOGIN
 function Login($email, $senha){
-    $sql = 'SELECT `DS_EMAIL` , `DS_SENHA` FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
+    $encriptada = EncriptarSenha($senha);
+    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
     $res = $GLOBALS['conn']->query($sql);
     if($res->num_rows>0){
     $usuario = $res->fetch_array();
-        $_SESSION['UsuarioLog'] = true;
-        $_SESSION['Email'] = $usuario ['DS_EMAIL'];
-        $_SESSION['UsuarioLog'] = $usuario ['CD_USUARIO'];
-        $_SESSION['Senha'] = $usuario['DS_SENHA'];
-        header("location: usuario.php");
-        echo $_SESSION ['UsuarioLog'];
+    $_SESSION['UsuarioLog'] = true;
+    $_SESSION['email'] = $usuario ['DS_EMAIL'];
+    $_SESSION['cd'] = $usuario ['CD_USUARIO'];
+    $_SESSION['senha'] = $usuario['DS_SENHA'];
     }else{
-        echo ' <script> alert("Email ou senha incorretos"); </script>';
+        echo ' <script> alert("Erro"); </script>';
     }; 
 };
 // FIM - LOGIN
@@ -75,6 +99,11 @@ function ListarCategoria(){
 	$sql = 'SELECT * FROM TB_CATEGORIA';
 	$res = $GLOBALS['conn']->query($sql);
 	return $res;
+};
+
+function EncriptarSenha($senha){
+    $codificada = md5($senha);
+    return $codificada;
 };
 // ------------------------------------------------------------------------
 

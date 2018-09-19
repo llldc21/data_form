@@ -1,4 +1,18 @@
+<?php
+session_start();
+include('../back_end/funcs.php');
 
+
+ if(isset($_SESSION['UsuarioLog'])){
+  header("location: user.php");
+ }
+ 
+if ($_POST){	
+	Login($_POST['email'], $_POST['senha']);
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +67,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="submit" class="login100-form-btn">
+							<button href="usuario.php" type="submit" class="login100-form-btn">
 								Login
 							</button>
 						</div>

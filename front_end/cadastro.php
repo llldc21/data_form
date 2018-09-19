@@ -1,3 +1,11 @@
+<?php 
+include '../back_end/funcs.php';
+
+if (isset($_POST['nome'])) {
+	$img_usuario = $_FILES['img_usuario']; //Pegando extensão do arquivo
+	CadastraUsuario($_POST['nome'], $_POST['email'], $_POST['nascimento'], $_POST['senha'], $_POST['email_rec'], $img_usuario);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +35,7 @@
 				
 					<!--Inicio form-->
 					
-				<form class="login100-form validate-form" action="cadastro.php" method="post">
+				<form class="login100-form validate-form" action="cadastro.php" method="post" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-59">
 						<img src="img/img.png" style="height:60px;"> Data Form
 					</span>
