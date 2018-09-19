@@ -13,7 +13,12 @@ include('../back_end/funcs.php');
         $dados = ListarDadosUsuario($_SESSION['cd']);
         while ($dado = $dados->fetch_array()){
     ?>
-    <title><?php echo $dado['NM_USUARIO'];?></title>
+    <?php
+    $edit = $dado['NM_USUARIO'];
+    $n = explode(' ', $edit);
+    $nome = $n[0].' '.$n[1];
+    ?>
+    <title><?php echo $nome.' | Data Form';?></title>
     <?php
         };
     ?>

@@ -58,6 +58,7 @@ function Login($email, $senha){
     $_SESSION['email'] = $usuario ['DS_EMAIL'];
     $_SESSION['cd'] = $usuario ['CD_USUARIO'];
     $_SESSION['senha'] = $usuario['DS_SENHA'];
+    header("location: user.php");
     }else{
         echo ' <script> alert("Erro"); </script>';
     }; 
@@ -87,6 +88,18 @@ function AddCategoria($categoria){
         echo 'Erro!';
     }
 };
+
+function CriaTipoPergunta($valor){
+    switch (($valor)) {
+        case '1':
+            # code...
+            break;
+        
+        default:
+            # code...
+            break;
+    }
+}
 
 function MostraFoto($cd_usuario){
     $a = "SELECT `IMG_USUARIO` FROM TB_USUARIO WHERE CD_USUARIO =".$cd_usuario;

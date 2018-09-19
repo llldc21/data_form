@@ -67,7 +67,7 @@ if ($_POST){
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button href="usuario.php" type="submit" class="login100-form-btn">
+							<button href="user.php" type="submit" class="login100-form-btn">
 								Login
 							</button>
 						</div>
