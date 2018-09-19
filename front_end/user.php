@@ -1,10 +1,6 @@
 <?php
 session_start();
 include('../back_end/funcs.php');
-
-
-echo "Você está logado, Parabéns!!!";
-echo $_SESSION['cd'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,9 +9,14 @@ echo $_SESSION['cd'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Pagina User</title>
-
+    <?php
+        $dados = ListarDadosUsuario($_SESSION['cd']);
+        while ($dado = $dados->fetch_array()){
+    ?>
+    <title><?php echo $dado['NM_USUARIO'];?></title>
+    <?php
+        };
+    ?>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -35,8 +36,21 @@ echo $_SESSION['cd'];
         <nav id="sidebar">
             <!-- INF DO USER -->
             <div class="sidebar-header">
-                <img src="img/user.jpg" class="img-fluid">
-               
+            <?php
+                $dados = ListarDadosUsuario($_SESSION['cd']);
+                while ($dado = $dados->fetch_array()){
+            ?>
+            <img src="<?php echo $dado['IMG_USUARIO'];?>" class="img-fluid">
+            <br>
+            <?php
+                $edit = $dado['NM_USUARIO'];
+                $n = explode(' ', $edit);
+                $nome = $n[0].' '.$n[1];
+            ?>
+            <p><?php echo $nome;?></p>
+            <?php
+                };
+            ?>
             </div>
             <!-- INF DO USER -->
             

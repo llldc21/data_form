@@ -40,18 +40,24 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
 }
 // FIM - CADASTRO USUÁRIO
 
-
-
+// LISTAR DADOS DO USUARIO
+function ListarDadosUsuario($cd){
+    $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
+// FIM - LISTAR
 // LOGIN
 function Login($email, $senha){
-    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$senha.'"';
+    $encriptada = EncriptarSenha($senha);
+    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
     $res = $GLOBALS['conn']->query($sql);
     if($res->num_rows>0){
     $usuario = $res->fetch_array();
-        $_SESSION['UsuarioLog'] = true;
-        $_SESSION['email'] = $usuario ['DS_EMAIL'];
-        $_SESSION['cd'] = $usuario ['CD_USUARIO'];
-        $_SESSION['senha'] = $usuario['DS_SENHA'];
+    $_SESSION['UsuarioLog'] = true;
+    $_SESSION['email'] = $usuario ['DS_EMAIL'];
+    $_SESSION['cd'] = $usuario ['CD_USUARIO'];
+    $_SESSION['senha'] = $usuario['DS_SENHA'];
     }else{
         echo ' <script> alert("Erro"); </script>';
     }; 

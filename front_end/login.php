@@ -4,7 +4,7 @@ include('../back_end/funcs.php');
 
 
  if(isset($_SESSION['UsuarioLog'])){
-  header("location: usuario.php");
+  header("location: user.php");
  }
  
 if ($_POST){	
