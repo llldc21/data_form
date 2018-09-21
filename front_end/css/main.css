@@ -6,25 +6,8 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/Arciform.otf'); 
+  font-family: "Catamaran";
 }
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/Arciform.otf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/Arciform.otf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/Arciform.otf'); 
-}
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -38,12 +21,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: "Catamaran", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: "Catamaran";
 	font-size: 14px;
 	line-height: 1.7;
 	margin: 0px;
@@ -68,7 +51,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: "Catamaran";
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -134,14 +117,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: "Catamaran";
   font-size: 14px;
   line-height: 1.5;
   color: #333333;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: "Catamaran";
   font-size: 14px;
   line-height: 1.5;
   color: #333333;
@@ -214,7 +197,7 @@ iframe {
 }
 
 .label-input100 {
-  font-family: Poppins-Regular;
+  font-family: "Catamaran";
   font-size: 14px;
   color: #333333;
   line-height: 1.5;
@@ -400,7 +383,7 @@ iframe {
   right: 2px;
   pointer-events: none;
 
-  font-family: Poppins-Regular;
+  font-family: "Catamaran";
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
