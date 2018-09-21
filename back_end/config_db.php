@@ -1,8 +1,8 @@
 <?php
 
-$host = 'llldc21.profrodolfo.com';
-$user = 'llldc21';
-$password = '91555830Luc@s';
-$db = 'llldc21_data_form';
+$host = 'localhost';
+$user = 'lucas';
+$password = '91555830l';
+$db = 'data_form';
 
 ?>
