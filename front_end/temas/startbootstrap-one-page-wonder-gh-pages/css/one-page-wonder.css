@@ -7,6 +7,12 @@
 body .teste {
   font-family: 'Lato';
 }
+  .asd{
+    margin-left: 24px;
+  }
+  .dsa{
+    margin-right: 30px;
+  }
 
 h1,
 h2,
@@ -74,20 +80,18 @@ header.masthead .masthead-content {
 
 header.masthead .masthead-content .masthead-heading {
   font-size: 4rem;
-  color: #000;
-  text-shadow: 3px 3px rgba(255,255,255, 0.2);
+  color: white;
 }
 
 header.masthead .masthead-content .masthead-subheading {
   font-size: 2rem;
-  color: #000;
+  color: white;
 }
 
 header.masthead .bg-circle {
   z-index: 0;
   position: absolute;
   border-radius: 100%;
-  background-image: url('../../../img/index.jpg');
 }
 
 header.masthead .bg-circle-1 {
@@ -118,7 +122,7 @@ header.masthead .bg-circle-4 {
   right: 35%;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 400px) {
   header.masthead {
     padding-top: calc(10rem + 55px);
     padding-bottom: 10rem;
@@ -129,4 +133,8 @@ header.masthead .bg-circle-4 {
   header.masthead .masthead-content .masthead-subheading {
     font-size: 4rem;
   }
+  .bot_pes{
+    width:100%;
+  }
 }
+
