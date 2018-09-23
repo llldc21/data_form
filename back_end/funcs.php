@@ -24,7 +24,8 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
             $novo_nome = $email.'.'.$ext[1];
             $caminho = '../back_end/fotos/'.$novo_nome;
             move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
-        }
+        };
+        
         // ------------------------
         $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$n_nascimento.'", "'.$encriptada.'", "'.$email_rec.'","'.$caminho.'")';
         $res = $GLOBALS['conn']->query($sql);

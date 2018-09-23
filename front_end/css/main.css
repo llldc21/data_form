@@ -5,10 +5,30 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
-  font-family: "Catamaran";
+
+#nome-user{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: white;
+  border-radius: 4px;
+  padding: 3px
 }
 
+.foto{
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+  }
+
+  #img-user{
+    max-width:100%;
+	  height:auto;
+  }
+
+#user{
+  background-color: #2196f3;
+  padding-bottom: 6%; 
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -20,8 +40,7 @@
 }
 
 body, html {
-	height: 100%;
-	font-family: "Catamaran", sans-serif;
+  font-family: "Catamaran", sans-serif;
 }
 
 /*---------------------------------------------*/
