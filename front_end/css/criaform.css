@@ -13,6 +13,11 @@
 .men{
     display: none;
 }
+
+/*.pergun{*/
+    
+/*}*/
+
 .title{
     padding: 0px;
 }
@@ -35,7 +40,6 @@ h3{
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 20px;
-    font-weight: bold;
     text-align: center;
 }
 .input_desc{
@@ -62,10 +66,12 @@ h3{
     width: 20%;
     height: 100%;
     position: fixed;
+    overflow: auto;
+    
 }
 body{
     margin:0%;
-    background-color: #ADD8E6;
+    background-color: #a7e1fb;
     height: 100%
 }
 .footer{
@@ -77,26 +83,64 @@ body{
 }
 
 .fots{
-      position: absolute;
-      bottom: 0;
-      width: 100%;
+        width:100%;
+        height: auto;
+        margin: 0%;
 }
 .perfil{
-        margin-top: 50px;
+        margin-top: 35px;
         width: 80%;
         margin-right: 10%;
         margin-left: 10%;
         background-color: #aaa;
         border-radius: 50%;
-        width: auto;
-        height: 220px;
+        width: 80%;
+        height: auto;
         overflow: hidden;
         position: relative;
 }
+.bot{
+        width: 80%;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        margin-left: 10%;
+        margin-right: 10%;
+}
+.nome{  
+        text-align: center;
+        margin-top: 30px;
+        font-size: 20px;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 50px;
+}
+.conteu{
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: auto;
+        width: 80%;
+        font-size: 17px;
+        margin-bottom: 30px;
+}
+::-webkit-scrollbar-track {
+    background-color: gray;
+}
+::-webkit-scrollbar {
+    text-align: left;
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #007bff;
+}
+
+
 
 @media only screen and (max-width: 720px) {
     body{
-        background-color: #03a9f4;
+        background-color: #a7e1fb;
     }
     .nav {
         background-color: #03a9f4;
@@ -143,9 +187,14 @@ body{
         background-color: #aaa;
         border-radius: 50%;
         width: auto;
-        height: 200px;
+        height: 100%;
         overflow: hidden;
         position: relative;
+    }
+    .perfil{
+        width:100%;
+        height: auto;
+        margin: 0%;
     }
     .bot{
         font-size: 15px;
