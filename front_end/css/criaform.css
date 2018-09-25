@@ -1,4 +1,4 @@
-.geraform{
+/*.geraform{
         width: 60%;
         margin-left: 10%;
         margin-right: 10%;
@@ -9,7 +9,7 @@
         margin-bottom: 90px;
         padding: 0%;
         border-radius: 5px;
-}
+}*/
 .men{
     display: none;
 }
@@ -28,10 +28,11 @@
     margin-right: 10%;
     margin-bottom: 40px;
 }
-h3{
+
+/*h3{
     margin-top: 20px;
     margin-left: 10%;
-}
+}*/
 .input_title{
     font-size: 18px;
     width: 80%;
@@ -69,11 +70,11 @@ h3{
     overflow: auto;
     
 }
-body{
+/*body{
     margin:0%;
     background-color: #a7e1fb;
     height: 100%
-}
+}*/
 .footer{
     width: 40%;
     margin-left: 40%;

@@ -11,9 +11,13 @@ include('../back_end/funcs.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Página Inicial | Data Form</title>
-
+    <?php
+    $dados = ListarDadosUsuario($_SESSION['cd']);
+                while ($dado = $dados->fetch_array()){
+                    $nome = explode(' ', $dado['NM_USUARIO'])
+                ?>
+    <title>Data Form | <?php echo $nome[0].' '.$nome[1]?></title>
+    <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -104,7 +108,7 @@ include('../back_end/funcs.php');
                 <div class="row">
                     <div class="col-4">
                         <div class="text-center">
-                            <a href="#" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
+                            <a href="forms.php" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -116,7 +120,7 @@ include('../back_end/funcs.php');
                         <div class="text-center">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Atual</option>
+                                    <option>Data de criação</option>
                                     <option>Ordem alfabética</option>
                                 </select>
                             </div>
@@ -135,6 +139,7 @@ include('../back_end/funcs.php');
                                 <hr>
                                 <div class="text-center">
                                     <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
+                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
                                 </div>
                             </div>
                         </div>
@@ -147,6 +152,7 @@ include('../back_end/funcs.php');
                                 <hr>
                                 <div class="text-center">
                                     <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
+                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
                                 </div>
                             </div>
                         </div>
@@ -159,6 +165,7 @@ include('../back_end/funcs.php');
                                 <hr>
                                 <div class="text-center">
                                     <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
+                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
                                 </div>
                             </div>
                         </div>
