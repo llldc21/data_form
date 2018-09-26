@@ -26,7 +26,7 @@ if (isset($_POST['nome'])) {
 	<link rel="stylesheet" type="text/css" href="css/cads.css">
 </head>
 <body style="background-color: #999999;"> 
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="login100-more" style="background-image: url('img/128.jpg');"></div>
@@ -94,7 +94,7 @@ if (isset($_POST['nome'])) {
 										
 							<!--Fim foto-->
 							<br>
-							<div style="height:6%; width:100%;"></div>
+							<div style="height:2%; width:100%;"></div>
 							<br>
 							<!--Botão cadastro-->
 							
