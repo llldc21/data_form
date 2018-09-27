@@ -1,6 +1,10 @@
 <?php
 session_start();
 include('../back_end/funcs.php');
+
+if (isset($_GET['criar'])) {
+    CadastrarFormulario();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,7 +141,11 @@ include('../back_end/funcs.php');
                         <div class="col-4">
                             <h3 class="h3 text-center">Categoria</h3>
                             <select name="categoria" class="form-control" id="categoria">
-                                <option value="1" class="form-control">1</option>
+                            <?php
+                                $dados = ListarCategoria($_SESSION['cd']);
+                                while ($dado = $dados->fetch_array()){
+                            ?>
+                                <option value="<?php echo $dado['CD_CATEGORIA'];?>" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
                         </div>
                         <div class="col-4">
@@ -150,7 +158,7 @@ include('../back_end/funcs.php');
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <button class="btn btn-primary btn-block">Criar formulario</button>
+                            <button class="btn btn-primary btn-block perguntas">Criar Formulário</button>
                         </div>
                         <div class="col-4"></div>
                     </div>
@@ -158,17 +166,29 @@ include('../back_end/funcs.php');
             </div>
         </div>
     </div>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+          <h5>Cadastro de perguntas</h5>
+          <hr>
+            ...
+          </div>
+        </div>
+    </div>
 
-    <!--<div class="footer">
+    <div class="footer">
         <i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i>
-        <i class="fas fa-eye icone fa-3x"></i>
         <i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>
-    </div>-->
+    </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).on('click', '.perguntas', function(params) {
 
+        })
+    </script>
 </body>
 
 </html>

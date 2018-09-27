@@ -67,12 +67,15 @@ function Login($email, $senha){
 // FIM - LOGIN
 
 // CADASTRO DO FORMULARIO 
-function CadastrarFormulario($nome, $data_abertura, $data_fechamento, $id_usuario, $id_categoria, $descricao){
-    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "'.$nome.'", "'.$data_abertura.'", "'.$data_fechamento.'", '.$id_usuario.', '.$id_categoria.', "'.$descricao.'")';
+function CadastrarFormulario(){
+    $n_abertura = @date('Y/m/d', strtotime($data_abertura));
+    $n_fechamento = @date('Y/m/d', strtotime($data_fechamento));
+    
+    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "Meu form", null, null, '.$_SESSION['cd'].', 1, "Descreva...")';
 	$res = $GLOBALS['conn']->query($sql);
 	if($res){
-	echo "Cadastrado com sucesso";
-	}else{
+        $_SESSION['form'] = $GLOBALS['conn']->insert_id;
+    }else{
 	echo "Erro ao cadastrar" .$sql ;
 	}
 }
@@ -84,7 +87,7 @@ function AddCategoria($categoria){
     $sql = 'INSERT INTO `TB_CATEGORIA`(`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES (null, "'.$categoria.'")';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
-        echo 'Ok!';
+        echo 'OK';
     }else{
         echo 'Erro!';
     }

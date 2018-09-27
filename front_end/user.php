@@ -108,7 +108,7 @@ include('../back_end/funcs.php');
                 <div class="row">
                     <div class="col-4">
                         <div class="text-center">
-                            <a href="forms.php" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
+                            <a href="forms.php?criar" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
                     <div class="col-4">
