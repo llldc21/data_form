@@ -5,6 +5,10 @@ include('../back_end/funcs.php');
 if (isset($_GET['criar'])) {
     CadastrarFormulario();
 }
+
+if (isset($_POST['nome_form'])) {   
+    AtualizaForm($_POST['nome_form'], $_POST['data_abertura'], $_POST['data_fechamento'], $_POST['categoria'], $_POST['desc_form'], $_SESSION['cd'], $_SESSION['form']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +41,15 @@ if (isset($_GET['criar'])) {
     <link rel="stylesheet" href="css/criaform.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
+    <script>
+        $(document).on('click', '.perguntas', function(){
+            var botoes = '<i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i><i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>';
+            $('#footer').append(botoes);
+        });
+        $(document).on('click', '.perguntas', function(){
+            $('#footer').parent().hide();
+        })
+    </script>
 
 </head>
 
@@ -71,7 +84,7 @@ if (isset($_GET['criar'])) {
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <a class="navbar-brand" href="../index.php?logado" ><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -158,7 +171,7 @@ if (isset($_GET['criar'])) {
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <button class="btn btn-primary btn-block perguntas">Criar Formulário</button>
+                            <button class="btn btn-primary btn-block perguntas" id="perguntas" type="submit">Criar Formulário</button>
                         </div>
                         <div class="col-4"></div>
                     </div>
@@ -177,18 +190,12 @@ if (isset($_GET['criar'])) {
     </div>
 
     <div class="footer">
-        <i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i>
-        <i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>
+        
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).on('click', '.perguntas', function(params) {
-
-        })
-    </script>
 </body>
 
 </html>
