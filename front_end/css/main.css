@@ -33,19 +33,14 @@
 }
 
 .foto{
-  width: 100%;
-  height: 100%;
-  margin-top: 5%;
-  }
-
-  #img-user{
-    max-width:100%;
-	  height:auto;
-  }
-
+  padding-top:10px;
+}
+.foto img{
+  height:200px;
+}
 #user{
   background-color: #2196f3;
-  padding-bottom: 6%; 
+  height: 100%; 
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -265,6 +260,11 @@ iframe {
   pointer-events: none;
 }
 
+.contcard{
+  height: 100px;
+  overflow: scroll;
+}
+
 .focus-input100::after {
   content: attr(data-symbol);
   font-family: Material-Design-Iconic-Font;
@@ -454,10 +454,13 @@ iframe {
   opacity: 1;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 720px) {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
+  }
+  h2{
+    width: 50%;
   }
 }
 
@@ -490,9 +493,12 @@ iframe {
 [ Responsive ]*/
 
 
-@media (max-width: 576px) {
+@media (max-width: 400px) {
   .wrap-login100 {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  h2{
+    width: 50%;
   }
 }

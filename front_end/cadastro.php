@@ -48,14 +48,6 @@ if (isset($_POST['nome'])) {
 					</div>
 							<!--fim nome-->
 							
-							<!--Email-->
-					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
-						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Endereço de email...">
-						<span class="focus-input100"></span>
-					</div>
-							<!--Fim email-->
-							
 							<!--comeco data-->
 							
 					<div class="wrap-input100 validate-input" data-validate="Data requerida">
@@ -64,6 +56,14 @@ if (isset($_POST['nome'])) {
 						<span class="focus-input100"></span>
 					</div>
 							<!--fim data-->
+							
+							<!--Email-->
+					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Endereço de email...">
+						<span class="focus-input100"></span>
+					</div>
+							<!--Fim email-->
 							
 							<!--Senha-->
 							
@@ -74,7 +74,7 @@ if (isset($_POST['nome'])) {
 					</div>
 							
 							<!--FIm senha-->
-									
+							
 							<!--Email recuperação-->
 					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
 						<span class="label-input100">Email Recuperação</span>

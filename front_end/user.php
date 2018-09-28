@@ -28,6 +28,7 @@ include('../back_end/funcs.php');
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../front_end/css/main.css">
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 </head>
 
@@ -65,8 +66,8 @@ include('../back_end/funcs.php');
             <a class="navbar-brand" href="../index.html"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="input-group" style="margin-left: 30px; margin-right: 30px;">
                 <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
                     aria-describedby="basic-addon1">
@@ -92,15 +93,17 @@ include('../back_end/funcs.php');
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-0" id="img-user">
-                    <h3 class="h3 text-center" id="nome-user">
-                        <?php echo $nome[0].' '.$nome[1]?>
-                    </h3>
-                    <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModal">Editar
-                        Dados</button>
-                    <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
-                    <br>
+                    <img src="img/eu.jpg" class="img-fluid rounded-circle" id="img-user">
                 </div>
+                
+                <div style="margin-top: 20px;"> 
+                <h3 class="h3 text-center" id="nome-user">
+                        <?php echo $nome[0].' '.$nome[1]?>
+                </h3>
+                <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
+                </div>
+                
                 <?php };?>
             </div>
             <div class="col-10">
@@ -131,45 +134,39 @@ include('../back_end/funcs.php');
                 <br>
                 <!-- CARDS -->
                 <div class="row">
+
                     <div class="col-4">
                         <div class="card">
                             <h5 class="card-header">Nome do Formulário</h5>
                             <div class="card-body">
-                                <p class="card-text">Descrição do formulário.</p>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
-                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
+                                <div class="contcard">
+                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
+                                            <hr>
+                                    <div class="text-center">
+                                        <i class="fas fa-trash-alt fa-sm"> Excluir</i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- COL 4 -->
+                    
                     <div class="col-4">
                         <div class="card">
                             <h5 class="card-header">Nome do Formulário</h5>
                             <div class="card-body">
-                                <p class="card-text">Descrição do formulário.</p>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
-                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
+                                <div class="contcard">
+                                    <p class="card-text">	sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                                    </p>
+                                            <hr>
+                                    <div class="text-center">
+                                        <i class="fas fa-trash-alt fa-sm"> Excluir</i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- COL 4 -->
-                    <div class="col-4">
-                        <div class="card">
-                            <h5 class="card-header">Nome do Formulário</h5>
-                            <div class="card-body">
-                                <p class="card-text">Descrição do formulário.</p>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary align-items-center btn-block">Detalhes</a>
-                                    <a href="#" class="btn btn-danger align-items-center btn-block">Apagar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- COL 4 -->
+
                 </div> <!-- ROW -->
             </div>
         </div>
