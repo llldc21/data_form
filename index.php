@@ -62,8 +62,8 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h1 class="masthead-heading mb-0">One Page Wonder</h1>
-        <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
+        <h2 class="masthead-heading mb-0">One Page Wonder</h2>
+        <h3 class="masthead-subheading mb-0">Will Rock Your Socks Off</h3>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
             <button href="#cont" type="submit" class="login100-form-btn">

@@ -35,9 +35,6 @@
 .foto{
   padding-top:10px;
 }
-.foto img{
-  height:200px;
-}
 #user{
   background-color: #2196f3;
   height: 100%; 
@@ -51,6 +48,23 @@
 	padding: 0px; 
 	box-sizing: border-box;
 }
+.card{
+  margin-bottom: 30px;
+}
+.painel{
+  margin-bottom: 10px;
+}
+.frescuras{
+  background-color: #03a9f4;
+}
+.frescuras-btn{
+  background-color: white;
+  margin: 3px solid #03a9f4;
+}
+.modper{
+  background-color: #a7e1fb;
+}
+
 
 body, html {
   font-family: "Catamaran", sans-serif;
@@ -261,8 +275,8 @@ iframe {
 }
 
 .contcard{
-  height: 100px;
-  overflow: scroll;
+  height: 120px;
+  overflow: auto;
 }
 
 .focus-input100::after {
@@ -454,13 +468,25 @@ iframe {
   opacity: 1;
 }
 
-@media (max-width: 720px) {
+.respo{
+    display:none;
+  }
+
+@media (max-width: 800px) {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
   }
   h2{
     width: 50%;
+  }
+  #user{
+    background-color: #a7e1fb;
+    height: 100%;
+    display: none;
+  }
+  .respo{
+    display:block;
   }
 }
 
@@ -501,4 +527,15 @@ iframe {
   h2{
     width: 50%;
   }
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #dad7d7;
 }

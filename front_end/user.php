@@ -61,6 +61,48 @@ include('../back_end/funcs.php');
         </div>
     </div>
     </div>
+    
+            <!-- Modal Perfil -->
+        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header frescuras">
+                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modper">
+                    
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode(' ', $dado['NM_USUARIO'])
+                        ?>
+                        <div class="foto">
+                            <center>
+                            <img src="img/eu.jpg" class="img-fluid rounded-circle">
+                            </center>
+                        </div>
+                        
+                        <div style="margin-top: 20px;"> 
+                            <h5 class="text-center" id="nome-user">
+                                <?php echo $nome[0].' '.$nome[1]?>
+                            </h5>
+                            
+                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
+                        </div>
+                        
+                    <?php };?>
+                    
+              </div>
+              <div class="modal-footer frescuras">
+                
+              </div>
+            </div>
+          </div>
+        </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
@@ -69,7 +111,7 @@ include('../back_end/funcs.php');
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
 
-            <div class="input-group" style="margin-left: 30px; margin-right: 30px;">
+            <div class="input-group" >
                 <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
                     aria-describedby="basic-addon1">
                 <div class="input-group-append">
@@ -81,13 +123,18 @@ include('../back_end/funcs.php');
                     <li class="nav-item">
                         <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2" id="user">
+            <div class="col-md-2" id="user">
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -101,26 +148,26 @@ include('../back_end/funcs.php');
                 <h3 class="h3 text-center" id="nome-user">
                         <?php echo $nome[0].' '.$nome[1]?>
                 </h3>
-                <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                 <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
                 </div>
                 
                 <?php };?>
             </div>
-            <div class="col-10">
+            <div class="col-10 col-md-10 offset-md-0 offset-1">
                 <br>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
-                            <a href="forms.php?criar" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
+                            <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
-                            <h2>Painel de Controle</h2>
+                            <h4>Painel de Controle</h4>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -136,33 +183,25 @@ include('../back_end/funcs.php');
                 <!-- CARDS -->
                 <div class="row">
 
-                    <div class="col-4">
+                    <div class="col-md-4 offset-md-0 col-12 ">
                         <div class="card">
                             <h5 class="card-header">Nome do Formulário</h5>
                             <div class="card-body">
                                 <div class="contcard">
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
                                     </p>
-                                            <hr>
-                                    <div class="text-center">
-                                        <i class="fas fa-trash-alt fa-sm"> Excluir</i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div> <!-- COL 4 -->
                     
-                    <div class="col-4">
+                    <div class="col-md-4 offset-md-0 col-12 ">
                         <div class="card">
                             <h5 class="card-header">Nome do Formulário</h5>
                             <div class="card-body">
                                 <div class="contcard">
                                     <p class="card-text">	sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                                     </p>
-                                            <hr>
-                                    <div class="text-center">
-                                        <i class="fas fa-trash-alt fa-sm"> Excluir</i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
