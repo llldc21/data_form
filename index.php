@@ -28,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <a class="navbar-brand dsa" href="index.html"><img src="front_end/img/img.png" height="50px"> Data Form</a>
+      <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -43,11 +43,17 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link asd" href="front_end/login.php">Entrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="front_end/cadastro.php">Cadastrar</a>
-          </li>
+            <?php
+            if(isset($_GET['logado'])){
+              echo '<a class="nav-link asd" href="front_end/user.php">Painel</a></li>';
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
+            }else{
+              echo '<a class="nav-link asd" href="front_end/login.php">Entrar</a></li>';
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
+            }
+            ?>
         </ul>
       </div>
     </div>

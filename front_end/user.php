@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../back_end/funcs.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +64,7 @@ include('../back_end/funcs.php');
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
@@ -111,7 +112,7 @@ include('../back_end/funcs.php');
                 <div class="row">
                     <div class="col-4">
                         <div class="text-center">
-                            <a href="forms.php" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
+                            <a href="forms.php?criar" class="btn btn-success align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
                     <div class="col-4">

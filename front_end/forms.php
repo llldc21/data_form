@@ -1,6 +1,14 @@
 <?php
 session_start();
 include('../back_end/funcs.php');
+
+if (isset($_GET['criar'])) {
+    CadastrarFormulario();
+}
+
+if (isset($_POST['nome_form'])) {   
+    AtualizaForm($_POST['nome_form'], $_POST['data_abertura'], $_POST['data_fechamento'], $_POST['categoria'], $_POST['desc_form'], $_SESSION['cd'], $_SESSION['form']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +41,15 @@ include('../back_end/funcs.php');
     <link rel="stylesheet" href="css/criaform.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
+    <script>
+        $(document).on('click', '.perguntas', function(){
+            var botoes = '<i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i><i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>';
+            $('#footer').append(botoes);
+        });
+        $(document).on('click', '.perguntas', function(){
+            $('#footer').parent().hide();
+        })
+    </script>
 
 </head>
 
@@ -67,7 +84,7 @@ include('../back_end/funcs.php');
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <a class="navbar-brand" href="../index.php?logado" ><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -119,127 +136,66 @@ include('../back_end/funcs.php');
                             <h2>Criação de Formulário</h2>
                         </div>
                     </div>
-                    <div class="col-4">
-                    </div>
+                    <div class="col-4"></div>
                 </div>
                 <hr>
-                <br>
-                <!--GERANDO FORMULARIO-->
-
-                <div class="">
-                    <div id="p">
-                        <!--Nome do form-->
-                        <div class="">
-                            <h3 class="h3 text-center"> Digite o nome do seu formulário: </h3>
-                            <input type="text" class="form-control input_title">
+                <form action="forms.php" method="post">
+                        <h3 class="h3 text-center">Insira o nome do formulario:</h3>
+                        <input type="text" class="form-control" name="nome_form" id="nome_form" require>
+                        <br>
+                        <h3 class="h3 text-center">Descreva seu formulario:</h3>
+                        <textarea name="desc_form" id="desc_form" class="form-control" cols="30" rows="1" require></textarea>
+                        <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <h3 class="h3 text-center">Data de abertura:</h3>
+                            <input type="date" class="form-control" name="data_abertura" id="data_abertura">
                         </div>
-                        <!--Nome do form-->
-
-                        <!--Descrição do form-->
-                        <div class="">
-                            <h3 class="h3 text-center"> Descrição: </h3>
-                            <textarea class="form-control input_desc" name="descricao"></textarea>
+                        <div class="col-4">
+                            <h3 class="h3 text-center">Categoria</h3>
+                            <select name="categoria" class="form-control" id="categoria">
+                            <?php
+                                $dados = ListarCategoria($_SESSION['cd']);
+                                while ($dado = $dados->fetch_array()){
+                            ?>
+                                <option value="<?php echo $dado['CD_CATEGORIA'];?>" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
+                            </select>
                         </div>
-                        <!--Descrição do form-->
-
-                        <!--ONDE É GERADO O FORMULAIO-->
-                        <div class="conteudo" id="conteudo">
-
-                            <div class="pergun">
-
-                            </div>
-
-
+                        <div class="col-4">
+                            <h3 class="h3 text-center">Data de fechamento:</h3>
+                            <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
                         </div>
                     </div>
-                    <!--ONDE É GERADO O FORMULAIO-->
-                </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block perguntas" id="perguntas" type="submit">Criar Formulário</button>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="container">
-                    <br>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h5 class="h5 text-center">Escoha o tipo de pergunta:</h5>
-                    <hr>
-                    <div class="row">
-                        <div class="col-6" style="margin-top: 11px; ">
-                            <button  class="btn btn-dark btn-block campo" id="i">Resposta Curta</button>
-                            <br>
-                            <button class="btn btn-dark btn-block campo" id="i">Resposta Longa</button>
-                            <br>
-                            <button class="btn btn-dark btn-block campo" id="r">Múltipla Esolha</button>
-                            <br>
-                            <button class="btn btn-dark btn-block campo">Caixa de Seleçao</button>
-                        </div>
-                        <div class="col-6">
-                            <!--Resposta curta-->
-                            <input type="text" disabled placeholder="Resposta curta" class="form-control input_title">
-                            <!--Resposta curta-->
-                            <!--Resposta longa-->
-                            <input type="text" disabled placeholder="Resposta longa" class="form-control input_title">
-                            <!--Resposta longa-->
-                            <div style="font-size: 15px; padding-top: 10px; text-align: center; padding-bottom: 10px;">
-                                <input disabled type="radio">
-                                <label> Múltipla escolha</label>
-                            </div>
-
-                            <div style="padding-top: 10px; font-size: 15px; text-align: center; padding-bottom: 30px;">
-                                <input disabled type="checkbox">
-                                <label> Caixa de seleção</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="modal-content">
+          <h5>Cadastro de perguntas</h5>
+          <hr>
+            ...
+          </div>
         </div>
     </div>
 
     <div class="footer">
-        <i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i>
-        <i class="fas fa-eye icone fa-3x"></i>
-        <i class="fas fa-check icone fa-3x"></i>
+        
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-        var q = 0;
-        // $(document).on('click', '#formulario', function () {
-        //     var texto = prompt("Digite o nome deste Formulário")
-        //     $(this).html(texto);
-        // });
-        // $(document).on('click', '.pergunta', function () {
-        //     q++;
-        //     var p = '<div id="p' + q + '"><h1 id="formulario">Mudar Titulo</h1><span style="float:right;">Adicionar Pergunta tipo:<button id="i" class="campo">Texto Curto</button><button id="r" class="campo">Radio</button><button id="t" class="campo">Textarea</button></span></div>';
-        //     $('#conteudo').append(p);
-        // });
-        $(document).on('click', '.campo', function () {
-            var tipo = $(this).attr('id');
-            campo = "";
-            if (tipo == 'i') {
-                var label = prompt("Qual é a pergunta?")
-                campo = '<h5 class="h5 text-center">' + label + '</h5><input type="text" name="campo[]" class="form-control" placeholder="' + label + '" disabled><br>';
-            }
-            else if (tipo == 'r') {
-                var label = prompt("Qual é a pergunta?")
-                campo = '<h5 class="h5 text-center">' + label + '</h5>';
-                var qtd = parseInt(prompt('Quanta alternativas deseja?'));
-                for (i = 1; i <= qtd; i++) {
-                    var texto = prompt("Digite a alternativa " + i);
-                    campo += '<input type="radio" name="campo[]">' + texto + '<br>';
-                }
-            }
-            $('#conteudo').append(campo);
-        });
-    </script>
 </body>
 
 </html>

@@ -54,11 +54,11 @@ function Login($email, $senha){
     $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
     $res = $GLOBALS['conn']->query($sql);
     if($res->num_rows>0){
-    $usuario = $res->fetch_array();
-    $_SESSION['UsuarioLog'] = true;
-    $_SESSION['email'] = $usuario ['DS_EMAIL'];
-    $_SESSION['cd'] = $usuario ['CD_USUARIO'];
-    $_SESSION['senha'] = $usuario['DS_SENHA'];
+        $usuario = $res->fetch_array();
+        $_SESSION['UsuarioLog'] = true;
+        $_SESSION['email'] = $usuario ['DS_EMAIL'];
+        $_SESSION['cd'] = $usuario ['CD_USUARIO'];
+        $_SESSION['senha'] = $usuario['DS_SENHA'];
     header("location: user.php");
     }else{
         echo ' <script> alert("Erro"); </script>';
@@ -67,16 +67,36 @@ function Login($email, $senha){
 // FIM - LOGIN
 
 // CADASTRO DO FORMULARIO 
-function CadastrarFormulario($nome, $data_abertura, $data_fechamento, $id_usuario, $id_categoria, $descricao){
-    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "'.$nome.'", "'.$data_abertura.'", "'.$data_fechamento.'", '.$id_usuario.', '.$id_categoria.', "'.$descricao.'")';
+function CadastrarFormulario(){
+    $n_abertura = @date('Y/m/d', strtotime($data_abertura));
+    $n_fechamento = @date('Y/m/d', strtotime($data_fechamento));
+    
+    $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "Meu form", null, null, '.$_SESSION['cd'].', 1, "Descreva...")';
 	$res = $GLOBALS['conn']->query($sql);
 	if($res){
-	echo "Cadastrado com sucesso";
-	}else{
+        $_SESSION['form'] = $GLOBALS['conn']->insert_id;
+        echo $_SESSION['form'];
+        echo $_SESSION['cd'];
+    }else{
 	echo "Erro ao cadastrar" .$sql ;
 	}
 }
 // FIM DO CADASTRA FORMULARIO
+
+// ATUALIZA FORMULARIO
+function AtualizaForm($nome_form, $data_abertura, $data_fechamento, $id_categoria, $ds_form, $id_usuario, $cd_form){
+    $data_abertura = @date('Y/m/d', strtotime($data_abertura));
+    $data_fechamento = @date('Y/m/d', strtotime($data_fechamento));
+
+    $sql = "UPDATE `TB_FORMULARIO` SET `NM_FORMULARIO`= '$nome_form', `DT_ABERTURA_FORM`= '$data_abertura', `DT_FECHAMENTO_FORM`='$data_fechamento', `ID_CATEGORIA` = '$id_categoria', `DS_FORMULARIO`= '$ds_form' WHERE `ID_USUARIO` = '$id_usuario' AND `CD_FORMULARIO` = '$cd_form'";
+    $res = $GLOBALS['conn']->query($sql);
+    if ($res) {
+        echo 'Ok';
+    }else{
+        echo 'Erro';
+    }
+}
+// FIM DO ATUALIZA FORMULARIO
 
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
@@ -84,7 +104,7 @@ function AddCategoria($categoria){
     $sql = 'INSERT INTO `TB_CATEGORIA`(`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES (null, "'.$categoria.'")';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
-        echo 'Ok!';
+        echo 'OK';
     }else{
         echo 'Erro!';
     }
@@ -114,6 +134,14 @@ function ListarCategoria(){
 	$res = $GLOBALS['conn']->query($sql);
 	return $res;
 };
+
+function ListarForms($cd){
+    $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `CD_USUARIO` ='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    if ($res) {
+        echo 'ok';
+    }
+}
 
 function EncriptarSenha($senha){
     $codificada = md5($senha);
