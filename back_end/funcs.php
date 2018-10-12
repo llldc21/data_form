@@ -1,4 +1,3 @@
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <?php
 include('conexao.php');
 
@@ -38,7 +37,7 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
         };
     };
         
-}
+};
 // FIM - CADASTRO USUÁRIO
 
 // LISTAR DADOS DO USUARIO
@@ -46,7 +45,7 @@ function ListarDadosUsuario($cd){
     $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
-}
+};
 // FIM - LISTAR
 // LOGIN
 function Login($email, $senha){
@@ -75,12 +74,10 @@ function CadastrarFormulario(){
 	$res = $GLOBALS['conn']->query($sql);
 	if($res){
         $_SESSION['form'] = $GLOBALS['conn']->insert_id;
-        echo $_SESSION['form'];
-        echo $_SESSION['cd'];
     }else{
-	echo "Erro ao cadastrar" .$sql ;
+	    echo "Erro ao cadastrar";
 	}
-}
+};
 // FIM DO CADASTRA FORMULARIO
 
 // ATUALIZA FORMULARIO
@@ -93,11 +90,10 @@ function AtualizaForm($nome_form, $data_abertura, $data_fechamento, $id_categori
     if ($res) {
         echo 'Ok';
     }else{
-        echo 'Erro';
+        echo '<script> alert("Erro"); </script>';;
     }
-}
+};
 // FIM DO ATUALIZA FORMULARIO
-
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
 function AddCategoria($categoria){
@@ -109,18 +105,6 @@ function AddCategoria($categoria){
         echo 'Erro!';
     }
 };
-
-function CriaTipoPergunta($valor){
-    switch (($valor)) {
-        case '1':
-            # code...
-            break;
-        
-        default:
-            # code...
-            break;
-    }
-}
 
 function MostraFoto($cd_usuario){
     $a = "SELECT `IMG_USUARIO` FROM TB_USUARIO WHERE CD_USUARIO =".$cd_usuario;
@@ -136,11 +120,35 @@ function ListarCategoria(){
 };
 
 function ListarForms($cd){
-    $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `CD_USUARIO` ='.$cd;
+    $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `ID_USUARIO` ='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+};
+
+function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
+    $sql = 'INSERT INTO `TB_PERGUNTA` VALUES (null,"'.$pergunta.'" ,"'.$id_tipo_pergunta.'","'.$id_form.'")';
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        echo $GLOBALS['conn']->insert_id;
+    }else{
+        echo 'Erro';
+    }
+};
+
+function CadastrarAlternativa($alternativa, $id_pergunta){
+    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
-        echo 'ok';
+        echo 'OK';
+    }else{
+        echo $sql;
     }
+}
+
+function ListarTipoPergunta(){
+$sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
+$res = $GLOBALS['conn']->query($sql);
+return $res;
 }
 
 function EncriptarSenha($senha){
