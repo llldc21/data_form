@@ -81,7 +81,7 @@ include('../back_end/funcs.php');
                         ?>
                         <div class="foto">
                             <center>
-                            <img src="img/eu.jpg" class="img-fluid rounded-circle">
+                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-circle" id="img-user">
                             </center>
                         </div>
                         
@@ -141,7 +141,7 @@ include('../back_end/funcs.php');
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                    <img src="img/eu.jpg" class="img-fluid rounded-circle" id="img-user">
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-circle" id="img-user">
                 </div>
                 
                 <div style="margin-top: 20px;"> 
@@ -150,6 +150,7 @@ include('../back_end/funcs.php');
                 </h3>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                 <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
+                <br>
                 </div>
                 
                 <?php };?>
@@ -182,31 +183,22 @@ include('../back_end/funcs.php');
                 <br>
                 <!-- CARDS -->
                 <div class="row">
-
-                    <div class="col-md-4 offset-md-0 col-12 ">
-                        <div class="card">
-                            <h5 class="card-header">Nome do Formulário</h5>
-                            <div class="card-body">
-                                <div class="contcard">
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- COL 4 -->
-                    
-                    <div class="col-md-4 offset-md-0 col-12 ">
-                        <div class="card">
-                            <h5 class="card-header">Nome do Formulário</h5>
-                            <div class="card-body">
-                                <div class="contcard">
-                                    <p class="card-text">	sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- COL 4 -->
-
+                <?php
+                $dados = ListarForms($_SESSION['cd']);
+                while ($dado = $dados->fetch_array()){
+                    echo'<div class="col-md-4 offset-md-0 col-12"> 
+                     <div class="card" style="width: 18rem;">
+                     <div class="card-body">
+                     <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
+                     <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
+                     <a href="#" class="card-link">Card link</a>
+                     <a href="#" class="card-link">Another link</a>
+                     </div>
+                     </div>
+                     </div>';               
+                }
+                
+                ?>
                 </div> <!-- ROW -->
             </div>
         </div>

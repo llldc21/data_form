@@ -5,10 +5,6 @@ include('../back_end/funcs.php');
 if (isset($_GET['criar'])) {
     CadastrarFormulario();
 }
-
-if (isset($_POST['nome_form'])) {   
-    AtualizaForm($_POST['nome_form'], $_POST['data_abertura'], $_POST['data_fechamento'], $_POST['categoria'], $_POST['desc_form'], $_SESSION['cd'], $_SESSION['form']);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -139,8 +135,11 @@ if (isset($_POST['nome_form'])) {
                     <div class="col-4"></div>
                 </div>
                 <hr>
-                <form action="forms.php" method="post">
+                <div>
                         <h3 class="h3 text-center">Insira o nome do formulario:</h3>
+                        <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
+                        <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
+                        
                         <input type="text" class="form-control" name="nome_form" id="nome_form" require>
                         <br>
                         <h3 class="h3 text-center">Descreva seu formulario:</h3>
@@ -153,17 +152,21 @@ if (isset($_POST['nome_form'])) {
                         </div>
                         <div class="col-4">
                             <h3 class="h3 text-center">Categoria</h3>
-                            <select name="categoria" class="form-control" id="categoria">
+                            <select name="categoria" class="form-control">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
                                 while ($dado = $dados->fetch_array()){
                             ?>
-                                <option value="<?php echo $dado['CD_CATEGORIA'];?>" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
+                                <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
                         </div>
                         <div class="col-4">
                             <h3 class="h3 text-center">Data de fechamento:</h3>
                             <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
+                        </div>
+                        <div class="col-12" id="conteudo">
+                            <br>
+                            
                         </div>
                     </div>
                     <br>
@@ -171,31 +174,204 @@ if (isset($_POST['nome_form'])) {
                     <div class="row">
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <button class="btn btn-primary btn-block perguntas" id="perguntas" type="submit">Criar Formulário</button>
+                            <button type="button" class="btn btn-primary btn-block" id="novo" data-toggle="modal" data-target=".bd-example-modal-lg">Perguntas</button>
+                            <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
+                            <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
                         </div>
                         <div class="col-4"></div>
+                        <div id="caixa">
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <h5>Cadastro de perguntas</h5>
-          <hr>
-            ...
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="h5">Editar perguntas</h5>
           </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-6">
+                      <h5 class="h5 text-center">Perguntas</h5>
+                      <?php
+                        $tipo = ListarTipoPergunta();
+                        while($tipos = $tipo->fetch_array()){
+                      ?>
+                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
+                        <?php };?>
+                  </div>
+                  <div class="col-6">
+                      <h5 class="h5 text-center">Exemplos</h5>
+                      <input type="text" class="form-control" name="" id="" disabled>
+                      <input type="text" class="form-control" name="" id="" disabled style="margin-top: 10px;">
+                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
+                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
+                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
+                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
+                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
+                      <br>
+                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
+                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
+                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
+                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
+                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
+                  </div>
+              </div>
+            </div>
         </div>
+      </div>
     </div>
 
-    <div class="footer">
-        
-    </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+ 
+    var curta = '';
+    var longa = '';
+    var m_escolha = '';
+    var c_selecao = '';
+    var data = {};
+    $(document).ready(function(){
+     $('#novo').hide();  
+     $('#fin').hide(); 
+
+    
+
+    });
+
+    var cd = "";
+
+    function GravaPergunta(pergunta, id_tipo_pergunta, id_formulario){
+                $.ajax({
+                type: "POST",
+                url: 'insere_perguntas.php',
+                data: {
+                    pergunta,
+                    id_tipo_pergunta,
+                    id_formulario
+                },
+                success: function(back){
+                    cd = back;
+                }
+            });                
+            }
+
+      $(document).on('click','#criar',function(){
+                 //var dados = $('#meu').serialize();
+                 data.nome_form = $('#nome_form').val();
+                 data.desc_form = $('#desc_form').val();
+                 data.data_abertura = $('#data_abertura').val();
+                 data.categoria = $('#categoria').val();
+                 data.data_fechamento = $('#data_fechamento').val();
+                 data.cd_usuario = $('#cd_usuario').val();
+                 data.cd_form = $('#cd_form').val();
+                 console.log(data);
+
+                 $.ajax({
+                    type: "POST",
+                    url: 'atualiza_form.php',
+                    data: data,
+                    success: function(back){
+                        alert(back)
+                    }
+                });
+                 
+             $(this).hide();
+             $('#novo').show();
+             $('#fin').show();
+      });
+  </script>
+  <script>
+        $(document).on('click', '.campo', function (cd) {
+            var campo = "";               
+            var tipo = $(this).attr('val');
+            var form = $(this).attr('id');
+
+            switch (parseInt(tipo)) {
+                case 1:
+                    curta = prompt('Qual é a pergunta?');
+                    if (curta.length <= 2) {
+                        alert(`Pergunta muito curta...`);
+                    }else{
+                        alert(`Pergunta salva!`);
+                        campo = '<form method="post" action="../back_end/processa.php"><h5 class="h5 text-center">' + curta + '</h5><input type="text" name="campo[]" class="form-control" placeholder="' + curta + '" disabled><br>';
+                        GravaPergunta(curta, tipo, data.cd_form);
+                        GravaAlternativa(tipo, cd);
+                    }
+                    break;
+                case 2:
+                    longa = prompt('Qual é a pergunta?');
+                    if (longa.length <= 2){
+                        alert(`Pergunta muito curta...`);
+                    }else{
+                        alert(`Pergunta salva!`);
+                        campo = '<h5 class="h5 text-center">' + longa + '</h5><textarea class="form-control" name="campo[]" placeholder="'+ longa +'" disabled></textarea><br>';
+                        GravaPergunta(longa, tipo, data.cd_form);
+                        GravaAlternativa(tipo, cd);
+                    }
+                    break;
+                case 3:
+                    m_escolha = prompt("Qual é a pergunta?");
+                    if (m_escolha.length <= 2) {
+                        alert(`Pergunta obrigatoria`);
+                    }else{
+                        alert(`Pergunta salva!`);
+                        campo = '<h5 class="h5 text-center">' + m_escolha + '</h5>';
+                        GravaPergunta(m_escolha, tipo, data.cd_form);                        
+                    }
+                    var qtd_me = parseInt(prompt('Quantas escolhas deseja?'));
+                        for (let i = 1; i <= qtd_me; i++) {
+                            var alternativa_me = prompt(`Digite a escolha ${i}:`);
+                            campo += '<input type="radio" class="text-center" name="campo[]" disabled>' + alternativa_me[i] + '<br>';
+                            GravaAlternativa(alternativa_me, cd);
+                        }
+                        break;
+
+                    case 4:
+                    c_selecao = prompt("Qual é a pergunta?");
+                        if (c_selecao.length <= 2) {
+                            alert(`Pergunta obrigatoria`);
+                        }else{
+                            alert(`Pergunta salva!`);
+                            campo = '<h5 class="h5 text-center">' + c_selecao + '</h5>';
+                            GravaPergunta(c_selecao, tipo, data.cd_form);
+                        }
+                    var qtd_cx = parseInt(prompt('Quantas alternativas deseja?'));
+                        for (let i = 1; i <= qtd_cx; i++) {
+                            var alternativa_cx = prompt(`Digite a alternativa ${i}:`);
+                            campo += '<input type="checkbox" class="text-center" name="campo[]" disabled>' + alternativa_cx[i] + '<br>';
+                            GravaAlternativa(alternativa_cx, cd);
+                        }
+                        break;            
+                default:
+                    break;
+            };
+            $('#conteudo').append(campo);
+            
+            function GravaAlternativa(alternativa, id_pergunta){
+                $.ajax({
+                type: "POST",
+                url: 'insere_perguntas.php',
+                data: {
+                    "alternativa" : alternativa,
+                    "id_pergunta" : id_pergunta
+                },
+                success: function(back){
+                    alert(back);
+                }
+            });                
+            }
+
+            
+        });
+
+    </script>
+
 </body>
 
 </html>
