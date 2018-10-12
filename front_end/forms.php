@@ -249,7 +249,7 @@ if (isset($_GET['criar'])) {
     function GravaPergunta(pergunta, id_tipo_pergunta, id_formulario){
                 $.ajax({
                 type: "POST",
-                url: 'insere_perguntas.php',
+                url: '../back_end/ajax.php',
                 data: {
                     pergunta,
                     id_tipo_pergunta,
@@ -274,7 +274,7 @@ if (isset($_GET['criar'])) {
 
                  $.ajax({
                     type: "POST",
-                    url: 'atualiza_form.php',
+                    url: '../back_end/ajax.php',
                     data: data,
                     success: function(back){
                         alert(back)
@@ -356,7 +356,7 @@ if (isset($_GET['criar'])) {
             function GravaAlternativa(alternativa, id_pergunta){
                 $.ajax({
                 type: "POST",
-                url: 'insere_perguntas.php',
+                url: '../back_end/ajax.php',
                 data: {
                     "alternativa" : alternativa,
                     "id_pergunta" : id_pergunta
