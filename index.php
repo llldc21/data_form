@@ -37,7 +37,7 @@
         <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
           aria-describedby="basic-addon1">
         <div class="input-group-append">
-          <button class="btn btn-outline-info" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+          <button class="btn btn-primary" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
         </div>
       </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -45,11 +45,11 @@
           <li class="nav-item">
             <?php
             if(isset($_GET['logado'])){
-              echo '<a class="nav-link asd" href="front_end/user.php">Painel</a></li>';
+              echo '<a class="nav-link" href="front_end/user.php">Painel</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
             }else{
-              echo '<a class="nav-link asd" href="front_end/login.php">Entrar</a></li>';
+              echo '<a class="nav-link" href="front_end/login.php">Entrar</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
             }
@@ -62,7 +62,7 @@
   <header class="masthead text-center text-white">
     <div class="masthead-content">
       <div class="container">
-        <h2 class="masthead-heading mb-0">One Page Wonder</h2>
+        <center><h2 class="masthead-heading mb-0">Data Form</h2></center>
         <h3 class="masthead-subheading mb-0">Will Rock Your Socks Off</h3>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
@@ -85,7 +85,7 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4" id="cont">Criar</h2>
+            <h2 class="display-5" id="cont">Criar</h2>
             <p>Crie formularios para pesquisas de campo ou qualquer outro tipo de pesquisas.
                 construa graficos incriveis com respostas de usuarios ou dados que vc msm coletou.
                 Tudo isso de uma maneira rapida e facil com um conforto que o Data Form lhe fornece,
@@ -106,7 +106,7 @@
         </div>
         <div class="col-lg-6">
           <div class="p-5">
-            <h3 class="display-4">Pesquisar</h3>
+            <h3 class="display-5">Pesquisar</h3>
             <p>Trabalho de escola atrasado? tem prova no dia seguinte e n sabe nada?
                 que tal usar o Data Form para realizar suas pesquisas com total facilidade e rapidez?
                 busque e ache qualquer tipo de informaçao nescessaria para voce,
@@ -129,7 +129,7 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="display-4">Compartilhar</h2>
+            <h2 class="display-5">Compartilhar</h2>
             <p>A sua pesquisa pode ser compartilhada para qualquer outra pessoa q precise.
                 pesquisou! criou! compartilhe ! 
                 Com o Data Form vc tem a opçao de compartilhar a sua pesquisa como preferir, de uma maneira 
@@ -142,7 +142,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 bg-black">
+  <footer class="py-5 bg-primary">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>

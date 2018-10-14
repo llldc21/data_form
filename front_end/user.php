@@ -81,7 +81,7 @@ include('../back_end/funcs.php');
                         ?>
                         <div class="foto">
                             <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-circle" id="img-user">
+                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
                             </center>
                         </div>
                         
@@ -115,7 +115,7 @@ include('../back_end/funcs.php');
                 <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
                     aria-describedby="basic-addon1">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-info" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+                    <button class="btn btn-primary" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -141,8 +141,8 @@ include('../back_end/funcs.php');
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-circle" id="img-user">
-                </div>
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                
                 
                 <div style="margin-top: 20px;"> 
                 <h3 class="h3 text-center" id="nome-user">
@@ -152,23 +152,25 @@ include('../back_end/funcs.php');
                 <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
                 <br>
                 </div>
-                
+                </div>
                 <?php };?>
             </div>
-            <div class="col-10 col-md-10 offset-md-0 offset-1">
+            
+            
+            <div class="col-12 col-md-10 offset-md-0" id="conteudo">
                 <br>
                 <div class="row">
-                    <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
+                    <div class="col-md-4 col-12 offset-md-0 form painel">
                         <div class="text-center">
                             <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
+                    <div class="col-md-4 col-12 offset-md-0 painel">
                         <div class="text-center">
                             <h4>Painel de Controle</h4>
                         </div>
                     </div>
-                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
+                    <div class="col-md-4 col-12 offset-md-0 painel">
                         <div class="text-center">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -187,7 +189,7 @@ include('../back_end/funcs.php');
                 $dados = ListarForms($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
                     echo'<div class="col-md-4 offset-md-0 col-12"> 
-                     <div class="card" style="width: 18rem;">
+                     <div class="card" style="width: 100%;">
                      <div class="card-body">
                      <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
                      <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>

@@ -77,19 +77,62 @@ if (isset($_GET['criar'])) {
         </div>
     </div>
     </div>
+    
+    <!-- Modal Perfil -->
+        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header frescuras">
+                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modper">
+                    
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode(' ', $dado['NM_USUARIO'])
+                        ?>
+                        <div class="foto">
+                            <center>
+                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
+                            </center>
+                        </div>
+                        
+                        <div style="margin-top: 20px;"> 
+                            <h5 class="text-center" id="nome-user">
+                                <?php echo $nome[0].' '.$nome[1]?>
+                            </h5>
+                            
+                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
+                        </div>
+                        
+                    <?php };?>
+                    
+              </div>
+              <div class="modal-footer frescuras">
+                
+              </div>
+            </div>
+      </div>
+    </div>
+
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../index.php?logado" ><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="input-group" style="margin-left: 30px; margin-right: 30px;">
+
+            <div class="input-group" >
                 <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
                     aria-describedby="basic-addon1">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-info" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+                    <button class="btn btn-primary" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -97,43 +140,47 @@ if (isset($_GET['criar'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2" id="user">
+            <div class="col-md-2" id="user">
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="img-fluid rounded-0" id="img-user">
-                    <h3 class="h3 text-center" id="nome-user">
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                
+                
+                <div style="margin-top: 20px;"> 
+                <h3 class="h3 text-center" id="nome-user">
                         <?php echo $nome[0].' '.$nome[1]?>
-                    </h3>
-                    <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#exampleModal">Editar
-                        Dados</button>
-                    <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
-                    <button type="button" class="btn btn-light btn-block">Perfil</button>
-                    <br>
+                </h3>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                <a type="button" role="button" href="user.php" class="btn btn-primary btn-block">Gerenciar Formulários </a>
+                <br>
+                </div>
                 </div>
                 <?php };?>
             </div>
-            <div class="col-10">
+            <div class="col-md-10 col-12">
                 <br>
-                <div class="row">
-                    <div class="col-4">
-                    </div>
-                    <div class="col-4">
-                        <div class="text-center">
-                            <h2>Criação de Formulário</h2>
+                    <div class="row">
+                        <div class="col-12">
+                        <center>
+                            <h3>Criação de Formulário</h3>
+                        </center>
                         </div>
                     </div>
-                    <div class="col-4"></div>
-                </div>
                 <hr>
                 <div>
                         <h3 class="h3 text-center">Insira o nome do formulario:</h3>
@@ -146,11 +193,13 @@ if (isset($_GET['criar'])) {
                         <textarea name="desc_form" id="desc_form" class="form-control" cols="30" rows="1" require></textarea>
                         <br>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
+                            <br>
                             <h3 class="h3 text-center">Data de abertura:</h3>
                             <input type="date" class="form-control" name="data_abertura" id="data_abertura">
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
+                            <br>
                             <h3 class="h3 text-center">Categoria</h3>
                             <select name="categoria" class="form-control">
                             <?php
@@ -160,11 +209,12 @@ if (isset($_GET['criar'])) {
                                 <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-12">
+                            <br>
                             <h3 class="h3 text-center">Data de fechamento:</h3>
                             <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
                         </div>
-                        <div class="col-12" id="conteudo">
+                        <div class="col-12">
                             <br>
                             
                         </div>
@@ -172,13 +222,11 @@ if (isset($_GET['criar'])) {
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4">
+                        <div class="col-md-4 offset-md-4 col-12">
                             <button type="button" class="btn btn-primary btn-block" id="novo" data-toggle="modal" data-target=".bd-example-modal-lg">Perguntas</button>
                             <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
                             <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
                         </div>
-                        <div class="col-4"></div>
                         <div id="caixa">
                         </div>
                     </div>

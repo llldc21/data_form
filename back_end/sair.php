@@ -6,5 +6,5 @@ unset($_SESSION['UsuarioLog']);
 //ENCERRANDO A SESSÃO
 session_destroy();
 //REDIRECIONANDO
-header('location: ../index.html');
+header('location: ../index.php');
 ?>

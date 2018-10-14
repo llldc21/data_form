@@ -44,7 +44,8 @@ h6 {
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(33, 150, 243, 0.9);
+  margin-bottom: 1px solid black;
 }
 
 .navbar-custom .navbar-brand {
