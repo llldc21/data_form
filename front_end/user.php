@@ -131,10 +131,10 @@ include('../back_end/funcs.php');
         </div>
     </nav>
     
-    
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2" id="user">
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-2 h-100" id="user">
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -143,16 +143,16 @@ include('../back_end/funcs.php');
                 <div class="foto">
                     <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
                 
-                
+                </div>
                 <div style="margin-top: 20px;"> 
                 <h3 class="h3 text-center" id="nome-user">
                         <?php echo $nome[0].' '.$nome[1]?>
                 </h3>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-light btn-block">Gerenciar Formulários</button>
+                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
                 <br>
                 </div>
-                </div>
+                
                 <?php };?>
             </div>
             

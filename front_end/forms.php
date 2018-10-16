@@ -166,7 +166,7 @@ if (isset($_GET['criar'])) {
                         <?php echo $nome[0].' '.$nome[1]?>
                 </h3>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <a type="button" role="button" href="user.php" class="btn btn-primary btn-block">Gerenciar Formulários </a>
+                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários </button>
                 <br>
                 </div>
                 </div>
