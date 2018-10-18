@@ -26,7 +26,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="border-bottom:1px solid #000;">
     <div class="container">
       <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -37,7 +37,7 @@
         <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
           aria-describedby="basic-addon1">
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+          <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
         </div>
       </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -45,11 +45,11 @@
           <li class="nav-item">
             <?php
             if(isset($_GET['logado'])){
-              echo '<a class="nav-link" href="front_end/user.php">Painel</a></li>';
+              echo '<a class="nav-link asd" href="front_end/user.php">Painel</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
             }else{
-              echo '<a class="nav-link" href="front_end/login.php">Entrar</a></li>';
+              echo '<a class="nav-link asd" href="front_end/login.php">Entrar</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
             }
@@ -58,12 +58,13 @@
       </div>
     </div>
   </nav>
-
+<div class="bg">
   <header class="masthead text-center text-white">
+    
     <div class="masthead-content">
       <div class="container">
-        <center><h2 class="masthead-heading mb-0">Data Form</h2></center>
-        <h3 class="masthead-subheading mb-0">Will Rock Your Socks Off</h3>
+        <h3 class="masthead-heading mb-0">Data Form</h3>
+        <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
             <button href="#cont" type="submit" class="login100-form-btn">
@@ -72,6 +73,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </header>
 
@@ -142,7 +144,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 bg-primary">
+  <footer class="py-5" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>

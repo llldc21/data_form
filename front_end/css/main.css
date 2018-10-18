@@ -38,7 +38,7 @@
   padding-top:10px;
 }
 #user{
-  background-color: rgba(33, 150, 243, 0.8);
+  background-color: rgba(0, 0, 0, 0.1);
   height: 100%;
 }
 
@@ -82,7 +82,6 @@ footer{
 
 
 body{
-  position: absolute;
   margin:0%;
   padding: 0%;
   height: 100%;
