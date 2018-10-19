@@ -1,7 +1,6 @@
 <?php
+include "../back_end/funcs.php";
 session_start();
-include('../back_end/funcs.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -160,49 +159,29 @@ include('../back_end/funcs.php');
             <div class="col-12 col-md-10 offset-md-0" id="conteudo">
                 <br>
                 <div class="row">
-                    <div class="col-md-4 col-12 offset-md-0 form painel">
-                        <div class="text-center">
-                            <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12 offset-md-0 painel">
-                        <div class="text-center">
-                            <h4>Painel de Controle</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12 offset-md-0 painel">
-                        <div class="text-center">
-                            <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Data de criação</option>
-                                    <option>Ordem alfabética</option>
-                                </select>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                    <h2 class="h2 text-center">Editar formulario</h2>
+                    <hr>
+                        <form action="edit_form.php" method="post">
+                            <?php
+                                $usuario = $_SESSION['cd'];
+                                $formulario = $_GET['form'];
+
+                                if (isset($formulario)) {
+                                    $form = ListarFormsEspecifico($usuario, $formulario);
+                                    while ($forms = $form->fetch_array()) {
+                                        echo 'Nome do formulario:<br><input type="text" class="form-control" name="nome_form" id="nome_form" placeholder="'.$forms['NM_FORMULARIO'].'">';
+                                }
+
+                                ListaPerguntasPorForm($formulario);
+                            ?>
+                        </form>
                     </div>
                 </div>
-                <hr>
-                <br>
-                <!-- CARDS -->
+                <!-- FORM -->
                 <div class="row">
-                <?php
-                $dados = ListarForms($_SESSION['cd']);
-                while ($dado = $dados->fetch_array()){
-                    echo'<div class="col-md-4 offset-md-0 col-12"> 
-                     <div class="card" style="width: 100%;">
-                     <div class="card-body">
-                     <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
-                     <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
-                     <hr>
-                     <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                     <a href="excluir_form.php" class="card-link btn btn-danger">Excluir</a>
-                     </div>
-                     </div>
-                     </div>';               
-                }
-                
-                ?>
                 </div> <!-- ROW -->
+                    <?php };?>
             </div>
         </div>
     </div>
