@@ -8,19 +8,28 @@ $(document).ready(function () {
 var data = {};
 $(document).on('click', '#criar', function () {
     //var dados = $('#meu').serialize();
-    data.nome_form = $('#nome_form').val();
-    data.desc_form = $('#desc_form').val();
-    data.data_abertura = $('#data_abertura').val();
-    data.categoria = $('#categoria').val();
-    data.data_fechamento = $('#data_fechamento').val();
-    data.cd_usuario = $('#cd_usuario').val();
-    data.cd_form = $('#cd_form').val();
+    nome_form = $('#nome_form').val();
+    desc_form = $('#desc_form').val();
+    data_abertura = $('#data_abertura').val();
+    categoria = $('#categoria').val();
+    data_fechamento = $('#data_fechamento').val();
+    cd_usuario = $('#cd_usuario').val();
+    cd_form = $('#cd_form').val();
+
     console.log(data);
 
     $.ajax({
         type: "POST",
         url: '../back_end/ajax.php',
-        data: data,
+        data: {
+            "nome_form":nome_form,
+            "desc_form":desc_form,
+            "data_abertura":data_abertura,
+            "categoria":categoria,
+            "data_fechamento":data_fechamento,
+            "cd_usuario":cd_usuario,
+            "cd_form":cd_form
+        },
         success: function (back) {
             alert(back)
         }

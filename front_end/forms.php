@@ -214,10 +214,7 @@ if (isset($_GET['criar'])) {
                             <h3 class="h3 text-center">Data de fechamento:</h3>
                             <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
                         </div>
-                        <div class="col-12">
-                            <br>
-                            
-                        </div>
+                        <div class="conteudo" id="conteudo"></div>
                     </div>
                     <br>
                     <br>
@@ -227,7 +224,7 @@ if (isset($_GET['criar'])) {
                             <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
                             <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
                         </div>
-                        <div id="caixa">
+                        <div id="caixa conteudo" id="conteudo">
                         </div>
                     </div>
                 </div>

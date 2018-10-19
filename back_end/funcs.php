@@ -90,7 +90,7 @@ function AtualizaForm($nome_form, $data_abertura, $data_fechamento, $id_categori
     if ($res) {
         echo 'Ok';
     }else{
-        echo '<script> alert("Erro"); </script>';;
+        echo '<script> alert("Erro"); </script>';
     }
 };
 // FIM DO ATUALIZA FORMULARIO
@@ -146,9 +146,9 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
 }
 
 function ListarTipoPergunta(){
-$sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
-$res = $GLOBALS['conn']->query($sql);
-return $res;
+    $sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
 }
 
 function EncriptarSenha($senha){

@@ -2,8 +2,8 @@
 
 include 'funcs.php';
 
-if (isset($_POST['data.nome_form'])) {
-    AtualizaForm($_POST['data.nome_form'], $_POST['data.data_abertura'], $_POST['data.data_fechamento'], $_POST['data.categoria'], $_POST['data.desc_form'], $_POST['data.cd_usuario'], $_POST['data.cd_form']);
+if (isset($_POST['nome_form'])) {
+    AtualizaForm($_POST['nome_form'], $_POST['data_abertura'], $_POST['data_fechamento'], $_POST['categoria'], $_POST['desc_form'], $_POST['cd_usuario'], $_POST['cd_form']);
 }else if(isset($_POST['pergunta'])){
     CadastraPerguntas($_POST['pergunta'], $_POST['id_tipo_pergunta'], $_POST['id_formulario']);
 }else if(isset($_POST['alternativa'])){
