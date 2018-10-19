@@ -8,74 +8,53 @@
     <meta name="author" content="">
   	<link rel="icon" type="img/png" href="img/icons/favicon.ico"/>
     <link rel="stylesheet" href="css/pes.css">
+    <link href="temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-<title>DataForm</title>
+    <link href="temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+  <title>DataForm</title>
 
 <body>
-  
-  
-  
+
  <!--------- NAV BAR -------->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-         <!-- tag navbar -->
-              <div class="container">
-            <a class="navbar-brand" href="#"> <img src="img/img.png" style="height:50px;"> </a>
-            <!-- img logo -->
-          
-            <!-- inicio form -->
-              <div class="input-group col-md-8 col-6 inputNav">
-                <!-- input search -->
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                <!-- input search -->
-                
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-primary" type="button">
-                    <!-- botao search -->
-                    
-                    <!-- icon search -->
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <!-- icon search -->
-
-                  </button>
-                </div>
-              </div>
-              <!-- fim form -->
-            
-            <!-- inicio toggle dropdown -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- botao toggle cel -->
-            
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <!-- colapse sanfona -->
-              
-              <!-- inicio links -->
-              <ul class="navbar-nav" style="margin-left:35px;">
-                <li class="nav-item">
-                  <a class="nav-link" href="login.php">Login<span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item active">
-                  <p class="nav-link">/</p>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="cadastro.php">Cadastre-se <span class="sr-only">(current)</span></a>
-                </li>
-              </ul>
-              <!-- fim links -->
-              
-            </div>
-            </div>
-          </nav>
+      <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="border-bottom:1px solid #000;">
+    <div class="container">
+      <a class="navbar-brand dsa" href="index.php"><img src="img/img.png" height="50px"> Data Form</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
+          aria-describedby="basic-addon1">
+        <div class="input-group-append">
+          <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <?php
+            if(isset($_GET['logado'])){
+              echo '<a class="nav-link asd" href="front_end/user.php">Painel</a></li>';
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
+            }else{
+              echo '<a class="nav-link asd" href="front_end/login.php">Entrar</a></li>';
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
+            }
+            ?>
+        </ul>
+      </div>
+    </div>
+  </nav>
      
           <!---------- NAV BAR ----->
-          
-          
-          
+        
+
       <!--COMECO CONTEUDO-->
 		          
 		          <!--Tags-->
@@ -89,43 +68,24 @@
           <!--Tags a serem exibidas-->
           
           <div class="tags">
-            <a href="#" class="hash">      ofdfdf    <!--Tags a serem exibidas-->   </a> 
+            <a href="#" class="hash">      Informática    <!--Tags a serem exibidas-->   </a> 
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">      ofdfdf    <!--Tags a serem exibidas-->   </a>
+            <a href="#" class="hash">      Meio Ambiente    <!--Tags a serem exibidas-->   </a>
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">      ofdfdf    <!--Tags a serem exibidas-->   </a>
+            <a href="#" class="hash">      Administração    <!--Tags a serem exibidas-->   </a>
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">       ofdfdf   <!--Tags a serem exibidas-->    </a>
+            <a href="#" class="hash">       Sem classificação   <!--Tags a serem exibidas-->    </a>
           </div>
-          
-          <div class="tags">
-            <a href="#" class="hash">       ofdfdf   <!--Tags a serem exibidas-->    </a>
-          </div>
-          
-          <div class="tags">
-            <a href="#" class="hash">      ofdfdf    <!--Tags a serem exibidas-->   </a>
-          </div>
-          
-          <div class="tags">
-            <a href="#" class="hash">       ofdfdf   <!--Tags a serem exibidas-->   </a>
-          </div>
-          
-          <div class="tags">
-            <a href="#" class="hash">       ofdfdf   <!--Tags a serem exibidas-->    </a>
-          </div>
-          
-          <div class="tags">
-            <a href="#" class="hash">       ofdfdf   <!--Tags a serem exibidas-->    </a>
-          </div>
-          
-        </div>
         
+        </div>
+          
+
               <!--Fim tags-->
               
 
@@ -188,15 +148,30 @@ Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica 
         </div>
         
               <!--Fim resultados-->
-
-
-      <!-- END THE CONTEUDO -->
+              
+              
+              
+              
+              
+<!-- END THE CONTEUDO -->
 
       <!-- FOOTER -->
-      <footer>
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2018 DataForm, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+      <footer class="navbar navbar-expand-lg navbar-light navbar-custom py-5" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+    <div class="col-md-2 col-12 offset-md-5">
+      <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
+    </div>
+    <!-- /.container -->
+  </footer>
 	  <!--fim footer-->
+  <div class="pagination">
+                <buttom class="btn btn-dark" type="buttom">Anterior</buttom>
+                <buttom class="btn btn-primary" type="buttom">1</buttom>
+                <buttom class="btn btn-primary" type="buttom">2</buttom>
+                <buttom class="btn btn-primary" type="buttom">3</buttom>
+                <buttom class="btn btn-primary" type="buttom">4</buttom>
+                <buttom class="btn btn-primary" type="buttom">5</buttom>
+                <buttom class="btn btn-primary" type="buttom">Próximo</buttom>
+              </div>
+  
   </body>
 </html>
