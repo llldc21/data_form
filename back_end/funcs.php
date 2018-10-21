@@ -90,7 +90,7 @@ function AtualizaForm($nome_form, $data_abertura, $data_fechamento, $id_categori
     if ($res) {
         echo 'Ok';
     }else{
-        echo '<script> alert("Erro"); </script>';;
+        echo '<script> alert("Erro"); </script>';
     }
 };
 // FIM DO ATUALIZA FORMULARIO
@@ -125,6 +125,12 @@ function ListarForms($cd){
     return $res;
 };
 
+function ListarFormsEspecifico($cd_usuario, $cd_formulario){
+    $sql = "SELECT * FROM `TB_FORMULARIO` WHERE `CD_FORMULARIO` = $cd_formulario AND `ID_USUARIO` = $cd_usuario ";
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+};
+
 function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
     $sql = 'INSERT INTO `TB_PERGUNTA` VALUES (null,"'.$pergunta.'" ,"'.$id_tipo_pergunta.'","'.$id_form.'")';
     $res = $GLOBALS['conn']->query($sql);
@@ -139,16 +145,27 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
     $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
-        echo 'OK';
+        // echo 'OK';
     }else{
         echo $sql;
     }
 }
 
 function ListarTipoPergunta(){
-$sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
-$res = $GLOBALS['conn']->query($sql);
-return $res;
+    $sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
+
+
+// FUNÇÃO NÃO ESTÁ FUNCIONANDO DIREITO
+function ListaPerguntasPorForm($id_form){
+    $sql = "SELECT TB_PERGUNTA.NM_PERGUNTA FROM TB_PERGUNTA, TB_FORMULARIO, TB_TIPO_PERGUNTA WHERE TB_PERGUNTA.ID_FORMULARIO = TB_FORMULARIO.CD_FORMULARIOAND TB_FORMULARIO.CD_FORMULARIO =".$id_form;
+    $res = $GLOBALS['conn']->query($sql);
+    if($res->num_rows>0){
+        $form = $res->fetch_array();
+        return $form;
+    }
 }
 
 function EncriptarSenha($senha){

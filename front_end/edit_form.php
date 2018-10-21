@@ -1,10 +1,6 @@
 <?php
+include "../back_end/funcs.php";
 session_start();
-include('../back_end/funcs.php');
-
-if (isset($_GET['criar'])) {
-    CadastrarFormulario();
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +16,7 @@ if (isset($_GET['criar'])) {
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
-    <title>Data Form |
-        <?php echo $nome[0].' '.$nome[1]?>
-    </title>
+    <title>Data Form | <?php echo $nome[0].' '.$nome[1]?></title>
     <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,18 +28,7 @@ if (isset($_GET['criar'])) {
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../front_end/css/main.css">
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/criaform.css" type="text/css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
-    <script>
-        $(document).on('click', '.perguntas', function(){
-            var botoes = '<i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i><i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>';
-            $('#footer').append(botoes);
-        });
-        $(document).on('click', '.perguntas', function(){
-            $('#footer').parent().hide();
-        })
-    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 </head>
 
@@ -78,7 +61,7 @@ if (isset($_GET['criar'])) {
     </div>
     </div>
     
-    <!-- Modal Perfil -->
+            <!-- Modal Perfil -->
         <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -117,9 +100,8 @@ if (isset($_GET['criar'])) {
                 
               </div>
             </div>
-      </div>
-    </div>
-
+          </div>
+        </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
@@ -148,7 +130,7 @@ if (isset($_GET['criar'])) {
         </div>
     </nav>
     
-    
+
     <div class="container-fluid h-100">
         <div class="row h-100">
             <div class="col-md-2 h-100" id="user">
@@ -160,136 +142,52 @@ if (isset($_GET['criar'])) {
                 <div class="foto">
                     <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
                 
-                
+                </div>
                 <div style="margin-top: 20px;"> 
                 <h3 class="h3 text-center" id="nome-user">
                         <?php echo $nome[0].' '.$nome[1]?>
                 </h3>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários </button>
+                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
                 <br>
                 </div>
-                </div>
+                
                 <?php };?>
             </div>
-            <div class="col-md-6 offset-md-2 col-12" id="conteudo">
+            
+            
+            <div class="col-12 col-md-10 offset-md-0" id="conteudo">
                 <br>
-                    <div class="row">
-                        <div class="col-12">
-                        <center>
-                            <h3>Criação de Formulário</h3>
-                        </center>
-                        </div>
-                    </div>
-                <hr>
-                <div>
-                    
-                    
-                        <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
-                        <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
-                        
-                       <div id="namer">
-                          <div id="namer-input">
-                           <input type="text" name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
-                          </div>
-                        </div>
-                       
-                         <div id="namer">
-                          <div id="namer-input">
-                           <input type="text" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
-                          </div>
-                        </div>
-                        
-                        
-                        
-                        <br>
-                    <div class="row">
-                        <div class="col-md-4 col-12">
-                            <br>
-                            <h4 class="h4 text-center">Data de abertura:</h4>
-                            <input type="date" class="form-control" name="data_abertura" id="data_abertura">
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <br>
-                            <h4 class="h4 text-center">Categoria</h4>
-                            <select name="categoria" class="form-control">
+                <div class="row">
+                    <div class="col-md-12">
+                    <h2 class="h2 text-center">Editar formulario</h2>
+                    <hr>
+                        <form action="edit_form.php" method="post">
                             <?php
-                                $dados = ListarCategoria($_SESSION['cd']);
-                                while ($dado = $dados->fetch_array()){
+                                $usuario = $_SESSION['cd'];
+                                $formulario = $_GET['form'];
+
+                                if (isset($formulario)) {
+                                    $form = ListarFormsEspecifico($usuario, $formulario);
+                                    while ($forms = $form->fetch_array()) {
+                                        echo 'Nome do formulario:<br><input type="text" class="form-control" name="nome_form" id="nome_form" placeholder="'.$forms['NM_FORMULARIO'].'">';
+                                }
+
+                                ListaPerguntasPorForm($formulario);
                             ?>
-                                <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <br>
-                            <h4 class="h4 text-center">Data de fechamento:</h4>
-                            <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
-                        </div>
-                        <div class="conteudo" id="conteudo"></div>
+                        </form>
                     </div>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4 offset-md-4 col-12">
-                            <button type="button" class="btn btn-primary btn-block" id="novo" data-toggle="modal" data-target=".bd-example-modal-lg">Perguntas</button>
-                            <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
-                            <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
-                        </div>
-                        <div id="caixa conteudo" id="conteudo">
-                        </div>
-                    </div>
-                    
-                    
-
-                    
                 </div>
+                <!-- FORM -->
+                <div class="row">
+                </div> <!-- ROW -->
+                    <?php };?>
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="h5">Editar perguntas</h5>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-6">
-                      <h5 class="h5 text-center">Perguntas</h5>
-                      <?php
-                        $tipo = ListarTipoPergunta();
-                        while($tipos = $tipo->fetch_array()){
-                      ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
-                        <?php };?>
-                  </div>
-                  <div class="col-6">
-                      <h5 class="h5 text-center">Exemplos</h5>
-                      <input type="text" class="form-control" name="" id="" disabled>
-                      <input type="text" class="form-control" name="" id="" disabled style="margin-top: 10px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <br>
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                  </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="ajax.js"></script>
+
 </body>
 
 </html>
