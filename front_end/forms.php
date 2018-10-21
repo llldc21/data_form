@@ -149,9 +149,9 @@ if (isset($_GET['criar'])) {
     </nav>
     
     
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2" id="user">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-2 h-100" id="user">
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -172,7 +172,7 @@ if (isset($_GET['criar'])) {
                 </div>
                 <?php };?>
             </div>
-            <div class="col-md-10 col-12">
+            <div class="col-md-6 offset-md-2 col-12" id="conteudo">
                 <br>
                     <div class="row">
                         <div class="col-12">
@@ -183,24 +183,35 @@ if (isset($_GET['criar'])) {
                     </div>
                 <hr>
                 <div>
-                        <h3 class="h3 text-center">Insira o nome do formulario:</h3>
+                    
+                    
                         <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
                         <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
                         
-                        <input type="text" class="form-control" name="nome_form" id="nome_form" require>
-                        <br>
-                        <h3 class="h3 text-center">Descreva seu formulario:</h3>
-                        <textarea name="desc_form" id="desc_form" class="form-control" cols="30" rows="1" require></textarea>
+                       <div id="namer">
+                          <div id="namer-input">
+                           <input type="text" name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
+                          </div>
+                        </div>
+                       
+                         <div id="namer">
+                          <div id="namer-input">
+                           <input type="text" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+                          </div>
+                        </div>
+                        
+                        
+                        
                         <br>
                     <div class="row">
                         <div class="col-md-4 col-12">
                             <br>
-                            <h3 class="h3 text-center">Data de abertura:</h3>
+                            <h4 class="h4 text-center">Data de abertura:</h4>
                             <input type="date" class="form-control" name="data_abertura" id="data_abertura">
                         </div>
                         <div class="col-md-4 col-12">
                             <br>
-                            <h3 class="h3 text-center">Categoria</h3>
+                            <h4 class="h4 text-center">Categoria</h4>
                             <select name="categoria" class="form-control">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
@@ -211,7 +222,7 @@ if (isset($_GET['criar'])) {
                         </div>
                         <div class="col-md-4 col-12">
                             <br>
-                            <h3 class="h3 text-center">Data de fechamento:</h3>
+                            <h4 class="h4 text-center">Data de fechamento:</h4>
                             <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
                         </div>
                         <div class="col-12">
@@ -230,6 +241,10 @@ if (isset($_GET['criar'])) {
                         <div id="caixa">
                         </div>
                     </div>
+                    
+                    
+
+                    
                 </div>
             </div>
         </div>

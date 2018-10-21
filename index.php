@@ -45,11 +45,11 @@
           <li class="nav-item">
             <?php
             if(isset($_GET['logado'])){
-              echo '<a class="nav-link asd" href="front_end/user.php">Painel</a></li>';
+              echo '<a class="nav-link" href="front_end/user.php">Painel</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
             }else{
-              echo '<a class="nav-link asd" href="front_end/login.php">Entrar</a></li>';
+              echo '<a class="nav-link" href="front_end/login.php">Entrar</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
             }

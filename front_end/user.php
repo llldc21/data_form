@@ -157,8 +157,9 @@ include('../back_end/funcs.php');
             </div>
             
             
-            <div class="col-12 col-md-10 offset-md-0" id="conteudo">
+            <div class="col-12 col-md-10" id="conteudo">
                 <br>
+                
                 <div class="row">
                     <div class="col-md-4 col-12 offset-md-0 form painel">
                         <div class="text-center">
