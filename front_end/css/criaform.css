@@ -126,16 +126,7 @@
         font-size: 17px;
         margin-bottom: 30px;
 }
-::-webkit-scrollbar-track {
-    background-color: gray;
-}
-::-webkit-scrollbar {
-    text-align: left;
-    width: 6px;
-}
-::-webkit-scrollbar-thumb {
-    background: #007bff;
-}
+
 
 
 

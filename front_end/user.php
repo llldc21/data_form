@@ -107,7 +107,7 @@ include('../back_end/funcs.php');
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
             <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            <button class="fas fa-bars" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
 
@@ -120,21 +120,19 @@ include('../back_end/funcs.php');
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ml-5">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                        <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                    </li>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     
-
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-md-2 h-100" id="user">
+    <div class="row rowzin">
+            <div class="col-md-2" id="user" height="100%">
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -143,35 +141,35 @@ include('../back_end/funcs.php');
                 <div class="foto">
                     <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
                 
-                </div>
+                
                 <div style="margin-top: 20px;"> 
-                <h3 class="h3 text-center" id="nome-user">
+                <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0].' '.$nome[1]?>
-                </h3>
+                </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                 <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
-                <br>
+                </div>
                 </div>
                 
                 <?php };?>
             </div>
             
             
-            <div class="col-12 col-md-10" id="conteudo">
+            <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">
                 <br>
                 
-                <div class="row">
-                    <div class="col-md-4 col-12 offset-md-0 form painel">
+                <div class="row correcao">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
                             <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12 offset-md-0 painel">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
                             <h4>Painel de Controle</h4>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12 offset-md-0 painel">
+                    <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -183,29 +181,31 @@ include('../back_end/funcs.php');
                     </div>
                 </div>
                 <hr>
-                <br>
                 <!-- CARDS -->
-                <div class="row">
-                <?php
-                $dados = ListarForms($_SESSION['cd']);
-                while ($dado = $dados->fetch_array()){
-                    echo'<div class="col-md-4 offset-md-0 col-12"> 
-                     <div class="card" style="width: 100%;">
-                     <div class="card-body">
-                     <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
-                     <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
-                     <hr>
-                     <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                     <a href="excluir_form.php" class="card-link btn btn-danger">Excluir</a>
-                     </div>
-                     </div>
-                     </div>';               
-                }
                 
-                ?>
-                </div> <!-- ROW -->
-            </div>
-        </div>
+                
+                <div class="row correcao">    
+                    <?php
+                    $dados = ListarForms($_SESSION['cd']);
+                    while ($dado = $dados->fetch_array()){
+                        echo'<div class="col-md-4 offset-md-0 col-10 offset-1"> 
+                         <div class="card" style="width: 100%;">
+                         <div class="card-body">
+                         <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
+                         <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
+                         <hr>
+                         <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
+                         <a href="excluir_form.php" class="card-link btn btn-danger">Excluir</a>
+                         </div>
+                         </div>
+                         </div>';               
+                    }
+                    
+                    ?>
+                </div>
+                
+            </div> <!-- col-md-10 -->
+        
     </div>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

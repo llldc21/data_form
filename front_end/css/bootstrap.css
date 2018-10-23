@@ -5107,7 +5107,8 @@ button.close {
   position: relative;
   -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-  padding: 15px;
+  padding: 10px;
+  
 }
 
 .modal-footer {

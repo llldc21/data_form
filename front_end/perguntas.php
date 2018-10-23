@@ -1,6 +1,10 @@
 <?php
-include "../back_end/funcs.php";
 session_start();
+include('../back_end/funcs.php');
+
+if (isset($_GET['criar'])) {
+    CadastrarFormulario();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +20,9 @@ session_start();
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
-    <title>Data Form | <?php echo $nome[0].' '.$nome[1]?></title>
+    <title>Data Form |
+        <?php echo $nome[0].' '.$nome[1]?>
+    </title>
     <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +34,18 @@ session_start();
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../front_end/css/main.css">
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/criaform.css" type="text/css" />-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <script>
+        $(document).on('click', '.perguntas', function(){
+            var botoes = '<i data-toggle="modal" data-target=".bd-example-modal-lg" class="fas fa-plus icone fa-3x"></i><i class="fas fa-check icone fa-3x vai"><button type="submit"></button></i>';
+            $('#footer').append(botoes);
+        });
+        $(document).on('click', '.perguntas', function(){
+            $('#footer').parent().hide();
+        })
+    </script>
 
 </head>
 
@@ -61,7 +78,7 @@ session_start();
     </div>
     </div>
     
-            <!-- Modal Perfil -->
+    <!-- Modal Perfil -->
         <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -80,14 +97,14 @@ session_start();
                         ?>
                         <div class="foto">
                             <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
+                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle card-img-top" width="100%" height="50%">
                             </center>
                         </div>
                         
                         <div style="margin-top: 20px;"> 
-                            <h5 class="text-center" id="nome-user">
+                            <h3 class="text-center" id="nome-user">
                                 <?php echo $nome[0].' '.$nome[1]?>
-                            </h5>
+                            </h3>
                             
                             <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                             <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
@@ -100,8 +117,8 @@ session_start();
                 
               </div>
             </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
@@ -129,63 +146,39 @@ session_start();
             </div>
         </div>
     </nav>
-    
 
-        <div class="row rowzin">
-            <div class="col-md-2" id="user">
-                <?php
-                $dados = ListarDadosUsuario($_SESSION['cd']);
-                while ($dado = $dados->fetch_array()){
-                    $nome = explode(' ', $dado['NM_USUARIO'])
-                ?>
-                <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
-                
-                
-                <div style="margin-top: 20px;"> 
-                <h4 class="h4 text-center " id="nome-user">
-                        <?php echo $nome[0].' '.$nome[1]?>
-                </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
+          
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                   <h3 class="text-center"> Criar Formularios</h3>
                 </div>
+              </div>
+              <div class="row">
+                <!-- FORMULARIO -->
+                 <div class="col-md-5 offset-md-2" id="conteudo" style="border:1px solid red;">
                 </div>
+                <!-- FORMULARIO -->
                 
-                <?php };?>
-            </div>
-            
-            
-            <div class="col-12 col-md-8 offset-md-1" id="conteudo">
-                <br>
-                <div class="row">
-                    <div class="col-md-12 col-12">
-                    <h3 class="h3 text-center">Editar formulario</h3>
-                    <hr>
-                        <form action="edit_form.php" method="post">
-                            <?php
-                                $usuario = $_SESSION['cd'];
-                                $formulario = $_GET['form'];
-
-                                if (isset($formulario)) {
-                                    $form = ListarFormsEspecifico($usuario, $formulario);
-                                    while ($forms = $form->fetch_array()) {
-                                        echo 'Nome do formulario:<br><input type="text" class="form-control" name="nome_form" id="nome_form" placeholder="'.$forms['NM_FORMULARIO'].'">';
-                                }
-
-                                ListaPerguntasPorForm($formulario);
-                            ?>
-                        </form>
-                    </div>
+                     
+                  <div class="col-md-1" style="padding:0;">
+                     
+                  </div><!-- div exemplos -->
+                
+                <div class="col-md-2 sidep">
+                      <h5 class="h5 text-center">Perguntas</h5>
+                      <?php
+                        $tipo = ListarTipoPergunta();
+                        while($tipos = $tipo->fetch_array()){
+                      ?>
+                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
+                        <?php };?>
+                      
+                      <br><br>
+  
                 </div>
-                <!-- FORM -->
-                <div class="row">
-                </div> <!-- ROW -->
-                    <?php };?>
-            </div>
-        </div>
-    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+      </div>
+      
+</div>     
 </body>
-
 </html>

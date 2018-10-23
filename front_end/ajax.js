@@ -85,7 +85,7 @@ $(document).on('click', '.campo', function () {
                 alert(`Pergunta muito curta...`);
             } else {
                 alert(`Pergunta salva!`);
-                campo = '<form method="post" action="../back_end/processa.php"><h5 class="h5 text-center">' + curta + '</h5><input type="text" name="campo[]" class="form-control" placeholder="' + curta + '" disabled><br>';
+                campo = '<form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled><br>';
                 GravaPergunta(curta, tipo, data.cd_form);
                 setTimeout(function () {
                     GravaAlternativa(tipo, get());
@@ -98,7 +98,7 @@ $(document).on('click', '.campo', function () {
                 alert(`Pergunta muito curta...`);
             } else {
                 alert(`Pergunta salva!`);
-                campo = '<h5 class="h5 text-center">' + longa + '</h5><textarea class="form-control" name="campo[]" placeholder="' + longa + '" disabled></textarea><br>';
+                campo = '<h5 class="h5 text-left">' + longa + '</h5><textarea class="form-control perguntasl" name="campo[]" placeholder="' + longa + '" disabled></textarea><br>';
                 GravaPergunta(longa, tipo, data.cd_form);
                 setTimeout(function () {
                     GravaAlternativa(tipo, get());
