@@ -107,7 +107,7 @@ include('../back_end/funcs.php');
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
             <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="fas fa-bars" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            <button class="fas fa-bars navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
 
@@ -139,7 +139,7 @@ include('../back_end/funcs.php');
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                   <a href="user.php"> <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%"></a>
                 
                 
                 <div style="margin-top: 20px;"> 

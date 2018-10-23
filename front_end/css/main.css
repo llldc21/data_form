@@ -29,27 +29,51 @@
     border: 4px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
 }
-
-
+.modal-lg {
+    max-width: 90% !important;
+}
+.perguntasc {
+  height:20px;
+  width:450px;
+}
+.perguntasl {
+  height:20px;
+  width:450px;
+}
+.pps {
+  border-bottom:1px solid #ccc;
+  padding:12px;
+  width:100%;
+}
+.ppz {
+  border-bottom:1px solid #ccc;
+  padding:12px;
+  width:100%;
+}
 #nome-user{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  background-color: white;
-  border-radius: 4px;
-  padding: 3px
+  margin-top: 15%;
+  margin-bottom: 15%;
+  color: white;
+}
+.correcao{
+  margin-right: 1%;
 }
 
 .foto{
   padding-top:10px;
+  margin-left: 7%;
 }
 #user{
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(67, 101, 127, 0.3);
+}
+.contuser{
+  overflow-y: auto;
   height: 100%;
 }
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
+.formss{
+  overflow-y: auto;
+  height: 100%;
+}
 * {
 	margin: 0%; 
 	padding: 0%; 
@@ -74,23 +98,21 @@
 #img-user{
   height: 200px;
 }
-#conteudo{
-  height: 100%;
-  overflow: auto;
-}
 .linha{
   height: 80%;
 }
 footer{
   background-color: rgb(33, 150, 243);
 }
-
+.rowzin{
+  height: 88%;
+}
 
 body{
   margin:0%;
   padding: 0%;
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
 }
 html{
   font-family: "Catamaran", sans-serif;
@@ -496,7 +518,7 @@ iframe {
 }
 
 .respo{
-    display:none;
+    display: none;
   }
 
 @media (max-width: 800px) {
@@ -508,9 +530,6 @@ iframe {
     width: 50%;
   }
   #user{
-    background-color: black;
-    height: 100%;
-    position: absolute;
     display: none;
   }
   .respo{
@@ -525,6 +544,14 @@ iframe {
   }
   #conteudo{
     background-color: white;
+    overflow-x: hidden;
+  }
+  body, html{
+    background-color: white;
+    overflow: hidden;
+  }
+  .card{
+    margin-bottom: 50px;
   }
 }
 
@@ -568,17 +595,6 @@ iframe {
   #img-user{
     height: 300px;
   }
-}
-
-::-webkit-scrollbar-track {
-    background-color: #F4F4F4;
-}
-::-webkit-scrollbar {
-    width: 6px;
-    background: black;
-}
-::-webkit-scrollbar-thumb {
-    background: #dad7d7;
 }
 
 

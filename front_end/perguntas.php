@@ -49,7 +49,7 @@ if (isset($_GET['criar'])) {
 
 </head>
 
-<body>
+<body style="background-color:#eaf9f9;">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -147,17 +147,34 @@ if (isset($_GET['criar'])) {
         </div>
     </nav>
 
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+        </div>
+    </div>
           
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-8 offset-md-2">
-                   <h3 class="text-center"> Criar Formularios</h3>
-                </div>
-              </div>
-              <div class="row">
+                
+                
                 <!-- FORMULARIO -->
-                 <div class="col-md-5 offset-md-2" id="conteudo" style="border:1px solid red;">
-                </div>
+                 <div class="col-md-7 offset-md-1" style="background-color:#fff;border:1px solid #70baf4;">
+                     <div class="row">
+                         <h3 style="padding-left:20px;"> Criar Formularios</h3>
+                         
+                     </div><!-- row -->
+                     <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
+                     
+                     <div class="row conteudo container-fluid" style="padding:20px;">
+                        <div class="container-fluid">     
+                            <div class="form-group" id="conteudo">
+                             <!-- forms vai aqui -->
+                             </div>
+                        </div>     
+                     </div>
+                     
+                     
+                 </div><!-- fim col 5 -->
                 <!-- FORMULARIO -->
                 
                      
@@ -165,7 +182,7 @@ if (isset($_GET['criar'])) {
                      
                   </div><!-- div exemplos -->
                 
-                <div class="col-md-2 sidep">
+                <div class="col-md-2" style="background-color:#fff;border:1px solid #70baf4;">
                       <h5 class="h5 text-center">Perguntas</h5>
                       <?php
                         $tipo = ListarTipoPergunta();
@@ -180,5 +197,10 @@ if (isset($_GET['criar'])) {
       </div>
       
 </div>     
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="ajax.js"></script>
 </body>
 </html>

@@ -85,7 +85,7 @@ $(document).on('click', '.campo', function () {
                 alert(`Pergunta muito curta...`);
             } else {
                 alert(`Pergunta salva!`);
-                campo = '<form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled><br>';
+                campo = '<div class="row"><form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><div class="row pps"><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled></div></div><br>';
                 GravaPergunta(curta, tipo, data.cd_form);
                 setTimeout(function () {
                     GravaAlternativa(tipo, get());
@@ -98,7 +98,7 @@ $(document).on('click', '.campo', function () {
                 alert(`Pergunta muito curta...`);
             } else {
                 alert(`Pergunta salva!`);
-                campo = '<h5 class="h5 text-left">' + longa + '</h5><textarea class="form-control perguntasl" name="campo[]" placeholder="' + longa + '" disabled></textarea><br>';
+                campo = '<div class="row"><h5 class="h5 text-left">' + longa + '</h5><div class="row pps"><textarea class="form-control perguntasl" name="campo[]" placeholder="' + longa + '" disabled></textarea></div></div><br>';
                 GravaPergunta(longa, tipo, data.cd_form);
                 setTimeout(function () {
                     GravaAlternativa(tipo, get());
@@ -111,13 +111,13 @@ $(document).on('click', '.campo', function () {
                 alert(`Pergunta obrigatoria`);
             } else {
                 alert(`Pergunta salva!`);
-                campo = '<h5 class="h5 text-center">' + m_escolha + '</h5>';
+                campo = '<h5 class="h5 text-left">' + m_escolha + '</h5>';
                 GravaPergunta(m_escolha, tipo, data.cd_form);
             }
             var qtd_me = parseInt(prompt('Quantas escolhas deseja?'));
             for (let i = 1; i <= qtd_me; i++) {
                 var alternativa_me = prompt(`Digite a escolha ${i}:`);
-                campo += '<input type="radio" class="text-center" name="campo[]" disabled>' + alternativa_me[i] + '<br>';
+                campo += '<div class="row pps"><input type="radio" class="text-center" name="campo[]" disabled>' + alternativa_me[i] + '</div><br>';
                 GravaAlternativa(alternativa_me, get());
             }
             break;
