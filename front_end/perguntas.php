@@ -120,7 +120,7 @@ if (isset($_GET['criar'])) {
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed">
         <div class="container">
             <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -158,7 +158,7 @@ if (isset($_GET['criar'])) {
                 
                 
                 <!-- FORMULARIO -->
-                 <div class="col-md-7 offset-md-1" style="background-color:#fff;border:1px solid #70baf4;">
+                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border:1px solid #70baf4;">
                      <div class="row">
                          <h3 style="padding-left:20px;"> Criar Formularios</h3>
                          
@@ -182,7 +182,7 @@ if (isset($_GET['criar'])) {
                      
                   </div><!-- div exemplos -->
                 
-                <div class="col-md-2" style="background-color:#fff;border:1px solid #70baf4;">
+                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border:1px solid #70baf4;">
                       <h5 class="h5 text-center">Perguntas</h5>
                       <?php
                         $tipo = ListarTipoPergunta();

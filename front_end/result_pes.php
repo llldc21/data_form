@@ -163,15 +163,7 @@ Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica 
     <!-- /.container -->
   </footer>
 	  <!--fim footer-->
-  <div class="pagination">
-                <buttom class="btn btn-dark" type="buttom">Anterior</buttom>
-                <buttom class="btn btn-primary" type="buttom">1</buttom>
-                <buttom class="btn btn-primary" type="buttom">2</buttom>
-                <buttom class="btn btn-primary" type="buttom">3</buttom>
-                <buttom class="btn btn-primary" type="buttom">4</buttom>
-                <buttom class="btn btn-primary" type="buttom">5</buttom>
-                <buttom class="btn btn-primary" type="buttom">Próximo</buttom>
-              </div>
+  
   
   </body>
 </html>
