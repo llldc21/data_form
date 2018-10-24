@@ -48,13 +48,20 @@
 }
 .pps {
   border-bottom:1px solid #ccc;
-  padding:12px;
   width:100%;
+  padding:10px;
+  font-family:verdana;
+  font-size:14px;
+  
+}
+.pps input[type=radio], input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  padding-right:10px;
 }
 .ppz {
-  border-bottom:1px solid #ccc;
-  padding:12px;
   width:100%;
+  padding:10px;
 }
 #nome-user{
   margin-top: 15%;

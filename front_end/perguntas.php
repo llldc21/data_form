@@ -158,7 +158,7 @@ if (isset($_GET['criar'])) {
                 
                 
                 <!-- FORMULARIO -->
-                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border:1px solid #70baf4;">
+                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
                      <div class="row">
                          <h3 style="padding-left:20px;"> Criar Formularios</h3>
                          
@@ -182,7 +182,7 @@ if (isset($_GET['criar'])) {
                      
                   </div><!-- div exemplos -->
                 
-                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border:1px solid #70baf4;">
+                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
                       <h5 class="h5 text-center">Perguntas</h5>
                       <?php
                         $tipo = ListarTipoPergunta();
