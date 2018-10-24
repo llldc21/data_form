@@ -160,7 +160,7 @@ if (isset($_GET['criar'])) {
                 <!-- FORMULARIO -->
                  <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
                      <div class="row">
-                         <h3 style="padding-left:20px;"> Criar Formularios</h3>
+                         <h3 style="padding-top:10px;padding-left:20px;"> Criar Formularios</h3>
                          
                      </div><!-- row -->
                      <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
@@ -183,7 +183,11 @@ if (isset($_GET['criar'])) {
                   </div><!-- div exemplos -->
                 
                 <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
-                      <h5 class="h5 text-center">Perguntas</h5>
+                     <div class="row">
+                      <h3 style="padding-top:10px;padding-left:20px;">Perguntas</h3>
+                      </div>
+                       <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
+                       <br>
                       <?php
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
@@ -197,6 +201,10 @@ if (isset($_GET['criar'])) {
       </div>
       
 </div>     
+
+<div class="row">
+    <div class="col-md-12 fixed-bottom float-right" style="float:right;"><a href="user.php" class="btn btn-success">voltar</a></div>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
