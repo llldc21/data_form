@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="css/main.css">
   <title>DataForm</title>
 
-<body>
+<body style="background-color:#eaf9f9;">
 
  <!--------- NAV BAR -------->
 
       <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="border-bottom:1px solid #000;">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="border-bottom:1px solid #000;">
     <div class="container">
       <a class="navbar-brand dsa" href="index.php"><img src="img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -95,54 +95,16 @@
       
           <div class="resu">
             <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e  pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e  pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
-          </div>
-          
-
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
+            
+            
+                  <!-- ===========================Conteudo=========================== -->
+                  
+                  
+                Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e  pegou uma 
+                
+                
+                  <!-- ===========================Conteudo=========================== -->
+                  
           </div>
       
         </div>
@@ -156,7 +118,7 @@ Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica 
 <!-- END THE CONTEUDO -->
 
       <!-- FOOTER -->
-      <footer class="navbar navbar-expand-lg navbar-light navbar-custom py-5" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+      <footer class="navbar navbar-expand-lg navbar-light navbar-custom fixed-bottom py-5 style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
     <div class="col-md-2 col-12 offset-md-5">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>
