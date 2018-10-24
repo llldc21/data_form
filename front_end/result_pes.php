@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/main.css">
   <title>DataForm</title>
 
-<body style="background-color:#eaf9f9;">
+<body style="background-color:#eaf9f9; font-family: 'Catamaran'">
 
  <!--------- NAV BAR -------->
 

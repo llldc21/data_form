@@ -28,8 +28,9 @@
   max-height: max-content;
   positon:fixed;
 }
-.scrou{
-
+.masds{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .rounded-circle{
     border: 4px solid rgba(0, 0, 0, 0.2);
@@ -125,7 +126,7 @@ body{
   margin:0%;
   padding: 0%;
   height: 100%;
-
+  overflow-x:hidden;
 }
 html{
   font-family: "Catamaran", sans-serif;

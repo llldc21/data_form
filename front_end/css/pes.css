@@ -1,8 +1,8 @@
 .resu{
     height: auto;
     margin-top: 20px;
-    border-top: 1px solid black;
-    padding-top: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
 }
 .result{
     color: black;
@@ -13,6 +13,7 @@
       height: auto;
       position: relative;
       width:93%;
+      text-decoration: underline;
     }
 .left {
   border:1px solid #70baf4;
@@ -72,7 +73,6 @@
        padding-bottom:3px;
        overflow:auto;
        white-space: nowrap;
-       margin-top:32%;
        width: 100%;
    }
    .resu{

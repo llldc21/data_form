@@ -106,8 +106,8 @@ include('../back_end/funcs.php');
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="fas fa-bars navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
 
@@ -121,10 +121,10 @@ include('../back_end/funcs.php');
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
-                    </li>
-                    <li class="nav-item ml-2">
                         <a class="nav-link" href="../back_end/sair.php">Sair</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
                     </li>
                 </ul>
             </div>
@@ -158,7 +158,7 @@ include('../back_end/funcs.php');
             <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">
                 <br>
                 
-                <div class="row correcao">
+                <div class="row ">
                     <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
                             <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
@@ -184,7 +184,7 @@ include('../back_end/funcs.php');
                 <!-- CARDS -->
                 
                 
-                <div class="row correcao">    
+                <div class="row ">    
                     <?php
                     $dados = ListarForms($_SESSION['cd']);
                     while ($dado = $dados->fetch_array()){

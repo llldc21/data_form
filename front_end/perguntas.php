@@ -97,14 +97,14 @@ if (isset($_GET['criar'])) {
                         ?>
                         <div class="foto">
                             <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle card-img-top" width="100%" height="50%">
+                            <a href="user.php"><img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle card-img-top" width="100%" height="50%"></a>
                             </center>
                         </div>
                         
                         <div style="margin-top: 20px;"> 
-                            <h3 class="text-center" id="nome-user">
+                            <a href="user.php"><h3 class="text-center" id="nome-user">
                                 <?php echo $nome[0].' '.$nome[1]?>
-                            </h3>
+                            </h3></a>
                             
                             <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                             <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
@@ -120,9 +120,9 @@ if (isset($_GET['criar'])) {
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
@@ -137,9 +137,9 @@ if (isset($_GET['criar'])) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#examModal">Perfil</a>
                     </li>
-                    <li class="nav-item ml-2">
+                    <li class="nav-item">
                         <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
                 </ul>
