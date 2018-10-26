@@ -231,7 +231,7 @@ if (isset($_GET['criar'])) {
                     <br>
                     <div class="row">
                         <div class="col-md-4 offset-md-4 col-12">
-                            <button type="button" class="btn btn-primary btn-block" id="novo" data-toggle="modal" data-target=".bd-example-modal-lg">Perguntas</button>
+                            <a href="perguntas.php"><button type="button" class="btn btn-primary btn-block" id="novo">Perguntas</button></a>
                             <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
                             <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
                         </div>
@@ -246,45 +246,7 @@ if (isset($_GET['criar'])) {
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="h5">Editar perguntas</h5>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                  <div class="col-6">
-                      <h5 class="h5 text-center">Perguntas</h5>
-                      <?php
-                        $tipo = ListarTipoPergunta();
-                        while($tipos = $tipo->fetch_array()){
-                      ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
-                        <?php };?>
-                  </div>
-                  <div class="col-6">
-                      <h5 class="h5 text-center">Exemplos</h5>
-                      <input type="text" class="form-control" name="" id="" disabled>
-                      <input type="text" class="form-control" name="" id="" disabled style="margin-top: 10px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <input type="checkbox" name="" id="" disabled style="margin-top: 9px;">
-                      <br>
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                      <input type="radio" name="" id="" disabled style="margin-top: 25px;">
-                  </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
-
+   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
