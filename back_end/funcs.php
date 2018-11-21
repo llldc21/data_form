@@ -46,6 +46,29 @@ function ListarDadosUsuario($cd){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
+
+function AtualizarDadosUsuario($nome,$email,$data,$img_usuario,$cd){
+    if (isset($img_usuario)) {
+
+        $ext = explode('.', $img_usuario['name']);
+        $novo_nome = $email.'.'.$ext[1];
+        $caminho = '../back_end/fotos/'.$novo_nome;
+        move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
+    };
+	$sql = 'UPDATE TB_USUARIO SET NM_USUARIO = "'.$nome.'",
+	DS_EMAIL = "'.$email.'",
+    DT_NASCIMENTO= "'.$data.'",
+    IMG_USUARIO = "'.$caminho.'"
+	WHERE CD_USUARIO = '.$cd;
+	$res = $GLOBALS['conn']->query($sql);
+	if($res){
+		alert("Seus dados foram atualizados com sucesso!");
+	}else{
+		alert("Erro ao atualizar");
+	}
+}
+
+
 // FIM - LISTAR
 // LOGIN
 function Login($email, $senha){
@@ -81,19 +104,26 @@ function CadastrarFormulario(){
 // FIM DO CADASTRA FORMULARIO
 
 // ATUALIZA FORMULARIO
-function AtualizaForm($nome_form, $data_abertura, $data_fechamento, $id_categoria, $ds_form, $id_usuario, $cd_form){
-    $data_abertura = @date('Y/m/d', strtotime($data_abertura));
-    $data_fechamento = @date('Y/m/d', strtotime($data_fechamento));
 
-    $sql = "UPDATE `TB_FORMULARIO` SET `NM_FORMULARIO`= '$nome_form', `DT_ABERTURA_FORM`= '$data_abertura', `DT_FECHAMENTO_FORM`='$data_fechamento', `ID_CATEGORIA` = '$id_categoria', `DS_FORMULARIO`= '$ds_form' WHERE `ID_USUARIO` = '$id_usuario' AND `CD_FORMULARIO` = '$cd_form'";
+function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
+    $dataa = @date('Y/m/d', strtotime($dataa));
+    $dataf = @date('Y/m/d', strtotime($dataf));
+    $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
+    DT_ABERTURA_FORM ="'.$dataa.'",
+    DT_FECHAMENTO_FORM ="'.$dataf.'",
+    ID_CATEGORIA="'.$id_cat.'",
+    DS_FORMULARIO="'.$ds.'",
+    ID_USUARIO="'.$cd.'" WHERE
+    CD_FORMULARIO='.$cd_form;
     $res = $GLOBALS['conn']->query($sql);
-    if ($res) {
-        echo 'Ok';
-    }else{
-        echo '<script> alert("Erro"); </script>';
-    }
-};
-// FIM DO ATUALIZA FORMULARIO
+	if($res){
+		alert("Atualizado com sucesso!");
+	    header('location: user.php');
+	}else{
+		alert("Erro ao atualizar");
+	}
+}
+
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
 function AddCategoria($categoria){
@@ -130,6 +160,22 @@ function ListarFormsEspecifico($cd_usuario, $cd_formulario){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
+
+//yasmin
+// function AtualizarForms($nomeform, $descricao){
+//     $sql = "UPDATE * FROM `TB_FORMULARIO` SET `NM_FORMULARIO` = $nomeform AND `DS_DESCRICAO` = $descricao ";
+//     $res = $GLOBALS['conn']->query($sql);
+//     if($res){
+//         alert("Atualizados com sucesso !");
+//     }else{
+//         alert("Erro ao atualizar");
+//     }
+// };
+
+function ExcluirForm($cd){
+    $sql = 'DELETE from TB_FORMULARIO where CD_FORMULARIO= '.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+}
 
 function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
     $sql = 'INSERT INTO `TB_PERGUNTA` VALUES (null,"'.$pergunta.'" ,"'.$id_tipo_pergunta.'","'.$id_form.'")';
@@ -171,6 +217,10 @@ function ListaPerguntasPorForm($id_form){
 function EncriptarSenha($senha){
     $codificada = md5($senha);
     return $codificada;
+};
+
+function alert($msg){
+	echo '<script>alert("'.$msg.'"); </script>'; 
 };
 // ------------------------------------------------------------------------
 

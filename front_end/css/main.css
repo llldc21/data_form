@@ -126,7 +126,11 @@ body{
   margin:0%;
   padding: 0%;
   height: 100%;
+<<<<<<< HEAD
+  overflow: auto;
+=======
   overflow-x:hidden;
+>>>>>>> b16bd327815abf921a2f6d4f4837771fb1c841cf
 }
 html{
   font-family: "Catamaran", sans-serif;

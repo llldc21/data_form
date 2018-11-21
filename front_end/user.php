@@ -2,6 +2,14 @@
 session_start();
 include('../back_end/funcs.php');
 
+if($_POST){
+    ExcluirForm($_GET['cd']);
+}
+elseif($_POST){
+         AtualizarDadosUsuario($_POST['nome'], $_POST['email'], $_POST['data'], $_FILES['img_usuario'], $_SESSION['cd']);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,14 +38,47 @@ include('../back_end/funcs.php');
     <link rel="stylesheet" href="../front_end/css/main.css">
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script type="text/javascript">
+        
+$(document).on('click', '.delete', function(){
+	var id = $(this).attr('cd');
+	$('#cd').val(id);
 
+});
+
+$(document).ready(function(){
+	// Activate tooltip
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// Select/Deselect checkboxes
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#SelecionarTudo").click(function(){
+		if(this.checked){
+			checkbox.each(function(){
+				this.checked = true;                        
+			});
+		} else{
+			checkbox.each(function(){
+				this.checked = false;                        
+			});
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#SelecionarTudo").prop("checked", false);
+		}
+	});
+});
+    </script>
 </head>
 
 <body>
     <!-- Modal -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Editar Dados</h5>
@@ -45,20 +86,43 @@ include('../back_end/funcs.php');
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="user.php" method="post">
+                   <form action="user.php" method="post" enctype="multipart/form-data">
+
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
+                        ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
+                            
+                            <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
+                            
+                            <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
+                            
+                             <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
+                             
+                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">
+                             
                         </div>
+                        
                     </div>
+                    <input type="submit" class="btn btn-success" value="salvar" />
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                </form>
+                      
+                        <?php
+                        };
+                        ?>
+               
             </div>
+            
         </div>
+          
+         
     </div>
     </div>
     
@@ -106,8 +170,8 @@ include('../back_end/funcs.php');
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <button class="fas fa-bars" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             </button>
 
@@ -121,10 +185,10 @@ include('../back_end/funcs.php');
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
+                        <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                    <li class="nav-item ml-2">
+                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -139,12 +203,13 @@ include('../back_end/funcs.php');
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="foto">
-                   <a href="user.php"> <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%"></a>
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                    
                 
                 
                 <div style="margin-top: 20px;"> 
                 <h4 class="h4 text-center " id="nome-user">
-                        <?php echo $nome[0].' '.$nome[1]?>
+                        <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                 <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
@@ -158,7 +223,7 @@ include('../back_end/funcs.php');
             <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">
                 <br>
                 
-                <div class="row ">
+                <div class="row correcao">
                     <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
                             <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
@@ -184,7 +249,7 @@ include('../back_end/funcs.php');
                 <!-- CARDS -->
                 
                 
-                <div class="row ">    
+                <div class="row correcao">    
                     <?php
                     $dados = ListarForms($_SESSION['cd']);
                     while ($dado = $dados->fetch_array()){
@@ -195,7 +260,7 @@ include('../back_end/funcs.php');
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                         <a href="excluir_form.php" class="card-link btn btn-danger">Excluir</a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>
                          </div>
                          </div>
                          </div>';               
@@ -209,6 +274,7 @@ include('../back_end/funcs.php');
     </div>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

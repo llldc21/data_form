@@ -96,9 +96,19 @@ if (isset($_POST['nome'])) {
 							<br>
 							<div style="height:2%; width:100%;"></div>
 							<br>
-							<!--Botão cadastro-->
 							
-					<div class="container-login100-form-btn">
+							
+							<div class="container-login100-form-btn" style="margin-top: 15px">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+								Termos de Usuário
+							</button>
+						</div>
+					</div>
+							
+							<!--Botão cadastro-->
+					<div class="container-login100-form-btn" style="margin-top: 15px">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
@@ -119,6 +129,37 @@ if (isset($_POST['nome'])) {
 			</div>
 		</div>
 	</div>
+	
+	<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Termos de Uso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> A equipe do Data Form não se responsabiliza por propagação de informações falsas dentro da plataforma,
+        apartir do momento de inscrição o usuário passa a ter total responsabilidade pelos formulários
+        que ele gera e pelas informaçãoes que ele cativa.</p><br>
+        
+        Você aceitar o termo de responsabilidade de uso ?<br>
+        
+       <div class="custom-control custom-checkbox mr-sm-2">
+        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+        <label class="custom-control-label" for="customControlAutosizing">Sim</label>
+      </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
 	
 	
 	<script src="temas/vendor/jquery/jquery-3.2.1.min.js"></script>

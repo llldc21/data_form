@@ -1,6 +1,11 @@
 <?php
 include "../back_end/funcs.php";
 session_start();
+
+if($_POST){
+ EditarForm($_POST['nome'], $_POST['dataa'], $_POST['dataf'], $_POST['id_cat'], $_POST['ds'], $_SESSION['cd'], $_POST['cd_form']);   
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,17 +49,32 @@ session_start();
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="user.php" method="post">
+                 <form action="edit_form.php" method="post">
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'], $dado['DT_NASCIMENTO'])
+                        ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
+                            <!--MEXER NESSA PARTE/ ATUALIZAR INPUT -->
+                            <input class="form-control" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
+                            
+                             <input class="form-control" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
+                             
+                             
                         </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-success">Salvar</button>
+                        <?php
+                        };
+                        ?>
                 </form>
             </div>
         </div>
@@ -169,11 +189,19 @@ session_start();
                                 if (isset($formulario)) {
                                     $form = ListarFormsEspecifico($usuario, $formulario);
                                     while ($forms = $form->fetch_array()) {
-                                        echo 'Nome do formulario:<br><input type="text" class="form-control" name="nome_form" id="nome_form" placeholder="'.$forms['NM_FORMULARIO'].'">';
+                                        echo 'Nome do formulario:<br>
+                                        <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
+                                        <input type="text" class="form-control" name="nome"  value="'.$forms['NM_FORMULARIO'].'"><br>',
+                                         '<input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>',
+                                         '<input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'"><br>',
+                                        '<input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>',
+                                        '<input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">';
                                 }
-
+                                
                                 ListaPerguntasPorForm($formulario);
                             ?>
+                    <a href="user.php"> <button  type="button" class="btn btn-danger" style="margin-top: 20px">Fechar</button> </a>    
+                        <button type="submit" class="btn btn-success" style="margin-top: 20px">Salvar</button>
                         </form>
                     </div>
                 </div>

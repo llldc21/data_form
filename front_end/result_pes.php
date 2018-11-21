@@ -1,4 +1,18 @@
+<?php
+include "../back_end/conexao.php";
 
+if(isset($_GET['palavra'])){
+$sql = 'SELECT * NM_FORMULARIO AND DS_DESCRICAO FROM TB_FORMULARIO ='.$_GET['palavra'];
+$res = $con->query($sql);
+
+while($palavra = $res-> fetch_array()){
+
+  
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,6 +106,18 @@
               <!--Resultados-->
               
         <div class="main">
+<<<<<<< HEAD
+        
+          <?php
+            echo ' <div class="resu">
+            <div class="tig"> <a href="result_pes.php" class="result"> '.$palavra['NM_FORMULARIO'].'  </a>              <!--Titulo do resultado das pesquisas-->   </div>
+              '.$palavra['DS_DESCRICAO'].'
+          </div>';
+          ?>   
+          
+
+             
+=======
       
           <div class="resu">
             <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
@@ -106,6 +132,7 @@
                   <!-- ===========================Conteudo=========================== -->
                   
           </div>
+>>>>>>> b16bd327815abf921a2f6d4f4837771fb1c841cf
       
         </div>
         
