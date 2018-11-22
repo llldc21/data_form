@@ -11,7 +11,7 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
     $cadastrado = '';
     if ($img_usuario) {
         // Modificando a data
-        $n_nascimento = @date('Y/m/d', strtotime($nascimento));
+        $n_nascimento = FormataData($nascimento);
         // ------------------
 
         // Encryptando senha
@@ -91,9 +91,6 @@ function AtualizarDadosUsuario($nome,$email,$data,$img_usuario,$cd){
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
 function CadastrarFormulario(){
-    $n_abertura = @date('Y/m/d', strtotime($data_abertura));
-    $n_fechamento = @date('Y/m/d', strtotime($data_fechamento));
-    
     $sql = 	'INSERT INTO TB_FORMULARIO VALUES (null, "Meu form", null, null, '.$_SESSION['cd'].', 1, "Descreva...")';
 	$res = $GLOBALS['conn']->query($sql);
 	if($res){
@@ -122,8 +119,8 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
 };
 // -- Editar
 function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
-    $dataa = @date('Y/m/d', strtotime($dataa));
-    $dataf = @date('Y/m/d', strtotime($dataf));
+    $dataa = FormataData($dataa);
+    $dataf = FormataData($dataf);
     $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
     DT_ABERTURA_FORM ="'.$dataa.'",
     DT_FECHAMENTO_FORM ="'.$dataf.'",
@@ -195,6 +192,10 @@ function EncriptarSenha($senha){
 function Alert($msg){
 	echo '<script>alert("'.$msg.'"); </script>'; 
 };
+// -- Formatação de data
+function FormataData($data){
+    return @date('Y/m/d', strtotime($data));
+}
 // --
 
 //yasmin
