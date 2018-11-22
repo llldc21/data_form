@@ -2,11 +2,13 @@
 session_start();
 include('../back_end/funcs.php');
 
+// if($_POST){
+//     ExcluirForm($_GET['cd']);
+// }
 if($_POST){
-    ExcluirForm($_GET['cd']);
-}
-elseif($_POST){
-         AtualizarDadosUsuario($_POST['nome'], $_POST['email'], $_POST['data'], $_FILES['img_usuario'], $_SESSION['cd']);
+    $foto = (isset( $_FILES['img_usuario'])) ?  $_FILES['img_usuario'] :  $_POST['img_usuario'];
+    var_dump($foto);
+   AtualizarDadosUsuario($_POST['nome'], $_POST['email'], $_POST['data'],$foto, $_SESSION['cd']);
 }
 
 
@@ -97,7 +99,7 @@ $(document).ready(function(){
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
                             
-                            <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
+                            <input type="file" name="img_usuario" value="<?php echo $dado['img_usuario']?>" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
                             
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
