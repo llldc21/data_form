@@ -254,7 +254,9 @@ function Alert($msg){
 };
 // -- Formatação de data
 function FormataData($data){
-    return @date('Y/m/d', strtotime($data));
+    $edit = explode("-", $data);
+    $date = $edit[2]."-".$edit[1]."-".$edit[0];
+    echo date('d-m-Y', strtotime($date)); 
 }
 // --
 
