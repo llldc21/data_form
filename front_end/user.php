@@ -7,7 +7,6 @@ include('../back_end/funcs.php');
 // }
 if($_POST){
     $foto = (isset( $_FILES['img_usuario'])) ?  $_FILES['img_usuario'] :  $_POST['img_usuario'];
-    var_dump($foto);
    AtualizarDadosUsuario($_POST['nome'], $_POST['email'], $_POST['data'],$foto, $_SESSION['cd']);
 }
 
@@ -202,12 +201,17 @@ if($_POST){
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
-                <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                <div class="user-dados">
+                    <div class="row">
+                    <div class="foto-user">
                     
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
+                    
+                    </div>
+                    </div>
                 
                 
-                <div style="margin-top: 20px;"> 
+                <div style="margin-top: 10px;"> 
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
@@ -217,7 +221,7 @@ if($_POST){
                 </div>
                 
                 <?php };?>
-            </div>
+                </div>
             
             
             <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">

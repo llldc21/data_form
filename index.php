@@ -26,20 +26,15 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top" style="border-bottom:1px solid #000;">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
     <div class="container">
       <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-          aria-describedby="basic-addon1">
-        <div class="input-group-append">
-          <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-        </div>
-      </div>
+      <input type="text" name="search"  placeholder="Pesquisar...">
+        
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -144,7 +139,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+  <footer class="py-5" style="background-color: rgb(0,0,0);border-top:1px solid #000;">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>

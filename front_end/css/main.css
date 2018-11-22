@@ -65,17 +65,25 @@
   padding:10px;
 }
 #nome-user{
-  margin-top: 15%;
-  margin-bottom: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   color: white;
 }
 .correcao{
   margin-right: 1%;
 }
 
-.foto{
+.user-dados{
   padding-top:10px;
   margin-left: 7%;
+}
+.foto-user img {
+  width:95%;
+  height:240px;
+  object-fit:cover;
+  background-size:cover; 
+  margin-top:10px;
+  margin-left:5px;
 }
 #user{
   background-color: rgba(67, 101, 127, 0.3);
@@ -126,11 +134,7 @@ body{
   margin:0%;
   padding: 0%;
   height: 100%;
-<<<<<<< HEAD
   overflow: auto;
-=======
-  overflow-x:hidden;
->>>>>>> b16bd327815abf921a2f6d4f4837771fb1c841cf
 }
 html{
   font-family: "Catamaran", sans-serif;
