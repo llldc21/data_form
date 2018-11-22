@@ -38,7 +38,6 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
     };
         
 };
-// FIM - CADASTRO USUÁRIO
 
 // LISTAR DADOS DO USUARIO
 function ListarDadosUsuario($cd){
@@ -47,21 +46,16 @@ function ListarDadosUsuario($cd){
     return $res;
 };
 
-function AtualizarDadosUsuario($nome,$email,$data,$img_usuario,$cd){
+//ATUALIZAR FUNÇÕES DE USUÁRIO
+function AtualizarFoto($img_usuario,$cd){
     $caminho = $img_usuario;
-     
-
     if (isset($img_usuario['tmp_name'])) {
-
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
         $caminho = '../back_end/fotos/'.$novo_nome;
         move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
     };
-
-	$sql = 'UPDATE TB_USUARIO SET NM_USUARIO = "'.$nome.'",
-	DS_EMAIL = "'.$email.'",
-    DT_NASCIMENTO= "'.$data.'",
+	$sql = 'UPDATE TB_USUARIO SET
     IMG_USUARIO = "'.$caminho.'"
 	WHERE CD_USUARIO = '.$cd;
 	$res = $GLOBALS['conn']->query($sql);
@@ -72,8 +66,42 @@ function AtualizarDadosUsuario($nome,$email,$data,$img_usuario,$cd){
 	}
 }
 
+function AtualizarNome($nome,$cd){
+    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO  "'.$nome.'"
+    WHERE CD_USUARIO='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        //aksjlsa
+    }else{
+        alert('Erro ao atualizar nome');
+    }
+}
 
-// FIM - LISTAR
+function AtualizarEmail($email,$cd){
+    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    WHERE CD_USUARIO='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        //aksjlsa
+    }else{
+        alert('Erro ao atualizar email');
+    }
+}
+
+function AtualizarDataNascimento($data,$cd){
+    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    WHERE CD_USUARIO='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    if($res){
+        //aksjlsa
+    }else{
+        alert('Erro ao atualizar email');
+    }
+}
+
+
+
+
 // LOGIN
 function Login($email, $senha){
     $encriptada = EncriptarSenha($senha);
