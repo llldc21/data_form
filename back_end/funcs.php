@@ -55,27 +55,15 @@ function Login($email, $senha){
         echo ' <script> alert("Erro"); </script>';
     }; 
 };
-<<<<<<< HEAD
 // -- Listar dados
-=======
-
-
-
-
->>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
 function ListarDadosUsuario($cd){
     $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
 // -- Atualizar dados
-<<<<<<< HEAD
 function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
     $caminho = $img_usuario;
-=======
-function AtualizarImg($email,$img_usuario,$cd){
-
->>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
@@ -105,12 +93,7 @@ function AtualizarDataNascimento($data,$cd){
     $res = $GLOBALS['conn']->query($sql);
   
 }
-<<<<<<< HEAD
 // --
-=======
-
-// CADASTRO DO FORMULARIO 
->>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
 
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
