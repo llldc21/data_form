@@ -55,15 +55,27 @@ function Login($email, $senha){
         echo ' <script> alert("Erro"); </script>';
     }; 
 };
+<<<<<<< HEAD
 // -- Listar dados
+=======
+
+
+
+
+>>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
 function ListarDadosUsuario($cd){
     $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
 // -- Atualizar dados
+<<<<<<< HEAD
 function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
     $caminho = $img_usuario;
+=======
+function AtualizarImg($email,$img_usuario,$cd){
+
+>>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
@@ -74,43 +86,31 @@ function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
     IMG_USUARIO = "'.$caminho.'"
 	WHERE CD_USUARIO = '.$cd;
 	$res = $GLOBALS['conn']->query($sql);
-	if($res){
-		//header('location: user.php');
-	}else{
-		alert("Erro ao atualizar");
-	}
+	echo $sql;
 }
 function AtualizarNome($nome,$cd){
-    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO  "'.$nome.'"
+    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO ="'.$nome.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar nome');
-    }
+    echo $sql;
 }
 function AtualizarEmail($email,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL="'.$email.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar email');
-    }
 }
 function AtualizarDataNascimento($data,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    $sql = 'UPDATE TB_USUARIO SET DT_NASCIMENTO="'.$data.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar email');
-    }
+  
 }
+<<<<<<< HEAD
 // --
+=======
+
+// CADASTRO DO FORMULARIO 
+>>>>>>> 15da855918b23d5eb3dc45be3c2eca700d1dd6de
 
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
