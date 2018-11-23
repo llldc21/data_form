@@ -33,8 +33,11 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <input type="text" name="search"  placeholder="Pesquisar...">
-        
+            
+          		<input type="submit" value="" class="search-submit"> 
+          		<input type="search" name="q" class="search-text" placeholder="Search..." autocomplete="off">
+       
+                  
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">

@@ -203,11 +203,16 @@ else if(isset($_POST['data'])){
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
-                <div class="foto">
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+
+                <div class="user-dados">
                     
-                
-                
+                    <div class="foto-user">
+                    
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
+                    
+                    </div>
+                    
+
                 <div style="margin-top: 20px;"> 
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
