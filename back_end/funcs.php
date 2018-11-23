@@ -59,20 +59,18 @@ function Login($email, $senha){
         echo ' <script> alert("Erro"); </script>';
     }; 
 };
-// -- Listar dados
+
+
+
 
 function ListarDadosUsuario($cd){
     $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
-
-
-
 // -- Atualizar dados
-function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
+function AtualizarImg($email,$img_usuario,$cd){
 
-    $caminho = $img_usuario;
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
@@ -83,68 +81,25 @@ function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
     IMG_USUARIO = "'.$caminho.'"
 	WHERE CD_USUARIO = '.$cd;
 	$res = $GLOBALS['conn']->query($sql);
-	if($res){
-		//header('location: user.php');
-	}else{
-		alert("Erro ao atualizar");
-	}
+	echo $sql;
 }
-// --
-
-
 function AtualizarNome($nome,$cd){
-    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO  "'.$nome.'"
+    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO ="'.$nome.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar nome');
-    }
+    echo $sql;
 }
-
 function AtualizarEmail($email,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL="'.$email.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar email');
-    }
 }
-
 function AtualizarDataNascimento($data,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
+    $sql = 'UPDATE TB_USUARIO SET DT_NASCIMENTO="'.$data.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    if($res){
-        //aksjlsa
-    }else{
-        alert('Erro ao atualizar email');
-    }
+  
 }
-
-
-
-
-// LOGIN
-function Login($email, $senha){
-    $encriptada = EncriptarSenha($senha);
-    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
-    $res = $GLOBALS['conn']->query($sql);
-    if($res->num_rows>0){
-        $usuario = $res->fetch_array();
-        $_SESSION['UsuarioLog'] = true;
-        $_SESSION['email'] = $usuario ['DS_EMAIL'];
-        $_SESSION['cd'] = $usuario ['CD_USUARIO'];
-        $_SESSION['senha'] = $usuario['DS_SENHA'];
-    header("location: user.php");
-    }else{
-        echo ' <script> alert("Erro"); </script>';
-    }; 
-};
-// FIM - LOGIN
 
 // CADASTRO DO FORMULARIO 
 

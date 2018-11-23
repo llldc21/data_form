@@ -5,9 +5,17 @@ include('../back_end/funcs.php');
 // if($_POST){
 //     ExcluirForm($_GET['cd']);
 // }
-if($_POST){
-    $foto = (isset( $_FILES['img_usuario'])) ?  $_FILES['img_usuario'] :  $_POST['img_usuario'];
-   AtualizarDadosUsuario($_POST['nome'], $_POST['email'], $_POST['data'],$foto, $_SESSION['cd']);
+if(isset($_FILES['img_usuario'])){
+  AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
+}
+if($_POST['nome']){
+   AtualizarNome($_POST['nome'], $_SESSION['cd']);
+}
+else if($_POST[$_POST['email']]){
+   AtualizarEmail($_POST['email'], $_SESSION['cd']);
+}
+else if($_POST[$_POST['data']]){
+   AtualizarDataNascimento($_POST['data'], $_SESSION['cd']);
 }
 
 
@@ -41,34 +49,35 @@ if($_POST){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script type="text/javascript">
         
-        $(document).on('click', '.delete', function(){
-	        var id = $(this).attr('cd');
-	        $('#cd').val(id);
-        });
+$(document).on('click', '.delete', function(){
+	var id = $(this).attr('cd');
+	$('#cd').val(id);
 
-        $(document).ready(function(){
-        	// Activate tooltip
-        	$('[data-toggle="tooltip"]').tooltip();
-        
-        	// Select/Deselect checkboxes
-        	var checkbox = $('table tbody input[type="checkbox"]');
-        	$("#SelecionarTudo").click(function(){
-        		if(this.checked){
-        			checkbox.each(function(){
-        				this.checked = true;                        
-        			});
-        		} else{
-        			checkbox.each(function(){
-        				this.checked = false;                        
-        			});
-        		} 
-        	});
-        	checkbox.click(function(){
-        		if(!this.checked){
-        			$("#SelecionarTudo").prop("checked", false);
-        		}
-        	});
-        });
+});
+
+$(document).ready(function(){
+	// Activate tooltip
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// Select/Deselect checkboxes
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#SelecionarTudo").click(function(){
+		if(this.checked){
+			checkbox.each(function(){
+				this.checked = true;                        
+			});
+		} else{
+			checkbox.each(function(){
+				this.checked = false;                        
+			});
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#SelecionarTudo").prop("checked", false);
+		}
+	});
+});
     </script>
 </head>
 
@@ -88,42 +97,43 @@ if($_POST){
                 </div>
                    <form action="user.php" method="post" enctype="multipart/form-data">
 
-                        <?php
-                            $dados = ListarDadosUsuario($_SESSION['cd']);
-                            while ($dado = $dados->fetch_array()){
-                                $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
                         ?>
-                        <div class="modal-body">
-                            <h3>Alterar foto</h3>
-                            <div class="custom-file">
-
-                                <input type="file" name="img_usuario" value="<?php echo $dado['img_usuario']?>" class="custom-file-input" id="customFileLang" lang="pt-br">
-                                <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
-
-                                <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-
-                                 <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
-
-                                <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">
-
-                            </div>
+                    <div class="modal-body">
+                        <h3>Alterar foto</h3>
+                        <div class="custom-file">
                             
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="Salvar"/>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                            <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
+                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
                             
-                            <?php
-                            };
-                            ?>
+                            <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
+                            
+                             <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
+                             
+                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">
+                             
                         </div>
+                        
+                    </div>
+                    <input type="submit" class="btn btn-success" value="salvar" />
                     </form>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      
+                        <?php
+                        };
+                        ?>
+               
             </div>
+            
         </div>
+          
+         
+    </div>
+    </div>
     
             <!-- Modal Perfil -->
         <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -201,17 +211,12 @@ if($_POST){
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
-                <div class="user-dados">
-                    <div class="row">
-                    <div class="foto-user">
+                <div class="foto">
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
                     
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
-                    
-                    </div>
-                    </div>
                 
                 
-                <div style="margin-top: 10px;"> 
+                <div style="margin-top: 20px;"> 
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
@@ -221,7 +226,7 @@ if($_POST){
                 </div>
                 
                 <?php };?>
-                </div>
+            </div>
             
             
             <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">
