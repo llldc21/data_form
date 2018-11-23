@@ -202,14 +202,13 @@ if($_POST){
                     $nome = explode(' ', $dado['NM_USUARIO'])
                 ?>
                 <div class="user-dados">
-                    <div class="row">
+                    
                     <div class="foto-user">
                     
                     <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
                     
                     </div>
-                    </div>
-                
+                    
                 
                 <div style="margin-top: 10px;"> 
                 <h4 class="h4 text-center " id="nome-user">
