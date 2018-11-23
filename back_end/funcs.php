@@ -39,10 +39,6 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
     };
         
 };
-
-
-// LISTAR DADOS DO USUARIO
-
 // -- Login
 function Login($email, $senha){
     $encriptada = EncriptarSenha($senha);
@@ -60,18 +56,13 @@ function Login($email, $senha){
     }; 
 };
 // -- Listar dados
-
 function ListarDadosUsuario($cd){
     $sql = 'SELECT * FROM `TB_USUARIO` WHERE `CD_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
-
-
-
 // -- Atualizar dados
 function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
-
     $caminho = $img_usuario;
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
@@ -89,9 +80,6 @@ function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
 		alert("Erro ao atualizar");
 	}
 }
-// --
-
-
 function AtualizarNome($nome,$cd){
     $sql = 'UPDATE TB_USUARIO SET NM_USUARIO  "'.$nome.'"
     WHERE CD_USUARIO='.$cd;
@@ -102,7 +90,6 @@ function AtualizarNome($nome,$cd){
         alert('Erro ao atualizar nome');
     }
 }
-
 function AtualizarEmail($email,$cd){
     $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
     WHERE CD_USUARIO='.$cd;
@@ -113,7 +100,6 @@ function AtualizarEmail($email,$cd){
         alert('Erro ao atualizar email');
     }
 }
-
 function AtualizarDataNascimento($data,$cd){
     $sql = 'UPDATE TB_USUARIO SET DS_EMAIL "'.$email.'"
     WHERE CD_USUARIO='.$cd;
@@ -124,29 +110,7 @@ function AtualizarDataNascimento($data,$cd){
         alert('Erro ao atualizar email');
     }
 }
-
-
-
-
-// LOGIN
-function Login($email, $senha){
-    $encriptada = EncriptarSenha($senha);
-    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
-    $res = $GLOBALS['conn']->query($sql);
-    if($res->num_rows>0){
-        $usuario = $res->fetch_array();
-        $_SESSION['UsuarioLog'] = true;
-        $_SESSION['email'] = $usuario ['DS_EMAIL'];
-        $_SESSION['cd'] = $usuario ['CD_USUARIO'];
-        $_SESSION['senha'] = $usuario['DS_SENHA'];
-    header("location: user.php");
-    }else{
-        echo ' <script> alert("Erro"); </script>';
-    }; 
-};
-// FIM - LOGIN
-
-// CADASTRO DO FORMULARIO 
+// --
 
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
@@ -259,16 +223,5 @@ function FormataData($data){
     echo date('d-m-Y', strtotime($date)); 
 }
 // --
-
-//yasmin
-// function AtualizarForms($nomeform, $descricao){
-//     $sql = "UPDATE * FROM `TB_FORMULARIO` SET `NM_FORMULARIO` = $nomeform AND `DS_DESCRICAO` = $descricao ";
-//     $res = $GLOBALS['conn']->query($sql);
-//     if($res){
-//         alert("Atualizados com sucesso !");
-//     }else{
-//         alert("Erro ao atualizar");
-//     }
-// };
 
 ?>
