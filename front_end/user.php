@@ -8,13 +8,13 @@ include('../back_end/funcs.php');
 if(isset($_FILES['img_usuario'])){
   AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
 }
-if($_POST['nome']){
+else if(isset($_POST['nome'])){
    AtualizarNome($_POST['nome'], $_SESSION['cd']);
 }
-else if($_POST[$_POST['email']]){
+else if(isset($_POST['email'])){
    AtualizarEmail($_POST['email'], $_SESSION['cd']);
 }
-else if($_POST[$_POST['data']]){
+else if(isset($_POST['data'])){
    AtualizarDataNascimento($_POST['data'], $_SESSION['cd']);
 }
 
@@ -49,13 +49,13 @@ else if($_POST[$_POST['data']]){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script type="text/javascript">
         
-$(document).on('click', '.delete', function(){
+    $(document).on('click', '.delete', function(){
 	var id = $(this).attr('cd');
 	$('#cd').val(id);
 
-});
+    });
 
-$(document).ready(function(){
+    $(document).ready(function(){
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
 	
@@ -77,7 +77,7 @@ $(document).ready(function(){
 			$("#SelecionarTudo").prop("checked", false);
 		}
 	});
-});
+    });
     </script>
 </head>
 
@@ -97,42 +97,34 @@ $(document).ready(function(){
                 </div>
                    <form action="user.php" method="post" enctype="multipart/form-data">
 
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
-                        ?>
+                        <?php
+                            $dados = ListarDadosUsuario($_SESSION['cd']);
+                            while ($dado = $dados->fetch_array()){
+                                $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
+                            ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
-                            
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
-                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
-                            
+                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-                            
-                             <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
-                             
-                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">
-                             
+                            <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">     
+                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">    
                         </div>
                         
                     </div>
-                    <input type="submit" class="btn btn-success" value="salvar" />
-                    </form>
+                    <br>
+                    <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                      
+                        <input type="submit" class="btn btn-success" value="salvar" />
                         <?php
-                        };
+                            };
                         ?>
-               
+                    </div>
+                </form>
             </div>
-            
         </div>
-          
-         
-    </div>
     </div>
     
             <!-- Modal Perfil -->

@@ -106,7 +106,6 @@ while($palavra = $res-> fetch_array()){
               <!--Resultados-->
               
         <div class="main">
-<<<<<<< HEAD
         
           <?php
             echo ' <div class="resu">
@@ -117,22 +116,6 @@ while($palavra = $res-> fetch_array()){
           
 
              
-=======
-      
-          <div class="resu">
-            <div class="tig"> <a href="#" class="result"> O que é Lorem Ipsum?  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-            
-            
-                  <!-- ===========================Conteudo=========================== -->
-                  
-                  
-                Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e  pegou uma 
-                
-                
-                  <!-- ===========================Conteudo=========================== -->
-                  
-          </div>
->>>>>>> b16bd327815abf921a2f6d4f4837771fb1c841cf
       
         </div>
         

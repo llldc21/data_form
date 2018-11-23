@@ -62,7 +62,7 @@ function ListarDadosUsuario($cd){
     return $res;
 };
 // -- Atualizar dados
-function AtualizarImg($nome,$email,$data,$img_usuario,$cd){
+function AtualizarImg($email,$img_usuario,$cd){
     $caminho = $img_usuario;
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
