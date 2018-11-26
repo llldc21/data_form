@@ -3,7 +3,7 @@ session_start();
 include('../back_end/funcs.php');
 
 if (isset($_GET['criar'])) {
-    CadastrarFormulario();
+    AtualizarForm();
 }
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,6 @@ if (isset($_GET['criar'])) {
     <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -35,7 +34,7 @@ if (isset($_GET['criar'])) {
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../front_end/css/main.css">
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="css/criaform.css" type="text/css" />-->
+    <link rel="stylesheet" href="css/criaform.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <script>
@@ -50,7 +49,7 @@ if (isset($_GET['criar'])) {
 
 </head>
 
-<body style="background-color:#eaf9f9;">
+<body>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -98,14 +97,14 @@ if (isset($_GET['criar'])) {
                         ?>
                         <div class="foto">
                             <center>
-                            <a href="user.php"><img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle card-img-top" width="100%" height="50%"></a>
+                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
                             </center>
                         </div>
                         
                         <div style="margin-top: 20px;"> 
-                            <a href="user.php"><h3 class="text-center" id="nome-user">
+                            <h5 class="text-center" id="nome-user">
                                 <?php echo $nome[0].' '.$nome[1]?>
-                            </h3></a>
+                            </h5>
                             
                             <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                             <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
@@ -120,6 +119,7 @@ if (isset($_GET['criar'])) {
             </div>
       </div>
     </div>
+
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
@@ -138,121 +138,130 @@ if (isset($_GET['criar'])) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#examModal">Perfil</a>
+                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
+                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-2 h-100" id="user">
+                <?php
+                $dados = ListarDadosUsuario($_SESSION['cd']);
+                while ($dado = $dados->fetch_array()){
+                    $nome = explode(' ', $dado['NM_USUARIO'])
+                ?>
+                <div class="foto">
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="28%">
+                
+                
+                <div style="margin-top: 20px;"> 
+                <h3 class="h3 text-center" id="nome-user">
+                        <?php echo $nome[0].' '.$nome[1]?>
+                </h3>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
+                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários </button>
+                <br>
+                </div>
+                </div>
+                <?php };?>
+            </div>
+            <div class="col-md-6 offset-md-2 col-12" id="conteudo">
+                <br>
+                    <div class="row">
+                        <div class="col-12">
+                        <center>
+                            <h3>Edição de Formulário</h3>
+                        </center>
+                        </div>
+                    </div>
+                <hr>
+                <div>
+                    <?php 
+                     if (isset($formulario)) {
+                                    $form = ListarFormsEspecifico($usuario, $formulario);
+                                    while ($forms = $form->fetch_array()) {
+                                      
+                                ?>
 
-    <div class="row">
-        <div class="col-md-12">
-            <br>
+                    
+                        <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
+                        <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
+                        
+                       <div id="namer">
+                          <div id="namer-input">
+                           <input type="text" name="nome_form" id="nome_form" require  value="<?php echo $frms['NM_FORMULARIO']?>"  >
+                          </div>
+                        </div>
+                       
+                         <div id="namer">
+                          <div id="namer-input">
+                           <input type="text" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+                          </div>
+                        </div>
+                        
+                        
+                        
+                        <br>
+                    <div class="row">
+                        <div class="col-md-4 col-12">
+                            <br>
+                            <h4 class="h4 text-center">Data de abertura:</h4>
+                            <input type="date" class="form-control" name="data_abertura" id="data_abertura">
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <br>
+                            <h4 class="h4 text-center">Categoria</h4>
+                            <select name="categoria" class="form-control">
+                            <?php
+                                $dados = ListarCategoria($_SESSION['cd']);
+                                while ($dado = $dados->fetch_array()){
+                                     echo 'echo <option value=" ´n$dado['CD_CATEGORIA']" id="categoria" class="form-control">< $dado['NM_CATEGORIA']</option>';                            ?>
+                               <!--echo <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>-->
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <br>
+                            <h4 class="h4 text-center">Data de fechamento:</h4>
+                            <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
+                        </div>
+                        
+                        <div class="conteudo" id="conteudo"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 col-12">
+                            <a href="perguntas.php"><button type="button" class="btn btn-primary btn-block" id="novo">Perguntas</button></a>
+                            <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
+                            <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
+                        </div>
+                        <div id="caixa conteudo" id="conteudo">
+                        </div>
+                    </div>
+                    <?php 
+                     }
+                    ?>
+                    
+                    
+
+                    
+                </div>
+            </div>
         </div>
     </div>
-          
-            <div class="container-fluid">
-              <div class="row">
-                
-                
-                <!-- FORMULARIO -->
-                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
-                     <div class="row" id="myTab" role="tablist">
-                         <div class="col-md-6">
-                             <div class="nav" >
-                                <a  id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h3 style="padding-top:10px;padding-left:20px;color:black;">Perguntas</h3></a>
-                                <a  id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><h3  style="padding-top:10px;padding-left:20px;color:black;">respostas</h3></a>
-                            </div>
-                         </div>
-                         
-                         
-                          
-                     </div><!-- row -->
-                     <!--<div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>-->
-                     
-                    <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                           <div class="row conteudo " class="tab-pane fade " id="respostas" role="tabpanel" aria-labelledby="respostas-tab"  style="padding:20px;">
-                             <div class="col-md-12">
-                                 <!--graficos -->
-                                 bb
-                             </div>
-                         </div>
-                      </div>
-                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                           <div class="row conteudo " class="tab-pane fade show active " id="perguntas" role="tabpanel" aria-labelledby="perguntas-tab"  style="padding:20px;">
-                             <div class="col-md-12">
-                                <form method="post" action="../back_end/processa.php">
-                                    <div class="form-group" id="conteudo">
-                                         <!-- forms vai aqui -->
-                                         aaa
-                                    
-                                     </div>
-                                </form>
-                             </div>
-                         </div>
-                      </div>
-                     
-                    </div>
-                     
-                     
-                 </div><!-- fim col 5 -->
-                <!-- FORMULARIO -->
-                
-                     
-                  <div class="col-md-1" style="padding:0;">
-                     
-                  </div><!-- div exemplos -->
-                
-                <div class="col-md-1 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
-                    
-                     <div class="row">
-                   
-                      </div>
-                       <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
-                       <br>
-                      <?php
-                        $i = 0;
-                        $tipo = ListarTipoPergunta();
-                        while($tipos = $tipo->fetch_array()){
-                            $icon = array('short_text','subject','radio_button_checked','check_box');
-                            
-                      ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="right" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"><i class="material-icons"><?php echo $icon[$i] ?></i></button>
-                        <?php 
-                        $i++;
-                        };?>
-                      
-                      <br><br>
-  
-                </div>
-      </div>
-      
-</div>     
-
-<div class="row">
-    <div class="col-md-12 fixed-bottom float-right" style="float:right;"><a href="user.php" class="btn btn-success">voltar</a></div>
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> 
-          <script src="js/jquery-3.2.1.min.js"></script>
    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script type="text/javascript" >
-     $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-        $('#myTab a').on('click', function (e) {
-          e.preventDefault()
-          $(this).tab('show')
-        });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="ajax.js"></script>
 </body>
+
 </html>

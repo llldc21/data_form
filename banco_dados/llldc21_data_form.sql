@@ -1,0 +1,284 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: 12-Nov-2018 às 21:49
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 7.2.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `llldc21_data_form`
+--
+CREATE DATABASE IF NOT EXISTS `llldc21_data_form` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `llldc21_data_form`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_ALTERNATIVA`
+--
+
+CREATE TABLE `TB_ALTERNATIVA` (
+  `CD_ALTERNATIVA` int(11) NOT NULL,
+  `NM_ALTERNATIVA` varchar(45) NOT NULL,
+  `ID_PERGUNTA` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_CATEGORIA`
+--
+
+CREATE TABLE `TB_CATEGORIA` (
+  `CD_CATEGORIA` int(11) NOT NULL,
+  `NM_CATEGORIA` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `TB_CATEGORIA`
+--
+
+INSERT INTO `TB_CATEGORIA` (`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES
+(1, 'Nula'),
+(2, 'Informática'),
+(3, 'Meio Ambiente'),
+(4, 'Administração');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_FORMULARIO`
+--
+
+CREATE TABLE `TB_FORMULARIO` (
+  `CD_FORMULARIO` int(11) NOT NULL,
+  `NM_FORMULARIO` varchar(45) NOT NULL,
+  `DT_ABERTURA_FORM` date DEFAULT NULL,
+  `DT_FECHAMENTO_FORM` date DEFAULT NULL,
+  `ID_USUARIO` int(11) NOT NULL,
+  `ID_CATEGORIA` int(11) NOT NULL,
+  `DS_FORMULARIO` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `TB_FORMULARIO`
+--
+
+INSERT INTO `TB_FORMULARIO` (`CD_FORMULARIO`, `NM_FORMULARIO`, `DT_ABERTURA_FORM`, `DT_FECHAMENTO_FORM`, `ID_USUARIO`, `ID_CATEGORIA`, `DS_FORMULARIO`) VALUES
+(119, 'Meu form', NULL, NULL, 2, 1, 'Descreva...'),
+(120, 'Teste', '1969-12-31', '1969-12-31', 2, 1, 'Testtando');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_PERGUNTA`
+--
+
+CREATE TABLE `TB_PERGUNTA` (
+  `CD_PERGUNTA` int(11) NOT NULL,
+  `NM_PERGUNTA` varchar(200) NOT NULL,
+  `ID_TIPO_PERGUNTA` int(11) NOT NULL,
+  `ID_FORMULARIO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_RESPOSTA`
+--
+
+CREATE TABLE `TB_RESPOSTA` (
+  `CD_RESPOSTA` int(11) NOT NULL,
+  `ID_ALTERNATIVA` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_TIPO_PERGUNTA`
+--
+
+CREATE TABLE `TB_TIPO_PERGUNTA` (
+  `CD_TIPO_PERGUNTA` int(11) NOT NULL,
+  `NM_TIPO_PERGUNTA` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `TB_TIPO_PERGUNTA`
+--
+
+INSERT INTO `TB_TIPO_PERGUNTA` (`CD_TIPO_PERGUNTA`, `NM_TIPO_PERGUNTA`) VALUES
+(1, 'Resposta Curta'),
+(2, 'Resposta Longa'),
+(3, 'Multpla Escolha'),
+(4, 'Alternativas');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `TB_USUARIO`
+--
+
+CREATE TABLE `TB_USUARIO` (
+  `CD_USUARIO` int(11) NOT NULL,
+  `NM_USUARIO` varchar(100) NOT NULL,
+  `DS_EMAIL` varchar(45) NOT NULL,
+  `DT_NASCIMENTO` date NOT NULL,
+  `DS_SENHA` varchar(45) NOT NULL,
+  `DS_EMAIL_RECUPERACAO` varchar(45) NOT NULL,
+  `IMG_USUARIO` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `TB_USUARIO`
+--
+
+INSERT INTO `TB_USUARIO` (`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES
+(2, 'Lucas Lima de Castro Fernandes', 'llldc21@gmail.com', '1996-09-19', '38330384f6f2b7782739f774063c8748', 'llldc21@gmail.com', '../back_end/fotos/llldc21@gmail.com.jpeg'),
+(3, 'Wesllen dos Santos Ferreira', 'wes@wes.com', '2000-05-08', '013de0c99e66d589b96d74eb85d44c58', 'wes@wes.com', '../back_end/fotos/wes@wes.com.jpg');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `TB_ALTERNATIVA`
+--
+ALTER TABLE `TB_ALTERNATIVA`
+  ADD PRIMARY KEY (`CD_ALTERNATIVA`),
+  ADD KEY `fk_TB_ALTERNATIVA_TB_PERGUNTA1_idx` (`ID_PERGUNTA`);
+
+--
+-- Indexes for table `TB_CATEGORIA`
+--
+ALTER TABLE `TB_CATEGORIA`
+  ADD PRIMARY KEY (`CD_CATEGORIA`);
+
+--
+-- Indexes for table `TB_FORMULARIO`
+--
+ALTER TABLE `TB_FORMULARIO`
+  ADD PRIMARY KEY (`CD_FORMULARIO`),
+  ADD KEY `fk_TB_FORMULARIO_TB_USUARIO_idx` (`ID_USUARIO`),
+  ADD KEY `fk_TB_FORMULARIO_TB_CATEGORIA1_idx` (`ID_CATEGORIA`);
+
+--
+-- Indexes for table `TB_PERGUNTA`
+--
+ALTER TABLE `TB_PERGUNTA`
+  ADD PRIMARY KEY (`CD_PERGUNTA`),
+  ADD KEY `fk_TB_PERGUNTA_TB_TIPO_PERGUNTA1_idx` (`ID_TIPO_PERGUNTA`),
+  ADD KEY `fk_TB_PERGUNTA_TB_FORMULARIO1_idx` (`ID_FORMULARIO`);
+
+--
+-- Indexes for table `TB_RESPOSTA`
+--
+ALTER TABLE `TB_RESPOSTA`
+  ADD PRIMARY KEY (`CD_RESPOSTA`),
+  ADD KEY `fk_TB_RESPOSTA_TB_ALTERNATIVA1_idx` (`ID_ALTERNATIVA`);
+
+--
+-- Indexes for table `TB_TIPO_PERGUNTA`
+--
+ALTER TABLE `TB_TIPO_PERGUNTA`
+  ADD PRIMARY KEY (`CD_TIPO_PERGUNTA`);
+
+--
+-- Indexes for table `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  ADD PRIMARY KEY (`CD_USUARIO`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `TB_ALTERNATIVA`
+--
+ALTER TABLE `TB_ALTERNATIVA`
+  MODIFY `CD_ALTERNATIVA` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `TB_CATEGORIA`
+--
+ALTER TABLE `TB_CATEGORIA`
+  MODIFY `CD_CATEGORIA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `TB_FORMULARIO`
+--
+ALTER TABLE `TB_FORMULARIO`
+  MODIFY `CD_FORMULARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
+--
+-- AUTO_INCREMENT for table `TB_PERGUNTA`
+--
+ALTER TABLE `TB_PERGUNTA`
+  MODIFY `CD_PERGUNTA` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `TB_RESPOSTA`
+--
+ALTER TABLE `TB_RESPOSTA`
+  MODIFY `CD_RESPOSTA` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `TB_TIPO_PERGUNTA`
+--
+ALTER TABLE `TB_TIPO_PERGUNTA`
+  MODIFY `CD_TIPO_PERGUNTA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  MODIFY `CD_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `TB_ALTERNATIVA`
+--
+ALTER TABLE `TB_ALTERNATIVA`
+  ADD CONSTRAINT `fk_TB_ALTERNATIVA_TB_PERGUNTA1` FOREIGN KEY (`ID_PERGUNTA`) REFERENCES `TB_PERGUNTA` (`CD_PERGUNTA`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `TB_FORMULARIO`
+--
+ALTER TABLE `TB_FORMULARIO`
+  ADD CONSTRAINT `fk_TB_FORMULARIO_TB_CATEGORIA1` FOREIGN KEY (`ID_CATEGORIA`) REFERENCES `TB_CATEGORIA` (`CD_CATEGORIA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_TB_FORMULARIO_TB_USUARIO` FOREIGN KEY (`ID_USUARIO`) REFERENCES `TB_USUARIO` (`CD_USUARIO`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `TB_PERGUNTA`
+--
+ALTER TABLE `TB_PERGUNTA`
+  ADD CONSTRAINT `fk_TB_PERGUNTA_TB_FORMULARIO1` FOREIGN KEY (`ID_FORMULARIO`) REFERENCES `TB_FORMULARIO` (`CD_FORMULARIO`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_TB_PERGUNTA_TB_TIPO_PERGUNTA1` FOREIGN KEY (`ID_TIPO_PERGUNTA`) REFERENCES `TB_TIPO_PERGUNTA` (`CD_TIPO_PERGUNTA`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `TB_RESPOSTA`
+--
+ALTER TABLE `TB_RESPOSTA`
+  ADD CONSTRAINT `fk_TB_RESPOSTA_TB_ALTERNATIVA1` FOREIGN KEY (`ID_ALTERNATIVA`) REFERENCES `TB_ALTERNATIVA` (`CD_ALTERNATIVA`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

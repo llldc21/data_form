@@ -266,7 +266,7 @@ else if(isset($_POST['data'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-danger">Excluir</a>
                          </div>
                          </div>
                          </div>';               

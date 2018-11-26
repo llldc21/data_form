@@ -73,7 +73,9 @@ input.search-text::-webkit-search-cancel-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-
+.nav-item {
+  background-color: transparent;
+}
 .pergun{
   max-height: max-content;
   positon:fixed;

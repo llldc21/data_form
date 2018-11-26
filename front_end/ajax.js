@@ -80,17 +80,23 @@ $(document).on('click', '.campo', function () {
 
     switch (parseInt(tipo)) {
         case 1:
-            curta = prompt('Qual é a pergunta?');
-            if (curta.length <= 2) {
-                alert(`Pergunta muito curta...`);
-            } else {
-                alert(`Pergunta salva!`);
-                campo = '<div class="row pps"><form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><div class="row"><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled></div></div><br>';
+            // curta = prompt('Qual é a pergunta?');
+            // if (curta.length <= 2) {
+            //     alert(`Pergunta muito curta...`);
+            // } else {
+            //     alert(`Pergunta salva!`);
+            //     campo = '<div class="row pps"><form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><div class="row"><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled></div></div><br>';
+            //     GravaPergunta(curta, tipo, data.cd_form);
+            //     setTimeout(function () {
+            //         GravaAlternativa(tipo, get());
+            //     }, 3000);
+            // }
+            curta = document.getElementById('campo');
+            campo = '<input type="text" name="a" class="form-control id="campo" "height="" placeholder="pergunta" /><input type="text" name="b"class="form-control" disabled placeholder="resposta" />';
                 GravaPergunta(curta, tipo, data.cd_form);
                 setTimeout(function () {
                     GravaAlternativa(tipo, get());
                 }, 3000);
-            }
             break;
         case 2:
             longa = prompt('Qual é a pergunta?');

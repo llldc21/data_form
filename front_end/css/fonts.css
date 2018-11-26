@@ -1,0 +1,7 @@
+@font-face{
+    font-family: Arciform;
+     src: url(../front_end/fonts/Arciform.otf);
+}
+.arciform{
+   font:Arciform;
+}

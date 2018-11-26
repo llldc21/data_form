@@ -6,4 +6,12 @@ $user = 'llldc21';
 $password = 'Lucas@23';
 $db = 'llldc21_data_form';
 
+
+// $host = 'localhost';
+// $user = 'doutoruu';
+// $password = '';
+// $db = 'llldc21_data_form';
+
+
+
 ?>
