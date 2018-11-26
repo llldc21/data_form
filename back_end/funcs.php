@@ -290,7 +290,6 @@ function FormataData($data){
     $date = $edit[2]."-".$edit[1]."-".$edit[0];
     echo date('d-m-Y', strtotime($date)); 
 }
-
 ?>
 
 
