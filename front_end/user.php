@@ -169,35 +169,36 @@ else if(isset($_POST['data'])){
           </div>
         </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand mr-5" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="fas fa-bars" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-
-            <div class="input-group" >
-                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-                    aria-describedby="basic-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
-                    </li>
-                    <li class="nav-item ml-2">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+    <div class="container">
+      <a class="navbar-brand dsa" href="../index.php"><img src="img/img.png" height="50px"> Data Form</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            
+          		<input type="submit" value="" class="search-submit"> 
+          		<input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
+       
+                  
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+            </li>
+            <li class="nav-item ml-2">
+                <a class="nav-link" href="../back_end/sair.php">Sair</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     
     <div class="row rowzin">
-            <div class="col-md-2" id="user" height="100%">
+            <div class="col-md-2 " id="user">
+              <div class="container">
+
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -224,12 +225,12 @@ else if(isset($_POST['data'])){
                 
                 <?php };?>
             </div>
+          </div>          
             
-            
-            <div class="col-12 col-md-10 col-1 contuser" height="100%" id="conteudo">
+            <div class="col-12 col-md-10 col-1 contuser" id="conteudo">
                 <br>
                 
-                <div class="row correcao">
+                <div class="row">
                     <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
                             <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
@@ -255,7 +256,7 @@ else if(isset($_POST['data'])){
                 <!-- CARDS -->
                 
                 
-                <div class="row correcao">    
+                <div class="row">    
                     <?php
                     $dados = ListarForms($_SESSION['cd']);
                     while ($dado = $dados->fetch_array()){
@@ -266,7 +267,7 @@ else if(isset($_POST['data'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><i class="material-icons">&#xE15C;</i> <span>Apagar</span></a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
                          </div>
                          </div>
                          </div>';               
@@ -274,10 +275,11 @@ else if(isset($_POST['data'])){
                     
                     ?>
                 </div>
-                
             </div> <!-- col-md-10 -->
-        
     </div>
+    
+    
+    
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

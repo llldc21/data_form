@@ -26,7 +26,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
     <div class="container">
       <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -35,7 +35,7 @@
       </button>
             
           		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text" placeholder="Search..." autocomplete="off">
+          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
        
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">

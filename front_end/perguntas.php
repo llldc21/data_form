@@ -158,7 +158,7 @@ if (isset($_GET['criar'])) {
                 
                 
                 <!-- FORMULARIO -->
-                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
+                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid #70baf4;">
                      <div class="row">
                          <h3 style="padding-top:10px;padding-left:20px;"> Criar Formularios</h3>
                          
@@ -167,7 +167,7 @@ if (isset($_GET['criar'])) {
                      
                      <div class="row conteudo container-fluid" style="padding:20px;">
                         <div class="container-fluid">     
-                            <div class="form-group" id="conteudo">
+                            <div class="form-group" id="conteudo" >
                              <!-- forms vai aqui -->
                              </div>
                         </div>     
@@ -194,17 +194,15 @@ if (isset($_GET['criar'])) {
                       ?>
                       <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
                         <?php };?>
-                      
-                      <br><br>
+                        <br><br>
+                      <a href="exibir_form.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
+                        <br>
   
                 </div>
       </div>
       
 </div>     
 
-<div class="row">
-    <div class="col-md-12 fixed-bottom float-right" style="float:right;"><a href="user.php" class="btn btn-success">voltar</a></div>
-</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>

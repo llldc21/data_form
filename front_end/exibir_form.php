@@ -74,7 +74,7 @@
       
     
   <!-- Footer -->
-  <footer class="py-5 fixed-bottom" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+  <footer class="py-5 fixed-bottom bg-black">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>
