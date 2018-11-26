@@ -182,10 +182,6 @@ function ExcluirForm($cd){
 };
 // --
 
-<<<<<<< HEAD
-// -- FUNÇÕES DE AUXILIO
-// -- Segurança da senha
-=======
 function CadastrarAlternativa($alternativa, $id_pergunta){
     $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
     $res = $GLOBALS['conn']->query($sql);
@@ -217,24 +213,12 @@ function ListarAlternativasPorPergunta($id_pergunta){
     return $res;
 }
 
->>>>>>> 26112018G
 function EncriptarSenha($senha){
     $codificada = md5($senha);
     return $codificada;
 };
-<<<<<<< HEAD
-// -- Auxilio Alert
-function Alert($msg){
-	echo '<script>alert("'.$msg.'"); </script>'; 
-};
-// -- Formatação de data
-function FormataData($data){
-    $edit = explode("-", $data);
-    $date = $edit[2]."-".$edit[1]."-".$edit[0];
-    echo date('d-m-Y', strtotime($date)); 
-}
-// --
-=======
+
+
 function ResponderPergunta($cd){
     $sql = 'INSERT INTO TB_RESPOSTA VALUES(NULL,'.$cd.')';
      $res = $GLOBALS['conn']->query($sql);
