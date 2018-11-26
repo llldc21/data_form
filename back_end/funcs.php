@@ -141,14 +141,7 @@ function ListarTipoPergunta(){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
-function ListaPerguntasPorForm($id_form){
-    $sql = "SELECT TB_PERGUNTA.NM_PERGUNTA FROM TB_PERGUNTA, TB_FORMULARIO, TB_TIPO_PERGUNTA WHERE TB_PERGUNTA.ID_FORMULARIO = TB_FORMULARIO.CD_FORMULARIOAND TB_FORMULARIO.CD_FORMULARIO =".$id_form;
-    $res = $GLOBALS['conn']->query($sql);
-    if($res->num_rows>0){
-        $form = $res->fetch_array();
-        return $form;
-    }
-};
+
 function ListarForms($cd){
     $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `ID_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
