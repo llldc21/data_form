@@ -176,14 +176,6 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
     }
 }
 
-function ListarTipoPergunta(){
-    $sql = 'SELECT * FROM `TB_TIPO_PERGUNTA`';
-    $res = $GLOBALS['conn']->query($sql);
-    return $res;
-}
-
-
-
 function ListaPerguntasPorForm($id_form){
     $sql = "SELECT TB_FORMULARIO.CD_FORMULARIO,TB_TIPO_PERGUNTA.CD_TIPO_PERGUNTA, TB_PERGUNTA.CD_PERGUNTA, TB_PERGUNTA.NM_PERGUNTA FROM TB_PERGUNTA, TB_FORMULARIO, TB_TIPO_PERGUNTA WHERE TB_PERGUNTA.ID_FORMULARIO = TB_FORMULARIO.CD_FORMULARIO AND TB_TIPO_PERGUNTA.CD_TIPO_PERGUNTA = TB_PERGUNTA.ID_TIPO_PERGUNTA AND TB_FORMULARIO.CD_FORMULARIO=".$id_form;
     $res = $GLOBALS['conn']->query($sql);
