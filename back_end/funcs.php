@@ -128,14 +128,6 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
 };
 // FIM DO ATUALIZA FORMULARIO
 
-//  deleta form
-    function ExcluirForm($cd){
-        $sql = 'DELETE from TB_FORMULARIO where CD_FORMULARIO= '.$cd;
-        $res = $GLOBALS['conn']->query($sql);
-       
-    }
-// fim deleta form
-
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
 function AddCategoria($categoria){
     $sql = 'INSERT INTO `TB_CATEGORIA`(`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES (null, "'.$categoria.'")';
