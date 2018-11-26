@@ -23,7 +23,9 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-
+.nav-item {
+  background-color: transparent;
+}
 .pergun{
   max-height: max-content;
   positon:fixed;

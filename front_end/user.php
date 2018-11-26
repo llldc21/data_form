@@ -195,7 +195,7 @@ include('../back_end/funcs.php');
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                         <a href="excluir_form.php" class="card-link btn btn-danger">Excluir</a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-danger">Excluir</a>
                          </div>
                          </div>
                          </div>';               
