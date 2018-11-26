@@ -117,15 +117,7 @@ function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
         echo 'Erro';
     }
 };
-function CadastrarAlternativa($alternativa, $id_pergunta){
-    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
-    $res = $GLOBALS['conn']->query($sql);
-    if ($res) {
-        // echo 'OK';
-    }else{
-        echo $sql;
-    }
-};
+
 // FIM DO ATUALIZA FORMULARIO
 
 // Funções de controle administrativo, o usuario não deve ter acesso a elas
