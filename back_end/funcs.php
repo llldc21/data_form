@@ -97,6 +97,27 @@ function AtualizarDataNascimento($data,$cd){
 }
 // --
 
+// -- Editar
+function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
+    $dataa = FormataData($dataa);
+    $dataf = FormataData($dataf);
+    $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
+    DT_ABERTURA_FORM ="'.$dataa.'",
+    DT_FECHAMENTO_FORM ="'.$dataf.'",
+    ID_CATEGORIA="'.$id_cat.'",
+    DS_FORMULARIO="'.$ds.'",
+    ID_USUARIO="'.$cd.'" WHERE
+    CD_FORMULARIO='.$cd_form;
+    $res = $GLOBALS['conn']->query($sql);
+	if($res){
+		alert("Atualizado com sucesso!");
+	    header('location: user.php');
+	}else{
+		alert("Erro ao atualizar");
+	}
+};
+
+
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
 function CadastrarFormulario(){
