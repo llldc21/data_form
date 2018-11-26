@@ -279,7 +279,17 @@ function ResponderForm($cd){
                      }
 }
 // ------------------------------------------------------------------------
->>>>>>> 26112018G
+
+// -- Auxilio Alert
+function Alert($msg){
+	echo '<script>alert("'.$msg.'"); </script>'; 
+};
+// -- Formatação de data
+function FormataData($data){
+    $edit = explode("-", $data);
+    $date = $edit[2]."-".$edit[1]."-".$edit[0];
+    echo date('d-m-Y', strtotime($date)); 
+}
 
 ?>
 
