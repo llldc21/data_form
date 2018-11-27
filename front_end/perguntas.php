@@ -214,18 +214,9 @@ if (isset($_GET['criar'])) {
                       </div>
                        <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
                        <br>
-                      <?php
-                        $i = 0;
-                        $tipo = ListarTipoPergunta();
-                        while($tipos = $tipo->fetch_array()){
-                            $icon = array('short_text','subject','radio_button_checked','check_box');
-                            
-                      ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="right" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"><i class="material-icons"><?php echo $icon[$i] ?></i></button>
-                        <?php 
-                        $i++;
-                        };?>
                       
+                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="right" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"><i class="material-icons"><?php echo $icon[$i] ?></i></button>
+            
                       <br><br>
   
                 </div>

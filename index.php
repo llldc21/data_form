@@ -66,8 +66,8 @@
         <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
-            <button href="#cont" type="submit" class=" login100-form-btn">
-              Leia Mais!
+            <button href="cadastro.php" type="submit" class=" login100-form-btn">
+              Cadastre se 
             </button>
           </div>
         </div>

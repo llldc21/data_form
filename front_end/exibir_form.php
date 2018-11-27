@@ -72,7 +72,7 @@
                 <form action="exibir_form.php" method="POST">
                 <?php 
                   $np = 0;
-                 $form = ListaPerguntasPorForm(130);
+                 $form = ListaPerguntasPorForm($_GET['cdform']);
                  while($forms = $form->fetch_array()){
                   switch($forms['CD_TIPO_PERGUNTA']){
                     case 1:
@@ -110,7 +110,7 @@
                 </form>
                 <?php 
                   if($_POST){
-                     ResponderForm(130);
+                     ResponderForm($_GET['cdform']);
                   }
                 ?>
             </div>

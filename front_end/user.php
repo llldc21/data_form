@@ -218,7 +218,7 @@ else if(isset($_POST['data'])){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
+                <button href="manual.php" type="button" class="btn btn-primary btn-block">Manual de Usuário</button>
                 </div>
                 </div>
                 
