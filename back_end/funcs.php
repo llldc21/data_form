@@ -23,9 +23,7 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
             $ext = explode('.', $img_usuario['name']);
             $novo_nome = $email.'.'.$ext[1];
             $caminho = '../back_end/fotos/'.$novo_nome;
-            
             move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
-            
         };
         
         // ------------------------
@@ -97,27 +95,6 @@ function AtualizarDataNascimento($data,$cd){
 }
 // --
 
-// -- Editar
-function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
-    $dataa = FormataData($dataa);
-    $dataf = FormataData($dataf);
-    $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
-    DT_ABERTURA_FORM ="'.$dataa.'",
-    DT_FECHAMENTO_FORM ="'.$dataf.'",
-    ID_CATEGORIA="'.$id_cat.'",
-    DS_FORMULARIO="'.$ds.'",
-    ID_USUARIO="'.$cd.'" WHERE
-    CD_FORMULARIO='.$cd_form;
-    $res = $GLOBALS['conn']->query($sql);
-	if($res){
-		alert("Atualizado com sucesso!");
-	    header('location: user.php');
-	}else{
-		alert("Erro ao atualizar");
-	}
-};
-
-
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
 function CadastrarFormulario(){
@@ -138,10 +115,35 @@ function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
         echo 'Erro';
     }
 };
-
-// FIM DO ATUALIZA FORMULARIO
-
-// Funções de controle administrativo, o usuario não deve ter acesso a elas
+function CadastrarAlternativa($alternativa, $id_pergunta){
+    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
+    $res = $GLOBALS['conn']->query($sql);
+    if ($res) {
+        // echo 'OK';
+    }else{
+        echo $sql;
+    }
+};
+// -- Editar
+function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
+    $dataa = FormataData($dataa);
+    $dataf = FormataData($dataf);
+    $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
+    DT_ABERTURA_FORM ="'.$dataa.'",
+    DT_FECHAMENTO_FORM ="'.$dataf.'",
+    ID_CATEGORIA="'.$id_cat.'",
+    DS_FORMULARIO="'.$ds.'",
+    ID_USUARIO="'.$cd.'" WHERE
+    CD_FORMULARIO='.$cd_form;
+    $res = $GLOBALS['conn']->query($sql);
+	if($res){
+		alert("Atualizado com sucesso!");
+	    header('location: user.php');
+	}else{
+		alert("Erro ao atualizar");
+	}
+};
+// -- Adicionar (USAR APENAS ADMISTRATIVAMENTE)
 function AddCategoria($categoria){
     $sql = 'INSERT INTO `TB_CATEGORIA`(`CD_CATEGORIA`, `NM_CATEGORIA`) VALUES (null, "'.$categoria.'")';
     $res = $GLOBALS['conn']->query($sql);
@@ -162,7 +164,14 @@ function ListarTipoPergunta(){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
-
+function ListaPerguntasPorForm($id_form){
+    $sql = "SELECT TB_PERGUNTA.NM_PERGUNTA FROM TB_PERGUNTA, TB_FORMULARIO, TB_TIPO_PERGUNTA WHERE TB_PERGUNTA.ID_FORMULARIO = TB_FORMULARIO.CD_FORMULARIOAND TB_FORMULARIO.CD_FORMULARIO =".$id_form;
+    $res = $GLOBALS['conn']->query($sql);
+    if($res->num_rows>0){
+        $form = $res->fetch_array();
+        return $form;
+    }
+};
 function ListarForms($cd){
     $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `ID_USUARIO` ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
@@ -180,96 +189,12 @@ function ExcluirForm($cd){
 };
 // --
 
-function CadastrarAlternativa($alternativa, $id_pergunta){
-    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
-    $res = $GLOBALS['conn']->query($sql);
-    if ($res) {
-        // echo 'OK';
-    }else{
-        echo $sql;
-    }
-}
-
-function ListaPerguntasPorForm($id_form){
-    $sql = "SELECT TB_FORMULARIO.CD_FORMULARIO,TB_TIPO_PERGUNTA.CD_TIPO_PERGUNTA, TB_PERGUNTA.CD_PERGUNTA, TB_PERGUNTA.NM_PERGUNTA FROM TB_PERGUNTA, TB_FORMULARIO, TB_TIPO_PERGUNTA WHERE TB_PERGUNTA.ID_FORMULARIO = TB_FORMULARIO.CD_FORMULARIO AND TB_TIPO_PERGUNTA.CD_TIPO_PERGUNTA = TB_PERGUNTA.ID_TIPO_PERGUNTA AND TB_FORMULARIO.CD_FORMULARIO=".$id_form;
-    $res = $GLOBALS['conn']->query($sql);
-   
-    return $res;
-}
-
-function ListarAlternativasPorPergunta($id_pergunta){
-    $sql = "SELECT TB_ALTERNATIVA.NM_ALTERNATIVA, TB_ALTERNATIVA.CD_ALTERNATIVA  FROM TB_PERGUNTA, TB_ALTERNATIVA WHERE TB_PERGUNTA.CD_PERGUNTA = TB_ALTERNATIVA.ID_PERGUNTA AND TB_ALTERNATIVA.ID_PERGUNTA=".$id_pergunta;
-    $res = $GLOBALS['conn']->query($sql);
-    return $res;
-}
-
+// -- FUNÇÕES DE AUXILIO
+// -- Segurança da senha
 function EncriptarSenha($senha){
     $codificada = md5($senha);
     return $codificada;
 };
-
-
-function ResponderPergunta($cd){
-    $sql = 'INSERT INTO TB_RESPOSTA VALUES(NULL,'.$cd.')';
-     $res = $GLOBALS['conn']->query($sql);
-}
-
-function ExibirRespostas(){
-    $sql = 'SELECT SELECT * FROM TB_RESPOSTA r 
-INNER JOIN TB_ALTERNATIVA as a 
-ON r.ID_ALTERNATIVA = a.CD_ALTERNATIVA
-INNER JOIN TB_PERGUNTA as p 
-ON a.ID_PERGUNTA = p.CD_PERGUNTA
-INNER JOIN TB_FORMULARIO as f 
-ON p.ID_FORMULARIO = f.CD_FORMULARIO
-WHERE f.CD_FORMULARIO = 130';
-}
-function ResponderForm($cd){
-     $form = ListaPerguntasPorForm($cd);
-                       while($forms = $form->fetch_array()){
-                          switch($forms['CD_TIPO_PERGUNTA']){
-                            case 1 :
-                              if( "" != $_POST[$forms['CD_PERGUNTA']]){
-                                $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
-                                $GLOBALS['conn']->query($sql);
-                                 $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                                 while($alts = $alt->fetch_array()){
-                                 ResponderPergunta($alts['CD_ALTERNATIVA']);
-                                 }
-                              }
-                              
-                              break;
-                            case 2:
-                             if( "" != $_POST[$forms['CD_PERGUNTA']]){
-                                $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
-                                $GLOBALS['conn']->query($sql);
-                                 $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                                 while($alts = $alt->fetch_array()){
-                                 ResponderPergunta($alts['CD_ALTERNATIVA']);
-                                 }
-                              }
-                              break; 
-                            case 3:
-                              if(isset($_POST[$forms['CD_PERGUNTA']])){
-                                   ResponderPergunta($_POST[$forms['CD_PERGUNTA']]);
-                                }
-                               
-                              break;
-                            case 4:
-                                   if(isset( $_POST['alternativa'])){
-                                     $a = $_POST['alternativa'];
-                                     for($i=0;$i<count($a);$i++){
-                                        
-                                        ResponderPergunta($a[$i]);
-                                     }
-                                   }
-
-                              break;
-                          }
-                     }
-}
-// ------------------------------------------------------------------------
-
 // -- Auxilio Alert
 function Alert($msg){
 	echo '<script>alert("'.$msg.'"); </script>'; 
@@ -280,6 +205,6 @@ function FormataData($data){
     $date = $edit[2]."-".$edit[1]."-".$edit[0];
     echo date('d-m-Y', strtotime($date)); 
 }
+// --
+
 ?>
-
-

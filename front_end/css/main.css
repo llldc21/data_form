@@ -1,7 +1,3 @@
-
-
-/* ------------------------------- -------------------------- Botão search ------------------------------- -------------------------- */
-
 input.search-text {
 	color: #000;
 	position:relative;
@@ -23,9 +19,9 @@ input.search-text {
   opacity:0.5;
 }
 input.search-text:focus {
-	z-index:3;
+	z-index:3; 
 	width: 58%;
-	border: 1px solid #666;
+	border: 1px solid #666;  
 	background-color: white;
 	outline: none;
 	cursor:auto;
@@ -53,8 +49,6 @@ input.search-text::-webkit-search-cancel-button {
 }
 
 
-/* ------------------------------- -------------------------- Botão search ------------------------------- -------------------------- */
-
 @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
@@ -79,9 +73,7 @@ input.search-text::-webkit-search-cancel-button {
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-.nav-item {
-  background-color: transparent;
-}
+
 .pergun{
   max-height: max-content;
   positon:fixed;
@@ -131,10 +123,10 @@ input.search-text::-webkit-search-cancel-button {
 
 .user-dados{
   padding-top:10px;
+  margin-left: 7%;
 }
 .foto-user img {
-  width:100%;
-  height:35%;
+  height:12rem;
   object-fit:cover;
   background-size:cover; 
   margin-top:10px;

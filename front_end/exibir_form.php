@@ -1,6 +1,3 @@
-<?php
-  include('../back_end/funcs.php');
-?>
 <html lang="en">
 
 <head>
@@ -69,50 +66,7 @@
             <div class="col-md-6 masds offset-md-3">
                             
                 <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
-                <form action="exibir_form.php" method="POST">
-                <?php 
-                  $np = 0;
-                 $form = ListaPerguntasPorForm($_GET['cdform']);
-                 while($forms = $form->fetch_array()){
-                  switch($forms['CD_TIPO_PERGUNTA']){
-                    case 1:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
-                      break;
-                    case 2:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
-                      break;
-                    case 3:
-                       $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                       if(0 < $alt->num_rows){
-                        echo $forms['NM_PERGUNTA'].'<br>';
-                        while($alts = $alt->fetch_array()){
-                          echo '<input type="radio" style="form-control" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.$alts['NM_ALTERNATIVA'].'<br>';
-                        }
-                       }
-                      break;
-                    case 4:
-                      $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                        if(0 < $alt->num_rows){
-                         echo $forms['NM_PERGUNTA'].'<br>';
-                          while($alts = $alt->fetch_array()){
-                            $i = 1;
-                            echo '<input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>';
-                            $i++;
-                          }
-                        }
-                      break;
-                  }
-                   ?>
-                <?php    
-                 }
-                ?>
-                <input type="submit" name=""/>
-                </form>
-                <?php 
-                  if($_POST){
-                     ResponderForm($_GET['cdform']);
-                  }
-                ?>
+                
             </div>
           
         </div>

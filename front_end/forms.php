@@ -119,46 +119,44 @@ if (isset($_GET['criar'])) {
             </div>
       </div>
     </div>
-        
-        
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
-    <div class="container">
-      <a class="navbar-brand dsa" href="index.php"><img src="img/img.png" height="50px"> Data Form</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-            
-          		<input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
-       
-                  
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <li class="nav-item">
-                <a class="nav-link mr-5" href="../back_end/sair.php">Sair</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  
-  
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+
+            <div class="input-group" >
+                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
+                    aria-describedby="basic-addon1">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     
-    <div class="container-fluid h-100">
-        <div class="row h-100">
+        <div class="row rowzin">
             <div class="col-md-2 " id="user">
-                <div class="container">
+                
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
                     $nome = explode(' ', $dado['NM_USUARIO'])
-                ?> 
+                ?>
 
                 <div class="user-dados">
                     
@@ -179,11 +177,10 @@ if (isset($_GET['criar'])) {
                 </div>
                 
                 <?php };?>
-                </div>
             </div>
             
             
-            <div class="col-md-8 offset-md-1 col-12" id="conteudo">
+            <div class="col-md-8 offset-md-1 col-12 contuser" id="conteudo">
                 <br>
                     <div class="row">
                         <div class="col-12">
@@ -214,7 +211,8 @@ if (isset($_GET['criar'])) {
                         <br><br><br>
                         
                         
-
+                        
+                        
                           
                        </div>
                       
@@ -252,8 +250,7 @@ if (isset($_GET['criar'])) {
     
             </div>
         </div>
-    </div>
-   
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>

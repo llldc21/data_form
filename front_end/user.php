@@ -197,8 +197,7 @@ else if(isset($_POST['data'])){
     
     <div class="row rowzin">
             <div class="col-md-2 " id="user">
-              <div class="container">
-
+                
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
                 while ($dado = $dados->fetch_array()){
@@ -219,17 +218,17 @@ else if(isset($_POST['data'])){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button href="manual.php" type="button" class="btn btn-primary btn-block">Manual de Usuário</button>
+                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
                 </div>
                 </div>
                 
                 <?php };?>
             </div>
-          </div>          
+            
             
             <div class="col-12 col-md-10 col-1 contuser" id="conteudo">
                 <br>
-                
+                <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
@@ -267,17 +266,14 @@ else if(isset($_POST['data'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-<<<<<<< HEAD
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
-=======
-                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-danger">Excluir</a>
->>>>>>> 0c17f91db8082c0c1ad8e0ebc28f9b81e01a90a3
                          </div>
                          </div>
                          </div>';               
                     }
                     
                     ?>
+                </div>
                 </div>
             </div> <!-- col-md-10 -->
     </div>
