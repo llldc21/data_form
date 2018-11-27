@@ -74,25 +74,16 @@ function AtualizarImg($email,$img_usuario,$cd){
     IMG_USUARIO = "'.$caminho.'"
 	WHERE CD_USUARIO = '.$cd;
 	$res = $GLOBALS['conn']->query($sql);
-	echo $sql;
+
 }
-function AtualizarNome($nome,$cd){
-    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO ="'.$nome.'"
+function AtualizarUsuario($nome,$data,$cd){
+    $sql = 'UPDATE TB_USUARIO SET NM_USUARIO ="'.$nome.'",
+    DT_NASCIMENTO="'.$data.'"
     WHERE CD_USUARIO='.$cd;
     $res = $GLOBALS['conn']->query($sql);
-    echo $sql;
+    
 }
-function AtualizarEmail($email,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DS_EMAIL="'.$email.'"
-    WHERE CD_USUARIO='.$cd;
-    $res = $GLOBALS['conn']->query($sql);
-}
-function AtualizarDataNascimento($data,$cd){
-    $sql = 'UPDATE TB_USUARIO SET DT_NASCIMENTO="'.$data.'"
-    WHERE CD_USUARIO='.$cd;
-    $res = $GLOBALS['conn']->query($sql);
-  
-}
+
 // --
 
 // FUNÇÕES PARA FORMULARIO
