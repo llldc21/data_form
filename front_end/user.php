@@ -8,14 +8,8 @@ include('../back_end/funcs.php');
 if(isset($_FILES['img_usuario'])){
   AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
 }
-else if(isset($_POST['nome'])){
-   AtualizarNome($_POST['nome'], $_SESSION['cd']);
-}
-else if(isset($_POST['email'])){
-   AtualizarEmail($_POST['email'], $_SESSION['cd']);
-}
-else if(isset($_POST['data'])){
-   AtualizarDataNascimento($_POST['data'], $_SESSION['cd']);
+if(isset($_POST['nome'])){
+   AtualizarUsuario($_POST['nome'],$_POST['data'], $_SESSION['cd']);
 }
 
 
@@ -100,7 +94,7 @@ else if(isset($_POST['data'])){
                         <?php
                             $dados = ListarDadosUsuario($_SESSION['cd']);
                             while ($dado = $dados->fetch_array()){
-                                $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'])
+                                $nome = explode( $dado['NM_USUARIO'], $dado['DT_NASCIMENTO'])
                             ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
@@ -108,7 +102,6 @@ else if(isset($_POST['data'])){
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-                            <input class="form-control" name="email" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">     
                             <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">    
                         </div>
                         
@@ -218,7 +211,7 @@ else if(isset($_POST['data'])){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button href="manual.php" type="button" class="btn btn-primary btn-block">Manual de Usuário</button>
+                <button type="button" class="btn btn-primary btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
                 </div>
                 </div>
                 
