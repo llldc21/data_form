@@ -36,7 +36,7 @@
             
           		<input type="submit" value="" class="search-submit"> 
           		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
-       
+       x
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -153,6 +153,5 @@
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</body>
-
+  </body>
 </html>
