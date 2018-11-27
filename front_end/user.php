@@ -211,11 +211,8 @@ if(isset($_POST['nome'])){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-<<<<<<< HEAD
                 <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
-=======
                 <button type="button" class="btn btn-primary btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
->>>>>>> 27112018Y
                 </div>
                 </div>
                 
@@ -264,6 +261,7 @@ if(isset($_POST['nome'])){
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
+                         <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-primary">Enviar</a>
                          </div>
                          </div>
                          </div>';               

@@ -1,6 +1,6 @@
-<?php 
-include('../back_end/funcs.php');
- if(isset($_GET['cdform'])){
+<?php
+  include('../back_end/funcs.php');
+  // if(isset($_GET['cdform'])){
 ?>
 <html lang="en">
 
@@ -70,51 +70,16 @@ include('../back_end/funcs.php');
             <div class="col-md-6 masds offset-md-3">
                             
                 <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
-                <form action="exibir_form.php?cdform=<?php echo $_GET['cdform']?>" method="POST">
-                <?php 
-                  $np = 0;
-                 $form = ListaPerguntasPorForm($_GET['cdform']);
-                 while($forms = $form->fetch_array()){
-                  switch($forms['CD_TIPO_PERGUNTA']){
-                    case 1:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
-                      break;
-                    case 2:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
-                      break;
-                    case 3:
-                       $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                       if(0 < $alt->num_rows){
-                        echo $forms['NM_PERGUNTA'].'<br>';
-                        while($alts = $alt->fetch_array()){
-                          echo '<input type="radio" style="form-control" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.$alts['NM_ALTERNATIVA'].'<br>';
-                        }
-                       }
-                      break;
-                    case 4:
-                      $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                        if(0 < $alt->num_rows){
-                         echo $forms['NM_PERGUNTA'].'<br>';
-                          while($alts = $alt->fetch_array()){
-                            $i = 1;
-                            echo '<input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>';
-                            $i++;
-                          }
-                        }
-                      break;
-                  }
-                   ?>
-                <?php    
-                 }
-                ?>
-                <input type="submit" name=""/>
-                </form>
-                <?php 
-                  if($_POST){
-                     ResponderForm($_GET['cdform']);
-                  }
-                ?>
-                
+              <?php
+                $pergunta = ListaPerguntasPorForm($_GET['$cdform']);
+                while($perguntas= $perguntas->fetch_array()){?>
+                  <h2><?php echo$perguntas['NM_PERGUNTA']; ?></h2>
+                  <ul class="list-group">
+                    <li class="list-group-item"></li>
+                  </ul>
+                  
+                <?php}
+              ?>
             </div>
           
         </div>
@@ -122,7 +87,7 @@ include('../back_end/funcs.php');
       
     
   <!-- Footer -->
-  <footer class="py-5 fixed-bottom bg-black">
+  <footer class="py-5 fixed-bottom" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>
@@ -136,6 +101,6 @@ include('../back_end/funcs.php');
 </body>
 
 </html>
-<?php
- }
+<?php 
+// }
 ?>
