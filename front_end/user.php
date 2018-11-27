@@ -219,7 +219,7 @@ else if(isset($_POST['data'])){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
+                <button href="manual.php" type="button" class="btn btn-primary btn-block">Manual de Usuário</button>
                 </div>
                 </div>
                 
@@ -267,7 +267,11 @@ else if(isset($_POST['data'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
+<<<<<<< HEAD
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
+=======
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-danger">Excluir</a>
+>>>>>>> 0c17f91db8082c0c1ad8e0ebc28f9b81e01a90a3
                          </div>
                          </div>
                          </div>';               

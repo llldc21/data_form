@@ -20,6 +20,7 @@
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="front_end/css/main.css">
   <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
+  <link rel="stylesheet" href="front_end/css/fonts.css" type="text/css" />
 
 </head>
 
@@ -28,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
     <div class="container">
-      <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
+      <a class="navbar-brand dsa " href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -61,12 +62,12 @@
     
     <div class="masthead-content">
       <div class="container">
-        <h3 class="masthead-heading mb-0">Data Form</h3>
+        <h3 class="masthead-heading mb-0 font-arciform">Data Form</h3>
         <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
-            <button href="#cont" type="submit" class="login100-form-btn">
-              Leia Mais!
+            <button href="cadastro.php" type="submit" class=" login100-form-btn">
+              Cadastre se 
             </button>
           </div>
         </div>
@@ -84,8 +85,8 @@
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
-          <div class="p-5">
-            <h2 class="display-5" id="cont">Criar</h2>
+          <div class="p-5"> 
+            <h2 class="display-5 font-arciform" id="cont">Criar</h2>
             <p>Crie formularios para pesquisas de campo ou qualquer outro tipo de pesquisas.
                 construa graficos incriveis com respostas de usuarios ou dados que vc msm coletou.
                 Tudo isso de uma maneira rapida e facil com um conforto que o Data Form lhe fornece,

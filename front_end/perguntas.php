@@ -26,6 +26,7 @@ if (isset($_GET['criar'])) {
     <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -158,20 +159,57 @@ if (isset($_GET['criar'])) {
                 
                 
                 <!-- FORMULARIO -->
+<<<<<<< HEAD
                  <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid #70baf4;">
                      <div class="row">
                          <h3 style="padding-top:10px;padding-left:20px;"> Criar Formularios</h3>
+=======
+                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
+                     <div class="row" id="myTab" role="tablist">
+                         <div class="col-md-6">
+                             <div class="nav" >
+                                <a  id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h3 style="padding-top:10px;padding-left:20px;color:black;">Perguntas</h3></a>
+                                <a  id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><h3  style="padding-top:10px;padding-left:20px;color:black;">respostas</h3></a>
+                            </div>
+                         </div>
                          
+>>>>>>> 0c17f91db8082c0c1ad8e0ebc28f9b81e01a90a3
+                         
+                          
                      </div><!-- row -->
-                     <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
+                     <!--<div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>-->
                      
+<<<<<<< HEAD
                      <div class="row conteudo container-fluid" style="padding:20px;">
                         <div class="container-fluid">     
                             <div class="form-group" id="conteudo" >
                              <!-- forms vai aqui -->
+=======
+                    <div class="tab-content" id="myTabContent">
+                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                           <div class="row conteudo " class="tab-pane fade " id="respostas" role="tabpanel" aria-labelledby="respostas-tab"  style="padding:20px;">
+                             <div class="col-md-12">
+                                 <!--graficos -->
+                                 bb
+>>>>>>> 0c17f91db8082c0c1ad8e0ebc28f9b81e01a90a3
                              </div>
-                        </div>     
-                     </div>
+                         </div>
+                      </div>
+                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           <div class="row conteudo " class="tab-pane fade show active " id="perguntas" role="tabpanel" aria-labelledby="perguntas-tab"  style="padding:20px;">
+                             <div class="col-md-12">
+                                <form method="post" action="../back_end/processa.php">
+                                    <div class="form-group" id="conteudo">
+                                         <!-- forms vai aqui -->
+                                         aaa
+                                    
+                                     </div>
+                                </form>
+                             </div>
+                         </div>
+                      </div>
+                     
+                    </div>
                      
                      
                  </div><!-- fim col 5 -->
@@ -182,12 +220,14 @@ if (isset($_GET['criar'])) {
                      
                   </div><!-- div exemplos -->
                 
-                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
+                <div class="col-md-1 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
+                    
                      <div class="row">
-                      <h3 style="padding-top:10px;padding-left:20px;">Perguntas</h3>
+                   
                       </div>
                        <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
                        <br>
+<<<<<<< HEAD
                       <?php
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
@@ -197,6 +237,12 @@ if (isset($_GET['criar'])) {
                         <br><br>
                       <a href="exibir_form.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
                         <br>
+=======
+                      
+                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="right" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"><i class="material-icons"><?php echo $icon[$i] ?></i></button>
+            
+                      <br><br>
+>>>>>>> 0c17f91db8082c0c1ad8e0ebc28f9b81e01a90a3
   
                 </div>
       </div>
@@ -204,8 +250,21 @@ if (isset($_GET['criar'])) {
 </div>     
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
+        crossorigin="anonymous"></script> 
+          <script src="js/jquery-3.2.1.min.js"></script>
+   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script type="text/javascript" >
+     $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        $('#myTab a').on('click', function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="ajax.js"></script>
 </body>

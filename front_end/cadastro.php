@@ -2,7 +2,11 @@
 include '../back_end/funcs.php';
 
 if (isset($_POST['nome'])) {
-	$img_usuario = $_FILES['img_usuario']; //Pegando extensão do arquivo
+	if('' == $_FILES['img_usuario']){
+			$img_usuario = 'a.jpg';
+	}else{
+		$img_usuario = $_FILES['img_usuario'];
+	} //Pegando extensão do arquivo
 	CadastraUsuario($_POST['nome'], $_POST['email'], $_POST['nascimento'], $_POST['senha'], $_POST['email_rec'], $img_usuario);
 }
 ?>
