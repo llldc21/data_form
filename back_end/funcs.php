@@ -186,6 +186,17 @@ function ExcluirForm($cd){
 };
 // --
 
+function Pesquisa($pes){
+$sql = 'SELECT * FROM TB_FORMULARIO';
+if(isset($_GET['pes'])){
+    $sql.=' WHERE NM_FORMULARIO like"%'.$_GET['pes'].'%"';
+}
+$res = $conn->query($sql);
+while($form = $res->fetch_array()){
+    echo "<li>".$form['NM_FORMULARIO']."</li>";
+}
+}//pesquisa
+
 // -- FUNÇÕES DE AUXILIO
 // -- Segurança da senha
 function EncriptarSenha($senha){

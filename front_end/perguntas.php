@@ -195,7 +195,7 @@ if (isset($_GET['criar'])) {
                       <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
                         <?php };?>
                         <br><br>
-                      <a href="exibir_form.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
+                      <a href="user.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
                         <br>
   
                 </div>

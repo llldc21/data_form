@@ -31,7 +31,7 @@ include('../back_end/funcs.php');
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="border-bottom:1px solid #000;">
     <div class="container">
-      <a class="navbar-brand dsa" href="index.php"><img src="img/img.png" height="50px"> Data Form</a>
+      <a class="navbar-brand dsa" href="../index.php"><img src="img/img.png" height="50px"> Data Form</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

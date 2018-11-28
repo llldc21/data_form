@@ -171,9 +171,10 @@ if(isset($_POST['nome'])){
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <form action="pesquisa.php" method="post">
         <input type="submit" value="" class="search-submit"> 
         <input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
-      
+      </form>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">

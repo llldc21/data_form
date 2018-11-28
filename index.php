@@ -34,9 +34,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
             
-          		<input href="pesquisar.php" type="submit" value="" class="search-submit"> 
-          		<input href="pesquisar.php" type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
-       
+            <form action="pesquisa.php" method="post" >
+          		<input type="submit" value="" class="search-submit"> 
+          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
+         </form>
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
