@@ -26,11 +26,7 @@ if (isset($_GET['criar'])) {
     <?php };?>
     <!-- Bootstrap core CSS -->
     <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!--icons-->
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -173,7 +169,6 @@ if (isset($_GET['criar'])) {
                         <div class="container-fluid">     
                             <div class="form-group" id="conteudo" >
                              <!-- forms vai aqui -->
-                             
                              </div>
                         </div>     
                      </div>
@@ -194,18 +189,13 @@ if (isset($_GET['criar'])) {
                        <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
                        <br>
                       <?php
-                        $i = 0;
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
-                            $icon = array('short_text','subject','radio_button_checked','check_box');
-                            
                       ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSIONs['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="right" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"><i class="material-icons"><?php echo $icon[$i] ?></i></button>
-                        <?php 
-                        $i++;
-                        };?>
+                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
+                        <?php };?>
                         <br><br>
-                      <a href="exibir_form.php?cdform=<?php ?>"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
+                      <a href="exibir_form.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
                         <br>
   
                 </div>
@@ -218,15 +208,5 @@ if (isset($_GET['criar'])) {
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="ajax.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script type="text/javascript" >
-     $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-        $('#myTab a').on('click', function (e) {
-          e.preventDefault()
-          $(this).tab('show')
-        });
-</script>
 </body>
 </html>

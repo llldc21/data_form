@@ -121,36 +121,35 @@ if (isset($_GET['criar'])) {
     </div>
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-
-            <div class="input-group" >
-                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-                    aria-describedby="basic-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link respo" data-toggle="modal" data-target="#examModal">Perfil</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+    <div class="container">
+      <a class="navbar-brand dsa" href="../index.php"><img src="img/img.png" height="50px"> Data Form</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            
+          		<input type="submit" value="" class="search-submit"> 
+          		<input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
+       
+                  
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
+            </li>
+            <li class="nav-item ml-2">
+                <a class="nav-link" href="../back_end/sair.php">Sair</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     
     
         <div class="row rowzin">
-            <div class="col-md-2 " id="user">
+            <div class="col-md-2" id="user">
                 
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
@@ -171,8 +170,9 @@ if (isset($_GET['criar'])) {
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
+                <button type="button" class="btn btn-primary btn-block"> <a href="../docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
                 
@@ -201,11 +201,11 @@ if (isset($_GET['criar'])) {
                         <br><br><br>
                         
                         
-                           <input type="text" name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
+                           <input type="text" class="inputst " name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
                         
                         <br><br><br>
                           
-                           <input type="text" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+                           <input type="text" class="inputst mt-5" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
                         
                         
                         <br><br><br>
@@ -220,23 +220,29 @@ if (isset($_GET['criar'])) {
                         <div class="col-12">
                             <br>
                             <h4 class="h4 text-center">Data de abertura:</h4>
-                            <input type="date" class="form-control" name="data_abertura" id="data_abertura">
+                            <input type="date" class="form-control dara" name="data_abertura" id="data_abertura">
                         </div>
                         <div class="col-12">
                             <br>
                             <h4 class="h4 text-center">Categoria</h4>
-                            <select name="categoria" class="form-control">
+                            
+                            
+                            
+                            <select name="categoria" class="form-control dara">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
                                 while ($dado = $dados->fetch_array()){
                             ?>
                                 <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
+                            
+                            
+                            
                         </div>
                         <div class="col-12">
                             <br>
                             <h4 class="h4 text-center">Data de fechamento:</h4>
-                            <input type="date" class="form-control" name="data_fechamento" id="data_fechamento">
+                            <input type="date" class="form-control dara" name="data_fechamento" id="data_fechamento">
                         </div>
                     </div>
                     <br>
@@ -244,9 +250,9 @@ if (isset($_GET['criar'])) {
                     
                   </div>
         
-                            <a href="perguntas.php"><button type="button" class="btn btn-primary btn-block" id="novo">Perguntas</button></a>
-                            <button type="button" class="btn btn-success btn-block" id="fin">Finalizar</button><br>                            
-                            <button class="btn btn-primary btn-block perguntas" id="criar">Criar Formulário</button><br>
+                            <a href="perguntas.php"><button type="button" class=" mt-5 btn btn-primary btn-block" id="novo">Perguntas</button></a>
+                            <button type="button" class="btn btn-success mt-1 btn-block" id="fin">Finalizar</button><br>                            
+                            <button class="btn btn-primary btn-block perguntas mt-5" id="criar">Criar Formulário</button><br>
     
             </div>
         </div>
