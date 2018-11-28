@@ -42,7 +42,8 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
 // -- Login
 function Login($email, $senha){
     $encriptada = EncriptarSenha($senha);
-    $sql = 'SELECT *  FROM `TB_USUARIO` WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
+    $sql = 'SELECT *  FROM `TB_USUARIO` 
+        WHERE `DS_EMAIL` = "'.$email.'" AND `DS_SENHA` = "'.$encriptada.'"';
     $res = $GLOBALS['conn']->query($sql);
     if($res->num_rows>0){
         $usuario = $res->fetch_array();
@@ -70,8 +71,8 @@ function AtualizarImg($email,$img_usuario,$cd){
         move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
     };
 	$sql = 'UPDATE TB_USUARIO SET
-    IMG_USUARIO = "'.$caminho.'"
-	WHERE CD_USUARIO = '.$cd;
+        IMG_USUARIO = "'.$caminho.'"
+	    WHERE CD_USUARIO = '.$cd;
 	$res = $GLOBALS['conn']->query($sql);
 
 }
@@ -82,7 +83,10 @@ function AtualizarUsuario($nome,$data,$cd){
     $res = $GLOBALS['conn']->query($sql);
     
 }
-
+function AtualizaForm($cd_usuario, $nm_form, $abertura, $fechamento, $id_usuario, $id_categoria, $descricao){
+    $sql = "UPDATE `TB_FORMULARIO` SET `CD_FORMULARIO`=$cd_usuario,`NM_FORMULARIO`=$nm_form,`DT_ABERTURA_FORM`=$abertura,`DT_FECHAMENTO_FORM`=$fechamento, `ID_CATEGORIA`=$id_categoria,`DS_FORMULARIO`=$descricao WHERE `ID_USUARIO` =$id_usuario";
+    echo $sql;
+}
 // --
 
 // FUNÇÕES PARA FORMULARIO
@@ -119,12 +123,12 @@ function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
     $dataa = FormataData($dataa);
     $dataf = FormataData($dataf);
     $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
-    DT_ABERTURA_FORM ="'.$dataa.'",
-    DT_FECHAMENTO_FORM ="'.$dataf.'",
-    ID_CATEGORIA="'.$id_cat.'",
-    DS_FORMULARIO="'.$ds.'",
-    ID_USUARIO="'.$cd.'" WHERE
-    CD_FORMULARIO='.$cd_form;
+        DT_ABERTURA_FORM ="'.$dataa.'",
+        DT_FECHAMENTO_FORM ="'.$dataf.'",
+        ID_CATEGORIA="'.$id_cat.'",
+        DS_FORMULARIO="'.$ds.'",
+        ID_USUARIO="'.$cd.'" WHERE
+        CD_FORMULARIO='.$cd_form;
     $res = $GLOBALS['conn']->query($sql);
 	if($res){
 		alert("Atualizado com sucesso!");
@@ -201,58 +205,54 @@ function FormataData($data){
 // -- resposta
 function ExibirTudoPeloForm($cd){
     $sql = 'SELECT * FROM TB_RESPOSTA r 
-INNER JOIN TB_ALTERNATIVA as a 
-ON r.ID_ALTERNATIVA = a.CD_ALTERNATIVA
-INNER JOIN TB_PERGUNTA as p 
-ON a.ID_PERGUNTA = p.CD_PERGUNTA
-INNER JOIN TB_FORMULARIO as f 
-ON p.ID_FORMULARIO = f.CD_FORMULARIO
-WHERE f.CD_FORMULARIO = '.$cd;
+    INNER JOIN TB_ALTERNATIVA as a 
+    ON r.ID_ALTERNATIVA = a.CD_ALTERNATIVA
+    INNER JOIN TB_PERGUNTA as p 
+    ON a.ID_PERGUNTA = p.CD_PERGUNTA
+    INNER JOIN TB_FORMULARIO as f 
+    ON p.ID_FORMULARIO = f.CD_FORMULARIO
+    WHERE f.CD_FORMULARIO = '.$cd;
 }
 
 function ResponderForm($cd){
-     $form = ListaPerguntasPorForm($cd);
-                       while($forms = $form->fetch_array()){
-                          switch($forms['CD_TIPO_PERGUNTA']){
-                            case 1 :
-                              if( "" != $_POST[$forms['CD_PERGUNTA']]){
-                                $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
-                                $GLOBALS['conn']->query($sql);
-                                 $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                                 while($alts = $alt->fetch_array()){
-                                 ResponderPergunta($alts['CD_ALTERNATIVA']);
-                                 }
-                              }
-                              
-                              break;
-                            case 2:
-                             if( "" != $_POST[$forms['CD_PERGUNTA']]){
-                                $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
-                                $GLOBALS['conn']->query($sql);
-                                 $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
-                                 while($alts = $alt->fetch_array()){
-                                 ResponderPergunta($alts['CD_ALTERNATIVA']);
-                                 }
-                              }
-                              break; 
-                            case 3:
-                              if(isset($_POST[$forms['CD_PERGUNTA']])){
-                                   ResponderPergunta($_POST[$forms['CD_PERGUNTA']]);
-                                }
-                               
-                              break;
-                            case 4:
-                                   if(isset( $_POST['alternativa'])){
-                                     $a = $_POST['alternativa'];
-                                     for($i=0;$i<count($a);$i++){
-                                        
-                                        ResponderPergunta($a[$i]);
-                                     }
-                                   }
-
-                              break;
-                          }
-                     }
+    $form = ListaPerguntasPorForm($cd);
+    while($forms = $form->fetch_array()){
+        switch($forms['CD_TIPO_PERGUNTA']){
+            case 1 :
+                if( "" != $_POST[$forms['CD_PERGUNTA']]){
+                    $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
+                    $GLOBALS['conn']->query($sql);
+                    $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
+                    while($alts = $alt->fetch_array()){
+                        ResponderPergunta($alts['CD_ALTERNATIVA']);
+                    }
+                }          
+            break;
+            case 2:
+                if( "" != $_POST[$forms['CD_PERGUNTA']]){
+                    $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
+                    $GLOBALS['conn']->query($sql);
+                    $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
+                    while($alts = $alt->fetch_array()){
+                        ResponderPergunta($alts['CD_ALTERNATIVA']);
+                    }
+                }
+            break; 
+            case 3:
+            if(isset($_POST[$forms['CD_PERGUNTA']])){
+                ResponderPergunta($_POST[$forms['CD_PERGUNTA']]);
+            }
+            break;
+            case 4:
+            if(isset( $_POST['alternativa'])){
+                $a = $_POST['alternativa'];
+                for($i=0;$i<count($a);$i++){
+                    ResponderPergunta($a[$i]);
+                }
+            }
+            break;
+        }
+    }
 }
 
 ?>
