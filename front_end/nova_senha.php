@@ -69,45 +69,94 @@ if(isset($_POST['email'])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Esqueci minha Senha | Data Form</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="front_end/css/main.css">
-  <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
-
+	<title>DataForm</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="temas/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="temas/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="temas/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="temas/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="temas/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="temas/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('img/bg-01.png');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				
+				<!-- INCIIO DO FORM -->
+				<form method="post" action="nova_senha.php" class="login100-form validate-form">
+				<!-- TAG FORM PARA SER MUDADA DIRETO PRO EMAIL -->
+					<span class="login100-form-title p-b-49">
+						<img src="img/img.png" style="height:70px;"> Data Form
+					</span>
+						
+					
+					<div class="text-center p-t-8 p-b-31">
+						<p href="#" class="txt2">
+							Digite o email cadastrado para a recuperação de senha.
+							Será enviado uma mensagem para o mesmo, com os respectivos dados do usuário.
+						</p>
+					</div>
+
+						<!-- INPUT DE RECUPERAÇÃO -->
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email requerido">
+						
+						<input class="input100" type="text" name="email" placeholder="Digite seu Email">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+
+						<!-- fim login -->
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+					
+						<!-- MODIFICAR O "HREF" DO BUTTON  -->
+							<button type="submit" class="login100-form-btn">
+						<!-- MODIFICAR O "HREF" DO BUTTON -->
+								Enviar
+							</button>
+						</div>
+					</div>
+
+						<br>
+						<center>
+							<a href="cadastro.php" class="txt2">
+								Cadastrar
+							</a>
+						</center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	
+	<script src="temas/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="temas/vendor/animsition/js/animsition.min.js"></script>
+	<script src="temas/vendor/bootstrap/js/popper.js"></script>
+	<script src="temas/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="temas/vendor/select2/select2.min.js"></script>
+	<script src="temas/vendor/daterangepicker/moment.min.js"></script>
+	<script src="temas/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="temas/vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/main.js"></script>
+
 </body>
-
-
-
- <form action="nova_senha.php" method="post" >
-    <input type="text" name="email" placeholder="Insira seu email">
-    <button type="submit">Enviar</button>
-</form>
 </html>
-
-
-
-
-
-
 
 
 

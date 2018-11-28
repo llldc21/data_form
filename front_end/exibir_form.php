@@ -67,7 +67,7 @@ include('../back_end/funcs.php');
       
       <div class="container">
         <div class="row">
-            <div class="col-md-6 masds offset-md-3">
+            <div class="col-md-8 masds offset-md-2">
                             
                 <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
                 <form action="exibir_form.php?cdform=<?php echo $_GET['cdform']?>" method="POST">
@@ -77,27 +77,29 @@ include('../back_end/funcs.php');
                  while($forms = $form->fetch_array()){
                   switch($forms['CD_TIPO_PERGUNTA']){
                     case 1:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
+                      echo '<h5 class="masthead-subheading mt-2">'. $forms['NM_PERGUNTA'].'</h5>  <input type="text" class="inputst " name="'.$forms['CD_PERGUNTA'].'" style="margin-top:20px;" id="nome_form" require placeholder="Insira o nome do Formulário">  <br><br><br>';
                       break;
                     case 2:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
+                      echo '<h5 class="masthead-subheading mt-2">'.$forms['NM_PERGUNTA'].'</h5> <textarea class="inputst " name="'.$forms['CD_PERGUNTA'].'" style="margin-top:20px;" rows="5" id="nome_form" require placeholder="Insira o nome do Formulário">
+    </textarea> <br><br> <br>';
+                      
                       break;
                     case 3:
                        $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                        if(0 < $alt->num_rows){
-                        echo $forms['NM_PERGUNTA'].'<br>';
+                        echo '<h5 class="masthead-subheading mt-2">'. $forms['NM_PERGUNTA'].'</h5><br>';
                         while($alts = $alt->fetch_array()){
-                          echo '<input type="radio" style="form-control" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.$alts['NM_ALTERNATIVA'].'<br>';
+                          echo '<input type="radio" style="margin-top:20px;" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.'<b class="masthead-subheading ml-2">'.$alts['NM_ALTERNATIVA'].'</b><br><br><br>';
                         }
                        }
                       break;
                     case 4:
                       $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                         if(0 < $alt->num_rows){
-                         echo $forms['NM_PERGUNTA'].'<br>';
+                         echo '<h5 class="masthead-subheading mt-2">'. $forms['NM_PERGUNTA'].'</h5><br>';
                           while($alts = $alt->fetch_array()){
                             $i = 1;
-                            echo '<input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>';
+                            echo '<input type="checkbox" style="margin-top:20px;" value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br><br>';
                             $i++;
                           }
                         }
@@ -107,8 +109,8 @@ include('../back_end/funcs.php');
                 <?php    
                  }
                 ?>
-                <input type="submit" name=""/>
-                </form>
+                  <button type="button" class="btn btn-secondary btn-block mt-1">ENVIAR</button>
+                  </form>
                 <?php 
                   if($_POST){
                      ResponderForm($_GET['cdform']);
@@ -122,7 +124,7 @@ include('../back_end/funcs.php');
       
     
   <!-- Footer -->
-  <footer class="py-5 fixed-bottom bg-black">
+  <footer class="py-5 bg-black">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>

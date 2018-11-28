@@ -113,7 +113,7 @@ include('../back_end/funcs.php');
                              $conts = $cont->fetch_array();
                                
                                
-                                 echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
+                                 echo' <li class="list-group-item">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>'; 
                                
                             }
                           
