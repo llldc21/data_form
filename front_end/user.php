@@ -150,7 +150,8 @@ if(isset($_POST['nome'])){
                             </h5>
                             
                             <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
+                            <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
                         </div>
                         
                     <?php };?>
@@ -210,8 +211,8 @@ if(isset($_POST['nome'])){
                         <?php echo $nome[0].' '.$nome[1];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="../docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
+                 <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
                 </div>
                 </div>
                 
@@ -254,15 +255,18 @@ if(isset($_POST['nome'])){
                     while ($dado = $dados->fetch_array()){
                         echo'<div class="col-md-4 offset-md-0 col-10 offset-1"> 
                          <div class="card" style="width: 100%;">
+                         <a href="exibir_resposta.php?cdform='.$dado['CD_FORMULARIO'].'">
                          <div class="card-body">
                          <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
+                         <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-primary">Responder</a>
                          </div>
                          </div>
-                         </div>';               
+                         </div>
+                         </a>';               
                     }
                     
                     ?>
@@ -270,6 +274,7 @@ if(isset($_POST['nome'])){
                 </div>
             </div> <!-- col-md-10 -->
     </div>
+
     
     
     

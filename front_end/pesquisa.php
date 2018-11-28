@@ -10,12 +10,21 @@ $con = new mysqli($host, $user, $password, $db);
 ?>
 
 
-<form >
-     
- Pesquisa:<br>
-  <input type="text" name="q" style="width: 300px">
-  
-  
+<form>
+    <select name="categoria" id="categoria"> 
+    <?php
+    $sql = 'SELECT * FROM TB_CATEGORIA';
+    $res = $con->query($sql);
+    while($catLinha = $res->fetch_array()){
+        echo '<option value="'.$catLinha['CD_CATEGORIA'].'">'.$catLinha['NM_CATEGORIA'].'</option> ';
+    }
+    ?>
+    </select>
+    <!--<select name="form" id="form">-->
+    <!--    Selecione...-->
+    <!--</select>-->
+
+    Pesquise: <input type="text" name="q">
 </form>
 
 <?php
@@ -23,10 +32,11 @@ $sql = 'SELECT * FROM TB_FORMULARIO';
 if(isset($_GET['q'])){
     $sql.=' WHERE NM_FORMULARIO like"%'.$_GET['q'].'%"';
 }
-
 $res = $con->query($sql);
-while($busca = $res->fetch_array()){
-    echo $busca['NM_FORMULARIO']."<br>";
+while($form = $res->fetch_array()){
+    echo "<li>".$form['NM_FORMULARIO']."</li>";
 }
 ?>
+
+
 

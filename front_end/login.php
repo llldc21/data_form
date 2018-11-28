@@ -57,7 +57,7 @@ if ($_POST){
 					</div>
 					
 					<div class="text-right p-t-8 p-b-31">
-						<a href="#" class="txt2">
+						<a href="nova_senha.php" class="txt2">
 							Esqueceu a senha?
 						</a>
 					</div>

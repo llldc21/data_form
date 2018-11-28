@@ -1,6 +1,6 @@
-<?php
-  include('../back_end/funcs.php');
-  // if(isset($_GET['cdform'])){
+<?php 
+include('../back_end/funcs.php');
+ if(isset($_GET['cdform'])){
 ?>
 <html lang="en">
 
@@ -70,16 +70,63 @@
             <div class="col-md-6 masds offset-md-3">
                             
                 <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
-              <?php
-                $pergunta = ListaPerguntasPorForm($_GET['$cdform']);
-                while($perguntas= $perguntas->fetch_array()){?>
-                  <h2><?php echo$perguntas['NM_PERGUNTA']; ?></h2>
-                  <ul class="list-group">
-                    <li class="list-group-item"></li>
-                  </ul>
-                  
-                <?php}
+                 <?php
+                $pergunta = ListaPerguntasPorForm($_GET['cdform']);
+                while($perguntas = $pergunta->fetch_array()){
+                 echo '<h2>'.$perguntas['NM_PERGUNTA'].'</h2><br>';
+                      switch($perguntas['CD_TIPO_PERGUNTA']){
+                        case 1:
+                          $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
+                          echo'<ul class="list-group">';
+                            while($alts = $alt->fetch_array()){
+                              echo' <li class="list-group-item">'.$alts['NM_ALTERNATIVA'].'</li>';
+                            }
+                          echo'</ul>';
+                        break;
+                        case 2:
+                           $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
+                          echo'<ul class="list-group">';
+                            while($alts = $alt->fetch_array()){
+                              echo' <li class="list-group-item">'.$alts['NM_ALTERNATIVA'].'</li>';
+                            }
+                          echo'</ul>';
+                        break;
+                        case 3:
+                          
+                          $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
+                          echo'<ul class="list-group">';
+                            while($alts = $alt->fetch_array()){
+                            $cont = ContarAlternativa($alts['CD_ALTERNATIVA']);
+                             $conts = $cont->fetch_array();
+                               
+                               
+                                 echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
+                               
+                            }
+                            
+                        break;
+                        case 4:
+                          $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
+                          echo'<ul class="list-group">';
+                            while($alts = $alt->fetch_array()){
+                            $cont = ContarAlternativa($alts['CD_ALTERNATIVA']);
+                             $conts = $cont->fetch_array();
+                               
+                               
+                                 echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
+                               
+                            }
+                          
+                        break;
+                        
+                      }
+                
+                }
               ?>
+              <?php 
+               
+              ?>
+                
             </div>
           
         </div>
@@ -87,7 +134,7 @@
       
     
   <!-- Footer -->
-  <footer class="py-5 fixed-bottom" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+  <footer class="py-5 fixed-bottom bg-black">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>
@@ -101,6 +148,6 @@
 </body>
 
 </html>
-<?php 
-// }
+<?php
+ }
 ?>

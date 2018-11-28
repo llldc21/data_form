@@ -34,8 +34,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
             
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
+          		<input href="pesquisar.php" type="submit" value="" class="search-submit"> 
+          		<input href="pesquisar.php" type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
        
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">

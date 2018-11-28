@@ -83,11 +83,11 @@ function AtualizarUsuario($nome,$data,$cd){
     $res = $GLOBALS['conn']->query($sql);
     
 }
-function AtualizaForm($cd_usuario, $nm_form, $abertura, $fechamento, $id_usuario, $id_categoria, $descricao){
-    $sql = "UPDATE `TB_FORMULARIO` SET `CD_FORMULARIO`=$cd_usuario,`NM_FORMULARIO`=$nm_form,`DT_ABERTURA_FORM`=$abertura,`DT_FECHAMENTO_FORM`=$fechamento, `ID_CATEGORIA`=$id_categoria,`DS_FORMULARIO`=$descricao WHERE `ID_USUARIO` =$id_usuario";
-    echo $sql;
-}
-// --
+// function AtualizaForm($cd_usuario, $nm_form, $abertura, $fechamento, $id_usuario, $id_categoria, $descricao){
+//     $sql = "UPDATE `TB_FORMULARIO` SET `CD_FORMULARIO`=$cd_usuario,`NM_FORMULARIO`=$nm_form,`DT_ABERTURA_FORM`=$abertura,`DT_FECHAMENTO_FORM`=$fechamento, `ID_CATEGORIA`=$id_categoria,`DS_FORMULARIO`=$descricao WHERE `ID_USUARIO` =$id_usuario";
+//     echo $sql;
+// }
+// // --
 
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
@@ -212,6 +212,17 @@ function ExibirTudoPeloForm($cd){
     INNER JOIN TB_FORMULARIO as f 
     ON p.ID_FORMULARIO = f.CD_FORMULARIO
     WHERE f.CD_FORMULARIO = '.$cd;
+}
+
+function ContarAlternativa($cd){
+    $sql = 'SELECT COUNT(CD_RESPOSTA) total FROM TB_RESPOSTA WHERE ID_ALTERNATIVA ='.$cd;
+    //echo $sql;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
+function ResponderPergunta($cd){
+    $sql = 'INSERT INTO TB_RESPOSTA VALUES(NULL,'.$cd.')';
+     $res = $GLOBALS['conn']->query($sql);
 }
 
 function ResponderForm($cd){

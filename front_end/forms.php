@@ -2,6 +2,13 @@
 session_start();
 include('../back_end/funcs.php');
 
+if(isset($_FILES['img_usuario'])){
+    AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
+}
+if(isset($_POST['nome'])){
+   AtualizarUsuario($_POST['nome'],$_POST['data'], $_SESSION['cd']);
+}
+
 if (isset($_GET['criar'])) {
     CadastrarFormulario();
 }
@@ -51,35 +58,7 @@ if (isset($_GET['criar'])) {
 
 <body>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Dados</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="user.php" method="post">
-                    <div class="modal-body">
-                        <h3>Alterar foto</h3>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
-                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
-    
-    <!-- Modal Perfil -->
-        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header frescuras">
@@ -107,8 +86,55 @@ if (isset($_GET['criar'])) {
                             </h5>
                             
                             <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
+                            <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
                         </div>
+                        
+                    <?php };?>
+                    
+              </div>
+              <div class="modal-footer frescuras">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    <!-- Modal Perfil -->
+        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header frescuras">
+                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modper">
+                    
+                     <?php
+                        $dados = ListarDadosUsuario($_SESSION['cd']);
+                        while ($dado = $dados->fetch_array()){
+                            $nome = explode(' ', $dado['NM_USUARIO'])
+                        ?>
+                     <div class="user-dados">
+                    
+                    <div class="foto-user">
+                    
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
+                    
+                    </div>
+                    
+
+                <div style="margin-top: 20px;"> 
+                <h4 class="h4 text-center " id="nome-user">
+                        <?php echo $nome[0].' '.$nome[1];?>
+                </h4>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                 <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
+                </div>
+                </div>
                         
                     <?php };?>
                     

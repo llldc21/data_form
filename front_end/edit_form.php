@@ -2,8 +2,16 @@
 include "../back_end/funcs.php";
 session_start();
 
+if(isset($_FILES['img_usuario'])){
+    AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
+}
+if(isset($_POST['nome'])){
+   AtualizarUsuario($_POST['nome'],$_POST['data'], $_SESSION['cd']);
+}
+
+
 if($_POST){
- EditarForm($_POST['nome'], $_POST['dataa'], $_POST['dataf'], $_POST['id_cat'], $_POST['ds'], $_SESSION['cd'], $_POST['cd_form']);   
+ EditarForm($_POST['n'], $_POST['dataa'], $_POST['dataf'], $_POST['id_cat'], $_POST['ds'], $_SESSION['cd'], $_POST['cd_form']);   
 }
 
 ?>
@@ -39,9 +47,10 @@ if($_POST){
 
 <body>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Editar Dados</h5>
@@ -49,36 +58,36 @@ if($_POST){
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                 <form action="edit_form.php" method="post">
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode( $dado['NM_USUARIO'], $dado['DS_EMAIL'], $dado['DT_NASCIMENTO'])
-                        ?>
+                   <form action="user.php" method="post" enctype="multipart/form-data">
+
+                        <?php
+                            $dados = ListarDadosUsuario($_SESSION['cd']);
+                            while ($dado = $dados->fetch_array()){
+                            ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
-                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
-                            <!--MEXER NESSA PARTE/ ATUALIZAR INPUT -->
-                            <input class="form-control" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-                            
-                             <input class="form-control" type="text" value="<?php echo $dado['DS_EMAIL']?>" style="margin-top: 10px">
-                             
-                             
+                            <!-- Passando e-mail para o Post, para mudar o nome da foto -->
+                            <input type="hidden" name="email" value="<?php echo $dado['DS_EMAIL'];?>">
+                            <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
+                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
+                            <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
+                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">    
                         </div>
                         
                     </div>
+                    <br>
+                    <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <input type="submit" class="btn btn-success" value="salvar" />
                         <?php
-                        };
+                            };
                         ?>
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
     </div>
     
             <!-- Modal Perfil -->
@@ -199,24 +208,10 @@ if($_POST){
                                     while ($forms = $form->fetch_array()) {
                                         echo 'Nome do formulario:<br>
                                         <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
-                                        <input type="text" class="form-control" name="nome"  value="'.$forms['NM_FORMULARIO'].'"><br>',
+                                        <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>',
                                          '<input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>',
                                          '<input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'"><br>',
-                                        
-                                        
-                                        '<select name="categoria" class="form-control dara"> ';
-                                        
-                                        $dados = ListarCategoria($_SESSION['cd']);
-                                         while ($dado = $dados->fetch_array()){
-                                         
-                                        echo '<option value="'.$dado['CD_CATEGORIA'];
-                                        echo '" id="categoria" class="form-control">'.$dado['NM_CATEGORIA'];
-                                        }
-                                        
-                                        echo '</option></select><br>',
-                                        
-                                        
-                                        
+                                        '<input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>',
                                         '<input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">';
                                 }
                                 
