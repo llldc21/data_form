@@ -152,7 +152,7 @@ if($_POST){
     
 
         <div class="row rowzin">
-            <div class="col-md-2 " id="user">
+            <div class="col-md-2" id="user">
                 
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
@@ -173,8 +173,9 @@ if($_POST){
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
+                <button type="button" class="btn btn-primary btn-block"> <a href="../docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
                 
@@ -201,7 +202,21 @@ if($_POST){
                                         <input type="text" class="form-control" name="nome"  value="'.$forms['NM_FORMULARIO'].'"><br>',
                                          '<input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>',
                                          '<input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'"><br>',
-                                        '<input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>',
+                                        
+                                        
+                                        '<select name="categoria" class="form-control dara"> ';
+                                        
+                                        $dados = ListarCategoria($_SESSION['cd']);
+                                         while ($dado = $dados->fetch_array()){
+                                         
+                                        echo '<option value="'.$dado['CD_CATEGORIA'];
+                                        echo '" id="categoria" class="form-control">'.$dado['NM_CATEGORIA'];
+                                        }
+                                        
+                                        echo '</option></select><br>',
+                                        
+                                        
+                                        
                                         '<input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">';
                                 }
                                 

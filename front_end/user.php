@@ -189,7 +189,7 @@ if(isset($_POST['nome'])){
   </nav>
     
     <div class="row rowzin">
-            <div class="col-md-2 " id="user">
+            <div class="col-md-2" id="user">
                 
                 <?php
                 $dados = ListarDadosUsuario($_SESSION['cd']);
@@ -210,9 +210,9 @@ if(isset($_POST['nome'])){
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
+                <button type="button" class="btn btn-primary btn-block"> <a href="../docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
                 
@@ -231,7 +231,7 @@ if(isset($_POST['nome'])){
                     </div>
                     <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
-                            <h4>Painel de Controle</h4>
+                            <h4>Meus Formulários</h4>
                         </div>
                     </div>
                     <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
@@ -261,7 +261,6 @@ if(isset($_POST['nome'])){
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
-                         <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-primary">Enviar</a>
                          </div>
                          </div>
                          </div>';               
