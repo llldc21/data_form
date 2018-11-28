@@ -94,11 +94,11 @@ if(isset($_POST['nome'])){
                         <?php
                             $dados = ListarDadosUsuario($_SESSION['cd']);
                             while ($dado = $dados->fetch_array()){
-                                $nome = explode( $dado['NM_USUARIO'], $dado['DT_NASCIMENTO'])
                             ?>
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
+                            <input type="hidden" name="email" value="<?php $dado['DS_EMAIL']?>">
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
@@ -169,11 +169,9 @@ if(isset($_POST['nome'])){
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-            
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
-       
-                  
+        <input type="submit" value="" class="search-submit"> 
+        <input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
+      
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -208,7 +206,7 @@ if(isset($_POST['nome'])){
 
                 <div style="margin-top: 20px;"> 
                 <h4 class="h4 text-center " id="nome-user">
-                        <?php echo $nome[0];?>
+                        <?php echo $nome[0].' '.$nome[1];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
                 <button type="button" class="btn btn-primary btn-block">Gerenciar Formulários</button>
