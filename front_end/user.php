@@ -6,7 +6,7 @@ include('../back_end/funcs.php');
 //     ExcluirForm($_GET['cd']);
 // }
 if(isset($_FILES['img_usuario'])){
-  AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
+    AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
 }
 if(isset($_POST['nome'])){
    AtualizarUsuario($_POST['nome'],$_POST['data'], $_SESSION['cd']);
@@ -98,7 +98,8 @@ if(isset($_POST['nome'])){
                     <div class="modal-body">
                         <h3>Alterar foto</h3>
                         <div class="custom-file">
-                            <input type="hidden" name="email" value="<?php $dado['DS_EMAIL']?>">
+                            <!-- Passando e-mail para o Post, para mudar o nome da foto -->
+                            <input type="hidden" name="email" value="<?php echo $dado['DS_EMAIL'];?>">
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">

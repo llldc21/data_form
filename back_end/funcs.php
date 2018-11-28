@@ -63,7 +63,6 @@ function ListarDadosUsuario($cd){
 };
 // -- Atualizar dados
 function AtualizarImg($email,$img_usuario,$cd){
-    $caminho = $img_usuario;
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
