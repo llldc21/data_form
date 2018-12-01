@@ -1,5 +1,5 @@
 <?php
-include('../back_end/funcs.php');
+include('back_end/funcs.php');
 
 function NovaSenha($email){
     $sql = 'SELECT * FROM TB_USUARIO WHERE DS_EMAIL="'.$email.'"';

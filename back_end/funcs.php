@@ -22,7 +22,7 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
         if (isset($img_usuario)) {
             $ext = explode('.', $img_usuario['name']);
             $novo_nome = $email.'.'.$ext[1];
-            $caminho = '../back_end/fotos/'.$novo_nome;
+            $caminho = 'back_end/fotos/'.$novo_nome;
             move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
         };
         
@@ -67,7 +67,7 @@ function AtualizarImg($email,$img_usuario,$cd){
     if (isset($img_usuario['tmp_name'])) {
         $ext = explode('.', $img_usuario['name']);
         $novo_nome = $email.'.'.$ext[1];
-        $caminho = '../back_end/fotos/'.$novo_nome;
+        $caminho = 'back_end/fotos/'.$novo_nome;
         move_uploaded_file($img_usuario['tmp_name'], $caminho); //Fazer upload do arquivo
     };
 	$sql = 'UPDATE TB_USUARIO SET

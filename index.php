@@ -25,38 +25,16 @@
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
-    <div class="container">
-      <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    
+            <!------ INCLUDE NAV BAR ------->
             
-            <form action="pesquisa.php" method="post" >
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
-         </form>
-                  
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <?php
-            if(isset($_GET['logado'])){
-              echo '<a class="nav-link" href="front_end/user.php">Painel</a></li>';
-              echo '<li class="nav-item">';
-              echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
-            }else{
-              echo '<a class="nav-link" href="front_end/login.php">Entrar</a></li>';
-              echo '<li class="nav-item">';
-              echo '<a class="nav-link" href="front_end/cadastro.php">Cadastrar</a></li>';
-            }
-            ?>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                <?php include('navbar.php'); ?>
+            
+            <!------ INCLUDE NAV BAR ------->
+            
+    
+
+
 <div class="bg">
   <header class="masthead text-center text-white">
     
@@ -66,9 +44,9 @@
         <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
-            <button href="front_end/cadastro.php" class="login100-form-btn">
+            <a href="cadastro.php" class="login100-form-btn">
               Cadastro
-            </button>
+            </a>
           </div>
         </div>
       </div>

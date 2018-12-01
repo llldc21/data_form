@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../back_end/funcs.php');
+include('back_end/funcs.php');
 
 if(isset($_FILES['img_usuario'])){
     AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
@@ -147,31 +147,13 @@ if (isset($_GET['criar'])) {
     </div>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
-    <div class="container">
-      <a class="navbar-brand dsa" href="../index.php"><img src="img/img.png" height="50px"> Data Form</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        
+            <!------ INCLUDE NAV BAR ------->
             
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text ml-5" placeholder="Procurar..." autocomplete="off">
-       
-                  
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <li class="nav-item">
-                <a class="nav-link ml-2 respo" data-toggle="modal" data-target="#examModal">Perfil</a>
-            </li>
-            <li class="nav-item ml-2">
-                <a class="nav-link" href="../back_end/sair.php">Sair</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                <?php include('navbar.php'); ?>
+            
+            <!------ INCLUDE NAV BAR ------->
+            
     
     
         <div class="row rowzin">
