@@ -1,5 +1,5 @@
 <?php 
-include '../back_end/funcs.php';
+include 'back_end/funcs.php';
 
 if (isset($_POST['nome'])) {
 	if('' == $_FILES['img_usuario']){
@@ -17,23 +17,23 @@ if (isset($_POST['nome'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="shortcut icon" href="img/icons/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="temas/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" type="text/css" href="temas/vendor/animate/animate.css">	
-	<link rel="stylesheet" type="text/css" href="temas/vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="temas/vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="temas/vendor/select2/select2.min.css">	
-	<link rel="stylesheet" type="text/css" href="temas/vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="css/utill.css">
-	<link rel="stylesheet" type="text/css" href="css/cads.css">
+	<link rel="shortcut icon" href="front_end/img/icons/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="front_end/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="front_end/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/select2/select2.min.css">	
+	<link rel="stylesheet" type="text/css" href="front_end/temas/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="front_end/css/utill.css">
+	<link rel="stylesheet" type="text/css" href="front_end/css/cads.css">
 </head>
 <body style="background-color: #999999;"> 
 
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('img/128.jpg');"></div>
+			<div class="login100-more" style="background-image: url('front_end/img/128.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
 				
@@ -41,7 +41,7 @@ if (isset($_POST['nome'])) {
 					
 				<form class="login100-form validate-form" action="cadastro.php" method="post" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-59">
-						<img src="img/img.png" style="height:60px;"> Data Form
+						<img src="front_end/img/img.png" style="height:60px;"> Data Form
 					</span>
 							<!--nome-->
 							
@@ -166,15 +166,15 @@ if (isset($_POST['nome'])) {
 </div>
 	
 	
-	<script src="temas/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="temas/vendor/animsition/js/animsition.min.js"></script>
-	<script src="temas/vendor/bootstrap/js/popper.js"></script>
-	<script src="temas/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="temas/vendor/select2/select2.min.js"></script>
-	<script src="temas/vendor/daterangepicker/moment.min.js"></script>
-	<script src="temas/vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="temas/vendor/countdowntime/countdowntime.js"></script>
-	<script src="js/main.js"></script>
+	<script src="front_end/temas/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="front_end/temas/vendor/animsition/js/animsition.min.js"></script>
+	<script src="front_end/temas/vendor/bootstrap/js/popper.js"></script>
+	<script src="front_end/temas/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="front_end/temas/vendor/select2/select2.min.js"></script>
+	<script src="front_end/temas/vendor/daterangepicker/moment.min.js"></script>
+	<script src="front_end/temas/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="front_end/temas/vendor/countdowntime/countdowntime.js"></script>
+	<script src="front_end/js/main.js"></script>
 
 </body>
 </html>

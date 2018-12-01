@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../back_end/funcs.php');
+include('back_end/funcs.php');
 
 if (isset($_GET['criar'])) {
     CadastrarFormulario();
@@ -25,7 +25,7 @@ if (isset($_GET['criar'])) {
     </title>
     <?php };?>
     <!-- Bootstrap core CSS -->
-    <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -33,7 +33,7 @@ if (isset($_GET['criar'])) {
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="../front_end/css/main.css">
-    <link href="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
+    <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/criaform.css" type="text/css" />-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
@@ -120,33 +120,14 @@ if (isset($_GET['criar'])) {
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="../index.php?logado"><img src="../front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-
-            <div class="input-group" >
-                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-                    aria-describedby="basic-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#examModal">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../back_end/sair.php">Sair</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+        
+            <!------ INCLUDE NAV BAR ------->
+            
+                <?php include('navbar.php'); ?>
+            
+            <!------ INCLUDE NAV BAR ------->
+            
+    
     <div class="row">
         <div class="col-md-12">
             <br>
@@ -205,8 +186,8 @@ if (isset($_GET['criar'])) {
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="ajax.js"></script>
 </body>
 </html>
