@@ -1,8 +1,7 @@
-
-
-.lixeira{
-  
+.card-title{
+  color:black;
 }
+
 
 
 /* ================= Input novo ================= */
@@ -115,7 +114,8 @@
   margin-left: 7%;
 }
 .foto-user img {
-  height:11rem;
+  width:100%;
+  height:12rem;
   object-fit:cover;
   background-size:cover; 
   margin-top:10px;
