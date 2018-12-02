@@ -181,21 +181,10 @@ function ListarFormsEspecifico($cd_usuario, $cd_formulario){
 };
 // -- Excluir
 function ExcluirForm($cd){
-    $sql = 'DELETE from TB_FORMULARIO where CD_FORMULARIO= '.$cd;
+    $sql = 'DELETE FROM TB_FORMULARIO WHERE CD_FORMULARIO= '.$cd;
     $res = $GLOBALS['conn']->query($sql);
 };
 // --
-
-function Pesquisa($pes){
-$sql = 'SELECT * FROM TB_FORMULARIO';
-if(isset($_GET['pes'])){
-    $sql.=' WHERE NM_FORMULARIO like"%'.$_GET['pes'].'%"';
-}
-$res = $conn->query($sql);
-while($form = $res->fetch_array()){
-    echo "<li>".$form['NM_FORMULARIO']."</li>";
-}
-}//pesquisa
 
 // -- FUNÇÕES DE AUXILIO
 // -- Segurança da senha
@@ -275,6 +264,12 @@ function ResponderForm($cd){
             break;
         }
     }
+}
+
+function ExisteForm($cd){
+    $sql = 'SELECT * FROM TB_FORMULARIO WHERE CD_FORMULARIO ='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
 }
 
 ?>

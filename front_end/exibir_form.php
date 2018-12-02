@@ -1,6 +1,12 @@
 <?php 
 include('../back_end/funcs.php');
- if(isset($_GET['cdform'])){
+   $seras = ExisteForm($_GET['cdform']);
+   $sera = $seras->fetch_array();
+if(isset($_GET['cdform']) && "" != $sera){
+  if(!(strtotime(date('Y-m-d')) >= strtotime($sera['DT_FECHAMENTO_FORM']) || strtotime(date('Y-m-d')) < strtotime($sera['DT_ABERTURA_FORM']))){
+    
+  
+   
 ?>
 <html lang="en">
 
@@ -61,8 +67,8 @@ include('../back_end/funcs.php');
       </div>
     </div>
   </nav>
-  
-<body>
+      
+      
     
       
       <div class="container">
@@ -103,11 +109,11 @@ include('../back_end/funcs.php');
                         }
                       break;
                   }
-                   ?>
-                <?php    
+                
                  }
+                  echo '<input type="submit" name=""/>';
                 ?>
-                <input type="submit" name=""/>
+                
                 </form>
                 <?php 
                   if($_POST){
@@ -137,5 +143,11 @@ include('../back_end/funcs.php');
 
 </html>
 <?php
+  }else{
+     header('location: fechado.php');
+  }
+ }else{
+   header('location: nao_existe.php');
  }
+
 ?>

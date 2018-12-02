@@ -209,8 +209,6 @@ if($_POST){
                                         echo 'Nome do formulario:<br>
                                         <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
                                         <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>',
-                                         '<input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>',
-                                         '<input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'"><br>',
                                         '<input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>',
                                         '<input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">';
                                 }

@@ -1,6 +1,14 @@
 <?php 
 include('../back_end/funcs.php');
- if(isset($_GET['cdform'])){
+   $seras = ExisteForm($_GET['cdform']);
+   $sera = $seras->fetch_array();
+if(isset($_GET['cdform']) && "" != $sera){
+    
+      
+    
+ 
+   
+   
 ?>
 <html lang="en">
 
@@ -68,8 +76,9 @@ include('../back_end/funcs.php');
       <div class="container">
         <div class="row">
             <div class="col-md-6 masds offset-md-3">
+              
                             
-                <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
+                 <!-- ========= Conteudo a ser exibido no formulario de resposta =========== -->
                  <?php
                 $pergunta = ListaPerguntasPorForm($_GET['cdform']);
                 while($perguntas = $pergunta->fetch_array()){
@@ -92,38 +101,57 @@ include('../back_end/funcs.php');
                           echo'</ul>';
                         break;
                         case 3:
+                          $dados = ' google.charts.load(\'current\', {\'packages\':[\'corechart\']});
+                                    google.charts.setOnLoadCallback(a'.$perguntas['CD_PERGUNTA'].');
+                                      function a'.$perguntas['CD_PERGUNTA'].'() {
+                                      var data = google.visualization.arrayToDataTable([[\'nome\', \'quantidade\'],';
+                          $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
+                          echo'<ul class="list-group">';
                           
-                          $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
-                          echo'<ul class="list-group">';
                             while($alts = $alt->fetch_array()){
                             $cont = ContarAlternativa($alts['CD_ALTERNATIVA']);
                              $conts = $cont->fetch_array();
-                               
-                               
-                                 echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
-                               
+                                
+                                 
+                                  $dados .= '[\''.$alts['NM_ALTERNATIVA'].'\','.$conts['total'].'],';
+                                            
                             }
-                            
-                        break;
+                            $dados = substr($dados, 0, -1); //retira ultimo caracter
+                            $dados .= ']); var options = {title: \''.$perguntas['NM_PERGUNTA'].'\'};
+                            var chart = new google.visualization.PieChart(document.getElementById(\'c'.$perguntas['CD_PERGUNTA'].'\'));
+                            chart.draw(data, options);
+                                      }';
+                            echo '<div id=\'c'.$perguntas['CD_PERGUNTA'].'\' style=\'width: 700px; height: 500px;\'></div>';
+                                 
+                      break;
                         case 4:
+                          $dados .= ' 
+                                    google.charts.setOnLoadCallback(a'.$perguntas['CD_PERGUNTA'].');
+                                      function a'.$perguntas['CD_PERGUNTA'].'() {
+                                      var data = google.visualization.arrayToDataTable([[\'nome\', \'quantidade\'],';
                           $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);
                           echo'<ul class="list-group">';
+                          
                             while($alts = $alt->fetch_array()){
                             $cont = ContarAlternativa($alts['CD_ALTERNATIVA']);
                              $conts = $cont->fetch_array();
-                               
-                               
-                                 echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
-                               
+                                
+                                // echo' <li class="list-group-item ">nome: '.$alts['NM_ALTERNATIVA'].' || quantidade: '.$conts['total'].'</li>';
+                                  $dados .= '[\''.$alts['NM_ALTERNATIVA'].'\','.$conts['total'].'],';
+                                            
                             }
+                            $dados = substr($dados, 0, -1); //retira ultimo caracter
+                            $dados .= ']); var options = {title: \''.$perguntas['NM_PERGUNTA'].'\'};
+                            var chart = new google.visualization.ColumnChart(document.getElementById(\'c'.$perguntas['CD_PERGUNTA'].'\'));
+                            chart.draw(data, options);
+                                      }';
+                            echo '<div id=\'c'.$perguntas['CD_PERGUNTA'].'\' style=\'width: 700px; height: 500px;\'></div>';
                           
                         break;
                         
                       }
                 
                 }
-              ?>
-              <?php 
                
               ?>
                 
@@ -140,7 +168,15 @@ include('../back_end/funcs.php');
     </div>
     <!-- /.container -->
   </footer>
-
+  <!--API GRAFICO-->
+  <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {'packages':['corechart']});
+      <?php echo $dados; ?>
+    </script>
+    <!--jquey-->
+    <script type="text/javascript" src="js/jquery-3.2.1.min"></script>
+   
   <!-- Bootstrap core JavaScript -->
   <script src="temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -149,5 +185,9 @@ include('../back_end/funcs.php');
 
 </html>
 <?php
+
+ }else{
+   include('nao_existe.php');
  }
+
 ?>

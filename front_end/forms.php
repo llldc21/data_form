@@ -243,11 +243,7 @@ if (isset($_GET['criar'])) {
                        </div>
                       
                       <div class="col-6">
-                        <div class="col-12">
-                            <br>
-                            <h4 class="h4 text-center">Data de abertura:</h4>
-                            <input type="date" class="form-control dara" name="data_abertura" id="data_abertura">
-                        </div>
+                       
                         <div class="col-12">
                             <br>
                             <h4 class="h4 text-center">Categoria</h4>
@@ -264,12 +260,7 @@ if (isset($_GET['criar'])) {
                             
                             
                             
-                        </div>
-                        <div class="col-12">
-                            <br>
-                            <h4 class="h4 text-center">Data de fechamento:</h4>
-                            <input type="date" class="form-control dara" name="data_fechamento" id="data_fechamento">
-                        </div>
+                       
                     </div>
                     <br>
                     <br>
