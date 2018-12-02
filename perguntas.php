@@ -169,6 +169,7 @@ if (isset($_GET['criar'])) {
                         <div class="container-fluid">     
                             <div class="form-group" id="conteudo" >
                              <!-- forms vai aqui -->
+                             <i class="fas fa-trash lixeira"></i>
                              </div>
                         </div>     
                      </div>
@@ -192,7 +193,7 @@ if (isset($_GET['criar'])) {
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
                       ?>
-                      <button class="btn btn-dark btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" ><?php echo $tipos['NM_TIPO_PERGUNTA']?></button>
+                      <button class="btn btn-dark ml-1 campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>" ><i class="<?php echo $tipos['CLS_ICON']?>"></i></button>
                         <?php };?>
                         <br><br>
                       <a href="user.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>

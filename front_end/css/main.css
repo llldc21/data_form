@@ -1,3 +1,4 @@
+
 input.search-text {
 	color: #000;
 	position:relative;
@@ -21,7 +22,7 @@ input.search-text {
 }
 input.search-text:focus {
 	z-index:3; 
-	width: 58%;
+	width: 90%;
 	border: 1px solid #666;  
 	background-color: white;
 	outline: none;
@@ -44,6 +45,33 @@ input.search-submit {
 	cursor: pointer; 
 	background: none;
 }
+
+
+.lixeira{
+  
+}
+
+
+/* ================= Input novo ================= */
+
+.input-form {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    background-color: transparent;
+    font-weight: 100;
+    box-sizing: border-box;
+    letter-spacing: 3px;
+    border-bottom: 1px solid black;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 0px;
+}
+
+/* ================= Input novo ================= */
+
 
 input.search-text::-webkit-search-cancel-button {
 	cursor:pointer;
