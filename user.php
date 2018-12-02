@@ -210,8 +210,8 @@ if(isset($_POST['nome'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                           <p class="card-text">Data de fechamento: '.$dado['DT_FECHAMENTO_FORM'].'</p>
                          <hr>
-                         <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success">Editar</a>
-                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><span>Apagar</span></a>
+                         <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success"><i class="fas fa-pen"></i></a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                          <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-primary">Responder</a>
                          
                          </div>

@@ -199,7 +199,7 @@ if (isset($_GET['criar'])) {
                         
                         
                           
-                       </div>
+                       </div>   
                       
                       <div class="col-2">
                        
