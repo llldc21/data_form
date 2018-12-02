@@ -1,17 +1,9 @@
 <?php 
-<<<<<<< HEAD:front_end/exibir_form.php
-include('../back_end/funcs.php');
+include('back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
 if(isset($_GET['cdform']) && "" != $sera){
   if(!(strtotime(date('Y-m-d')) >= strtotime($sera['DT_FECHAMENTO_FORM']) || strtotime(date('Y-m-d')) < strtotime($sera['DT_ABERTURA_FORM']))){
-    
-  
-   
-=======
-include('back_end/funcs.php');
- if(isset($_GET['cdform'])){
->>>>>>> d64f0560907c15e3cba2e0e6dfc8858a3f52394f:exibir_form.php
 ?>
 <html lang="en">
 
@@ -39,43 +31,6 @@ include('back_end/funcs.php');
 
 <body>
 
-<<<<<<< HEAD:front_end/exibir_form.php
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="border-bottom:1px solid #000;">
-    <div class="container">
-      <a class="navbar-brand dsa" href="../index.php"><img src="img/img.png" height="50px"> Data Form</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-          aria-describedby="basic-addon1">
-        <div class="input-group-append">
-          <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-        </div>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <?php
-            if(isset($_GET['logado'])){
-              echo '<a class="nav-link" href="user.php">Painel</a></li>';
-              echo '<li class="nav-item">';
-              echo '<a class="nav-link" href="back_end/sair.php">Sair</a></li>';
-            }else{
-              echo '<a class="nav-link" href="login.php">Entrar</a></li>';
-              echo '<li class="nav-item">';
-              echo '<a class="nav-link" href="cadastro.php">Cadastrar</a></li>';
-            }
-            ?>
-        </ul>
-      </div>
-    </div>
-  </nav>
-      
-      
-=======
         
             <!------ INCLUDE NAV BAR ------->
             
@@ -86,7 +41,6 @@ include('back_end/funcs.php');
     
   
 <body>
->>>>>>> d64f0560907c15e3cba2e0e6dfc8858a3f52394f:exibir_form.php
     
       
       <div class="container">
@@ -162,10 +116,10 @@ include('back_end/funcs.php');
 </html>
 <?php
   }else{
-     header('location: fechado.php');
+     header('location:front_end/fechado.php');
   }
  }else{
-   header('location: nao_existe.php');
+   header('location:front_end/nao_existe.php');
  }
 
 ?>

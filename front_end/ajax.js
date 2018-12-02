@@ -91,12 +91,7 @@ $(document).on('click', '.campo', function () {
                     GravaAlternativa(tipo, get());
                 }, 3000);
             }
-            // curta = document.getElementById('campo');
-            // campo = '<input type="text" name="a" class="form-control id="campo" "height="" placeholder="pergunta" /><input type="text" name="b"class="form-control" disabled placeholder="resposta" />';
-            //     GravaPergunta(curta, tipo, data.cd_form);
-            //     setTimeout(function () {
-            //         GravaAlternativa(tipo, get());
-            //     }, 3000);
+            
             break;
         case 2:
             longa = prompt('Qual é a pergunta?');

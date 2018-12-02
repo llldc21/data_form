@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,16 +39,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
             
-            <form action="<?php if(isset($_GET['logado'])){echo 'result_pes.php';}else{echo 'result_pes.php';}; ?>" style="margin-top:-25px;" method="post" >
+            <form action="result_pes.php" style="margin-top:-25px;" method="get" >
           		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
+          		<input type="search" name="palavra" class="search-text" placeholder="Procurar..." autocomplete="off">
          </form>
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <?php
-            if(isset($_GET['logado'])){
+            if(isset($_SESSION['UsuarioLog'])){
               echo '<a class="nav-link" href="user.php">Painel</a></li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="sair.php">Sair</a></li>';
@@ -60,6 +63,8 @@
     </div>
   </nav>
    <!-- Bootstrap core JavaScript -->
+   
+   
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

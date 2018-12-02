@@ -2,9 +2,6 @@
 session_start();
 include('back_end/funcs.php');
 
-// if($_POST){
-//     ExcluirForm($_GET['cd']);
-// }
 if(isset($_FILES['img_usuario'])){
     AtualizarImg($_POST['email'], $_FILES['img_usuario'], $_SESSION['cd']);
 }

@@ -1,17 +1,20 @@
 <?php
-include "back_end/conexao.php";
+include ('back_end/funcs.php');
 
-if(isset($_GET['palavra'])){
-$sql = 'SELECT * NM_FORMULARIO AND DS_DESCRICAO FROM TB_FORMULARIO ='.$_GET['palavra'];
-$res = $con->query($sql);
+if(isset($_GET['palavra']) && '' != $_GET['palavra']){
+// if(!(isset($_GET['cat']))){
+   
+// }
 
-while($palavra = $res-> fetch_array()){
-
-  
-    }
+if(isset($_POST['pes'])){
+    $sql = 'SELECT * FROM TB_FORMULARIO';
+    $sql.=' WHERE NM_FORMULARIO like"%'.$_POST['pes'].'%"';
+    
+    $res = $conn->query($sql);
+while($form = $res->fetch_array()){
+    echo "<li>".$form['NM_FORMULARIO']."</li>";
 }
-
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,36 +56,44 @@ while($palavra = $res-> fetch_array()){
           <!--Tags a serem exibidas-->
           
           <div class="tags">
-            <a href="#" class="hash">      Informática    <!--Tags a serem exibidas-->   </a> 
+            <a href="result_pes.php?palavra=<?php echo $_GET['palavra'];?>&cat=2" class="hash">      Informática    <!--Tags a serem exibidas-->   </a> 
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">      Meio Ambiente    <!--Tags a serem exibidas-->   </a>
+            <a href="result_pes.php?palavra=<?php echo $_GET['palavra'];?>&cat=3" class="hash">      Meio Ambiente    <!--Tags a serem exibidas-->   </a>
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">      Administração    <!--Tags a serem exibidas-->   </a>
+            <a href="result_pes.php?palavra=<?php echo $_GET['palavra'];?>&cat=4" class="hash">      Administração    <!--Tags a serem exibidas-->   </a>
           </div>
           
           <div class="tags">
-            <a href="#" class="hash">       Sem classificação   <!--Tags a serem exibidas-->    </a>
+            <a href="result_pes.php?palavra=<?php echo $_GET['palavra'];?>&cat=1" class="hash">       Sem classificação   <!--Tags a serem exibidas-->    </a>
           </div>
+      
+      
+        <input class="form-control form-control-lg" type="text" name="pes" placeholder="Pesquisa">
         
         </div>
           
 
               <!--Fim tags-->
-              
+              <br><br>
 
               <!--Resultados-->
               
         <div class="main">
         
           <?php
-            echo ' <div class="resu">
-            <div class="tig"> <a href="result_pes.php" class="result"> '.$palavra['NM_FORMULARIO'].'  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-              '.$palavra['DS_DESCRICAO'].'
-          </div>';
+            $results = pesquisa($_GET['cat'],$_GET['palavra']);
+            while($result = $results->fetch_array()){
+              echo ' <div class="resu">
+            <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> '.$result['NM_FORMULARIO'].'  </a>    </div>
+              '.$result['DS_DESCRICAO'].'
+          </div>';  
+            }
+            
+            
           ?>   
           
 
@@ -110,3 +121,7 @@ while($palavra = $res-> fetch_array()){
   
   </body>
 </html>
+<?php
+}
+
+?>
