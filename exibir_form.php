@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD:front_end/exibir_form.php
 include('../back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
@@ -7,6 +8,10 @@ if(isset($_GET['cdform']) && "" != $sera){
     
   
    
+=======
+include('back_end/funcs.php');
+ if(isset($_GET['cdform'])){
+>>>>>>> d64f0560907c15e3cba2e0e6dfc8858a3f52394f:exibir_form.php
 ?>
 <html lang="en">
 
@@ -20,7 +25,7 @@ if(isset($_GET['cdform']) && "" != $sera){
   <title>Página Inicial | Data Form</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -28,12 +33,13 @@ if(isset($_GET['cdform']) && "" != $sera){
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="css/main.css">
-  <link href="temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
+  <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
 
 </head>
 
 <body>
 
+<<<<<<< HEAD:front_end/exibir_form.php
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="border-bottom:1px solid #000;">
     <div class="container">
@@ -69,6 +75,18 @@ if(isset($_GET['cdform']) && "" != $sera){
   </nav>
       
       
+=======
+        
+            <!------ INCLUDE NAV BAR ------->
+            
+                <?php include('navbar.php'); ?>
+            
+            <!------ INCLUDE NAV BAR ------->
+            
+    
+  
+<body>
+>>>>>>> d64f0560907c15e3cba2e0e6dfc8858a3f52394f:exibir_form.php
     
       
       <div class="container">
@@ -136,8 +154,8 @@ if(isset($_GET['cdform']) && "" != $sera){
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
-  <script src="temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
+  <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
