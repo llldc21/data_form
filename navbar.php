@@ -37,8 +37,7 @@
       </button>
             
             <form action="<?php if(isset($_GET['logado'])){echo 'result_pes.php';}else{echo 'result_pes.php';}; ?>" style="margin-top:-25px;" method="post" >
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="q" class="search-text" placeholder="Procurar..." autocomplete="off">
+          		<input type="search" name="q" class="input-form" placeholder="Procurar..." autocomplete="off">
          </form>
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">

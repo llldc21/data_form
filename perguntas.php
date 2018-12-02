@@ -193,7 +193,7 @@ if (isset($_GET['criar'])) {
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
                       ?>
-                      <button class="btn btn-dark ml-1 campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>" ><i class="<?php echo $tipos['CLS_ICON']?>"></i></button>
+                      <button class="btn btn-dark ml-1 mt-1 mb-4 campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"> <i class="<?php echo $tipos['CLS_ICON']?>"></i></button>
                         <?php };?>
                         <br><br>
                       <a href="user.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
@@ -211,3 +211,11 @@ if (isset($_GET['criar'])) {
     <script src="front_end/ajax.js"></script>
 </body>
 </html>
+
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
