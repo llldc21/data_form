@@ -57,48 +57,16 @@ if (isset($_GET['criar'])) {
 </head>
 
 <body>
-    <!-- Modal -->
-      <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header frescuras">
-                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modper">
-                    
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode(' ', $dado['NM_USUARIO'])
-                        ?>
-                        <div class="foto">
-                            <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
-                            </center>
-                        </div>
-                        
-                        <div style="margin-top: 20px;"> 
-                            <h5 class="text-center" id="nome-user">
-                                <?php echo $nome[0].' '.$nome[1]?>
-                            </h5>
-                            
-                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
-                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
-                        </div>
-                        
-                    <?php };?>
-                    
-              </div>
-              <div class="modal-footer frescuras">
-                
-              </div>
-            </div>
-          </div>
-        </div>
+    
+    
+    <!--    Include     ------------------   Modal  -->
+
+    <?php include('modal_edit_dados.php'); ?>
+    
+    
+    <!--    Include     ------------------   Modal  -->
+    
+    
     
     <!-- Modal Perfil -->
         <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,7 +124,7 @@ if (isset($_GET['criar'])) {
             
     
     
-        <div class="row rowzin">
+        <div class="row h-100">
             <div class="col-md-2" id="user">
                 
                 <?php
@@ -200,7 +168,7 @@ if (isset($_GET['criar'])) {
                 <hr>
                         
                      <div class="row">
-                      <div class="col-6">
+                      <div class="col-7 offset-2">
                     
                         <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
                         <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
@@ -209,49 +177,47 @@ if (isset($_GET['criar'])) {
                         <br><br><br>
                         
                         
-                           <input type="text" class="inputst " name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
+                           <input type="text" class="input-form" name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
                         
                         <br><br><br>
                           
-                           <input type="text" class="inputst mt-5" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+                           <input type="text" class="input-form mt-2" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
                         
                         
                         <br><br><br>
-                        
-                        
-                        
-                        
-                          
-                       </div>
-                      
-                      <div class="col-6">
-                       
-                        <div class="col-12">
-                            <br>
-                            <h4 class="h4 text-center">Categoria</h4>
                             
                             
                             
-                            <select name="categoria" class="form-control dara">
+                            <h5>Categoria</h5>
+                            <select name="categoria" class="form-control mt-3">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
                                 while ($dado = $dados->fetch_array()){
                             ?>
                                 <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
-                            
-                            
-                            
+                        
+                        
+                          
+                       </div>
+                      
+                      <div class="col-2">
                        
-                    </div>
-                    <br>
-                    <br>
-                    
-                  </div>
-        
+                        <div class="col-12 mt-5">
+                            <br>
+                            
+                            
+                            
                             <a href="perguntas.php"><button type="button" class=" mt-5 btn btn-primary btn-block" id="novo">Perguntas</button></a>
-                            <button type="button" class="btn btn-success mt-1 btn-block" id="fin">Finalizar</button><br>                            
-                            <button class="btn btn-primary btn-block perguntas mt-5" id="criar">Criar Formulário</button><br>
+                            <a href="user.php"><button type="button" class="btn btn-success mt-1 btn-block" id="fin">Finalizar</button></a>                            
+
+                       
+                        </div>
+                        <br>
+                        <br>
+                    
+                      </div>
+        
     
             </div>
         </div>
