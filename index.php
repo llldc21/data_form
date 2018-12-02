@@ -44,11 +44,11 @@
         <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
-<<<<<<< HEAD
+
             <button href="./front_end/cadastro.php" class="login100-form-btn">
-=======
+
             <a href="cadastro.php" class="login100-form-btn">
->>>>>>> d64f0560907c15e3cba2e0e6dfc8858a3f52394f
+
               Cadastro
             </a>
           </div>
