@@ -143,7 +143,7 @@ if($_POST){
             
     
 
-        <div class="row rowzin">
+        <div class="row h-100">
             <div class="col-md-2" id="user">
                 
                 <?php

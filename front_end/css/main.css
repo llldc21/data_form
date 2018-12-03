@@ -3,27 +3,61 @@
 }
 
 
-
-/* ================= Input novo ================= */
-
-.input-form {
-  font-family: Poppins-Regular;
-    width: 100%;
-    padding: 5px;
-    color: Black;
-    font-size: 17px;
-    outline: none;
-    background-color: transparent;
-    font-weight: 900;
-    box-sizing: border-box;
-    letter-spacing: 3px;
-    border-bottom: 2px solid black;
-    border-right: 0px;
-    border-left: 0px;
-    border-top: 0px;
+.box_icone_busca{
+  padding: 10px;
+  position: relative;
+  left: -50px;
+  top: 1px;
 }
 
-/* ================= Input novo ================= */
+.input-clas{
+  font-family: Catamaran;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 500;
+  width: 85%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 40px;
+  margin-left: 8%;
+  margin-top: 20px;
+}
+
+
+form{
+  width:100%;  
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #adadad;}
+input:-moz-placeholder { color: #adadad;}
+input::-moz-placeholder { color: #adadad;}
+input:-ms-input-placeholder { color: #adadad;}
+
+textarea::-webkit-input-placeholder { color: #adadad;}
+textarea:-moz-placeholder { color: #adadad;}
+textarea::-moz-placeholder { color: #adadad;}
+textarea:-ms-input-placeholder { color: #adadad;}
+
 
 
 
@@ -45,14 +79,6 @@
 @font-face {
   font-family: Poppins-SemiBold;
   src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
-}
-
-
-.inputst{
-  height:20px;
-  font-size:16px;
-  border-bottom: 2px solid #ccc;
-  width: 100%;
 }
 
 

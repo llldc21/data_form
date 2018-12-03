@@ -24,6 +24,7 @@ session_start();
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="front_end/css/main.css">
+  <link rel="stylesheet" href="front_end/css/pes.css">
   <link href="front_end/temas/startbootstrap-one-page-wonder-gh-pages/css/one-page-wonder.css" rel="stylesheet">
 
 </head>
@@ -31,18 +32,21 @@ session_start();
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
-    <div class="container">
-      <a class="navbar-brand dsa" href="index.php"><img src="front_end/img/img.png" height="50px"> Data Form</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand ml-3" href="index.php?logado"><img src="front_end/img/img.png" height="50px"> Data Form</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
             
             <form action="result_pes.php" style="margin-top:-25px;" method="get" >
-          		<input type="submit" value="" class="search-submit"> 
-          		<input type="search" name="palavra" class="search-text" placeholder="Procurar..." autocomplete="off">
-         </form>
+              
+                <input class="input-clas" type="search" name="palavra" require placeholder="Procurar..." autocomplete="off">
+                <button class="box_icone_busca">
+                    <i  class="fa fa-search"></i>
+                </button>
+
+            </form>
                   
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -67,7 +71,3 @@ session_start();
    
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
