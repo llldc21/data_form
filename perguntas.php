@@ -49,103 +49,26 @@ if (isset($_GET['criar'])) {
 
 </head>
 
-<body style="background-color:#eaf9f9;">
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Dados</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="user.php" method="post">
-                    <div class="modal-body">
-                        <h3>Alterar foto</h3>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
-                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
+<body>
     
-    <!-- Modal Perfil -->
-        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header frescuras">
-                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modper">
-                    
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode(' ', $dado['NM_USUARIO'])
-                        ?>
-                        <div class="foto">
-                            <center>
-                            <a href="user.php"><img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle card-img-top" width="100%" height="50%"></a>
-                            </center>
-                        </div>
-                        
-                        <div style="margin-top: 20px;"> 
-                            <a href="user.php"><h3 class="text-center" id="nome-user">
-                                <?php echo $nome[0].' '.$nome[1]?>
-                            </h3></a>
-                            
-                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
-                        </div>
-                        
-                    <?php };?>
-                    
-              </div>
-              <div class="modal-footer frescuras">
-                
-              </div>
-            </div>
-      </div>
-    </div>
+            <!--    Include     ------------------   Modal  -->
+        
+            <?php include('modal_edit_dados.php'); ?>
+            
+            
+            <!--    Include     ------------------   Modal  -->
+    
+    
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="index.php?logado"><img src="front_end/img/img.png" height="50px"> Data Form</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
 
-            <div class="input-group" >
-                <input type="text" class="form-control" placeholder="Pesquisar..." aria-label="Recipient's username"
-                    aria-describedby="basic-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-dark" type="button" style="font-family: 'Catamaran'">Pesquisar</button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#examModal">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="back_end/sair.php">Sair</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        
+            <!------ INCLUDE NAV BAR ------->
+            
+                <?php include('navbar.php'); ?>
+            
+            <!------ INCLUDE NAV BAR ------->
+
+
 
     <div class="row">
         <div class="col-md-12">
@@ -158,7 +81,7 @@ if (isset($_GET['criar'])) {
                 
                 
                 <!-- FORMULARIO -->
-                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid #70baf4;">
+                 <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid rgb(223,223,223)">
                      <div class="row">
                          <h3 style="padding-top:10px;padding-left:20px;"> Criar Formularios</h3>
                          
@@ -183,7 +106,7 @@ if (isset($_GET['criar'])) {
                      
                   </div><!-- div exemplos -->
                 
-                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid #70baf4;">
+                <div class="col-md-2 pergun sticky-top" style="background-color:#fff;border-radius:5px;border:1px solid rgb(223,223,223)">
                      <div class="row">
                       <h3 style="padding-top:10px;padding-left:20px;">Perguntas</h3>
                       </div>

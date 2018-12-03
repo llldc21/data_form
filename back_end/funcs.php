@@ -270,6 +270,16 @@ function ExisteForm($cd){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 }
+function Pesquisa($cate,$pes){
+    if($cate != ''){
+         $cat ='AND ID_CATEGORIA = '.$cate;
+    }else{
+        $cat = "";
+    }
+     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" or DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
+     $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
 
 
 ?>

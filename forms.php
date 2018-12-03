@@ -67,52 +67,6 @@ if (isset($_GET['criar'])) {
     <!--    Include     ------------------   Modal  -->
     
     
-    
-    <!-- Modal Perfil -->
-        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header frescuras">
-                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modper">
-                    
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode(' ', $dado['NM_USUARIO'])
-                        ?>
-                     <div class="user-dados">
-                    
-                    <div class="foto-user">
-                    
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
-                    
-                    </div>
-                    
-
-                <div style="margin-top: 20px;"> 
-                <h4 class="h4 text-center " id="nome-user">
-                        <?php echo $nome[0].' '.$nome[1];?>
-                </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
-                 <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
-                </div>
-                </div>
-                        
-                    <?php };?>
-                    
-              </div>
-              <div class="modal-footer frescuras">
-                
-              </div>
-            </div>
-      </div>
-    </div>
 
 
         
@@ -156,19 +110,19 @@ if (isset($_GET['criar'])) {
             </div>
             
             
-            <div class="col-md-8 offset-md-1 col-12 contuser" id="conteudo">
+            <div class="col-md-10 h-100 col-12 contuser">
                 <br>
                     <div class="row">
                         <div class="col-12">
                         <center>
-                            <h3>Criação de Formulário</h3>
+                            <h4>Criação de Formulário</h4>
                         </center>
                         </div>
                     </div>
                 <hr>
                         
                      <div class="row">
-                      <div class="col-7 offset-2">
+                      <div class="col-5 offset-1">
                     
                         <input type="hidden" name="" id="cd_usuario" value="<?php echo $_SESSION['cd']?>">
                         <input type="hidden" name="" id="cd_form" value="<?php echo $_SESSION['form']?>">
@@ -177,18 +131,25 @@ if (isset($_GET['criar'])) {
                         <br><br><br>
                         
                         
-                           <input type="text" class="input-form" name="nome_form" id="nome_form" require placeholder="Insira o nome do Formulário">
-                        
+                        <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">Nome do Formulário</span>
+        						<input class="input100" type="text" id="nome_form" name="nome_form" require placeholder="Nome do Formulário">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        				</div>
+        					
+        					
+        					
                         <br><br><br>
                           
-                           <input type="text" class="input-form mt-2" name="desc_form" id="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+                            <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">Descrição do Formulário</span>
+        						<input class="input100" type="text" id="desc_form" name="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        					</div>                        
                         
-                        
-                        <br><br><br>
+                        <br>
                             
-                            
-                            
-                            <h5>Categoria</h5>
+                            <span class="label-input100">Nome do Formulário</span>
                             <select name="categoria" class="form-control mt-3">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
@@ -196,24 +157,29 @@ if (isset($_GET['criar'])) {
                             ?>
                                 <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
-                            <br>
-                              <h5>Date de Abertura:</h5>
-                             <input type="date" class="form-control" name="dataa" >
-                             <br>
-                             <h5>Date de Fechamento:</h5>
-                             <input type="date" class="form-control" name="dataf" >
-                        
                           
                        </div>   
                       
-                      <div class="col-2">
+                      <div class="col-5">
                        
                         <div class="col-12 mt-5">
+                            
                             <br>
-                            
-                            
-                            
-                            <a href="perguntas.php"><button type="button" class=" mt-5 btn btn-primary btn-block" id="novo">Perguntas</button></a>
+                    
+                        <div class="wrap-input100 validate-input" data-validate="Data requerida">
+						    <span class="label-input100">Data de Abertura</span>
+						    <input class="input100" type="date" name="dataf">
+						    <span class="focus-input100" data-symbol="&#10004;"></span>
+					    </div>
+					    <br>
+					    <br>
+					    <div class="wrap-input100 validate-input" data-validate="Data requerida">
+						    <span class="label-input100">Data de Fechamento</span>
+						    <input class="input100" type="date" name="dataa">
+						    <span class="focus-input100" data-symbol="&#10006;"></span>
+					    </div>
+
+                            <a href="perguntas.php"><button type="button" class=" mt-5 btn btn-primary btn-block" id="criar">Perguntas</button></a>
                             <a href="user.php"><button type="button" class="btn btn-success mt-1 btn-block" id="fin">Finalizar</button></a>                            
 
                        
@@ -224,8 +190,8 @@ if (isset($_GET['criar'])) {
                       </div>
         
     
-            </div>
-        </div>
+                    </div>
+                </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
@@ -235,10 +201,3 @@ if (isset($_GET['criar'])) {
 </body>
 
 </html>
-
-
-<style type="text/css">
-    
-    
-    
-</style>

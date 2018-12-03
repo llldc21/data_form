@@ -73,55 +73,13 @@ if(isset($_POST['nome'])){
 </head>
 
 <body>
-    <!--    Include     ------------------   Modal  -->
-
-    <?php include('modal_edit_dados.php'); ?>
+            <!--    Include     ------------------   Modal  -->
+        
+            <?php include('modal_edit_dados.php'); ?>
+            
+            
+            <!--    Include     ------------------   Modal  -->
     
-    
-    <!--    Include     ------------------   Modal  -->
-    
-            <!-- Modal Perfil -->
-        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header frescuras">
-                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modper">
-                    
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode(' ', $dado['NM_USUARIO'])
-                        ?>
-                        <div class="foto">
-                            <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
-                            </center>
-                        </div>
-                        
-                        <div style="margin-top: 20px;"> 
-                            <h5 class="text-center" id="nome-user">
-                                <?php echo $nome[0].' '.$nome[1]?>
-                            </h5>
-                            
-                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button href="user.php" type="button" class="btn btn-primary btn-block" > Meus Formulários </button>
-                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#mm" > Manual de Usuário</button>
-                        </div>
-                        
-                    <?php };?>
-                    
-              </div>
-              <div class="modal-footer frescuras">
-                
-              </div>
-            </div>
-          </div>
-        </div>
         
         
             <!------ INCLUDE NAV BAR ------->
@@ -207,9 +165,9 @@ if(isset($_POST['nome'])){
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
                           <p class="card-text">Data de fechamento: '.$dado['DT_FECHAMENTO_FORM'].'</p>
                          <hr>
-                         <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-success"><i class="fas fa-pen"></i></a>
-                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                         <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-primary">Responder</a>
+                         <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-outline-dark">Editar</a>
+                         <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-outline-dark">Excluir</a>
+                         <a href="exibir_form.php?cdform='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-outline-dark">Responder</a>
                          
                          </div>
                          </div>
