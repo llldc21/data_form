@@ -204,7 +204,7 @@ if (isset($_GET['criar'])) {
                              <input type="date" class="form-control" name="dataf" >
                         
                           
-                       </div>
+                       </div>   
                       
                       <div class="col-2">
                        
