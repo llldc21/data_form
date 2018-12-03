@@ -120,6 +120,8 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
 };
 // -- Editar
 function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
+    $dataa = FormataData($dataa);
+    $dataf = FormataData($dataf);
     $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
         DT_ABERTURA_FORM ="'.$dataa.'",
         DT_FECHAMENTO_FORM ="'.$dataf.'",
@@ -127,14 +129,12 @@ function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
         DS_FORMULARIO="'.$ds.'",
         ID_USUARIO="'.$cd.'" WHERE
         CD_FORMULARIO='.$cd_form;
-        echo $sql;
     $res = $GLOBALS['conn']->query($sql);
 	if($res){
-	alert("Atualizado com sucesso!");
+		alert("Atualizado com sucesso!");
 	    header('location: user.php');
 	}else{
 		alert("Erro ao atualizar");
-// 		header('location: user.php');
 	}
 };
 // -- Adicionar (USAR APENAS ADMISTRATIVAMENTE)
@@ -216,6 +216,7 @@ function ExibirTudoPeloForm($cd){
 
 function ContarAlternativa($cd){
     $sql = 'SELECT COUNT(CD_RESPOSTA) total FROM TB_RESPOSTA WHERE ID_ALTERNATIVA ='.$cd;
+    //echo $sql;
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 }
@@ -270,6 +271,15 @@ function ExisteForm($cd){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 }
-
+function Pesquisa($cate,$pes){
+    if($cate != ''){
+         $cat ='AND ID_CATEGORIA = '.$cate;
+    }else{
+        $cat = "";
+    }
+     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" or DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
+     $res = $GLOBALS['conn']->query($sql);
+    return $res;
+}
 
 ?>
