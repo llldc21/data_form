@@ -1,5 +1,5 @@
 <?php 
-include('../back_end/funcs.php');
+include('back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
 if(isset($_GET['cdform']) && "" != $sera){

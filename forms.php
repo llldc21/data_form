@@ -196,7 +196,12 @@ if (isset($_GET['criar'])) {
                             ?>
                                 <option value="<?php echo $dado['CD_CATEGORIA'];?>" id="categoria" class="form-control"><?php echo $dado['NM_CATEGORIA'];}?></option>
                             </select>
-                        
+                            <br>
+                              <h5>Date de Abertura:</h5>
+                             <input type="date" class="form-control" name="dataa" >
+                             <br>
+                             <h5>Date de Fechamento:</h5>
+                             <input type="date" class="form-control" name="dataf" >
                         
                           
                        </div>

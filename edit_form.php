@@ -1,5 +1,5 @@
 <?php
-include "back_end/funcs.php";
+include ('back_end/funcs.php');
 session_start();
 
 if(isset($_FILES['img_usuario'])){
@@ -11,7 +11,8 @@ if(isset($_POST['nome'])){
 
 
 if($_POST){
- EditarForm($_POST['n'], $_POST['dataa'], $_POST['dataf'], $_POST['id_cat'], $_POST['ds'], $_SESSION['cd'], $_POST['cd_form']);   
+ EditarForm($_POST['n'],$_POST['dataa'],$_POST['dataf'],$_POST['id_cat'], $_POST['ds'], $_SESSION['cd'], $_POST['cd_form']);   
+ echo $_POST['id_cat'];
 }
 
 ?>
@@ -72,7 +73,8 @@ if($_POST){
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
                             <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
                             <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">    
+                            <input class="form-control" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">
+                            
                         </div>
                         
                     </div>
@@ -164,7 +166,7 @@ if($_POST){
                         <?php echo $nome[0];?>
                 </h4>
                 <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
+                <button onclick="user.php" type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a>  </button>
                 <button type="button" class="btn btn-primary btn-block"> <a href="docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
@@ -185,14 +187,36 @@ if($_POST){
                                 $formulario = $_GET['form'];
 
                                 if (isset($formulario)) {
-                                    $form = ListarFormsEspecifico($usuario, $formulario);
+                                //      $form = ListarFormsEspecifico($usuario, $formulario);
+                                //     while ($forms = $form->fetch_array()) {
+                                //         echo 'Nome do formulario:<br>
+                                //         <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
+                                //         <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>
+                                //         <input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>
+                                //         <input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">
+                                //          <input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>
+                                //         <input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'">';
+                                // }
+                                $form = ListarFormsEspecifico($usuario, $formulario);
                                     while ($forms = $form->fetch_array()) {
                                         echo 'Nome do formulario:<br>
                                         <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
-                                        <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>',
-                                        '<input type="text" class="form-control" name="id_cat" value="'.$forms['ID_CATEGORIA'].'"><br>',
-                                        '<input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'">';
-                                }
+                                        <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>
+                                        <input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'"><br>
+                                        <input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>
+                                        <input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'">';
+                                        
+                                        ?>
+                                        <select name="id_cat" class="form-control mt-3">
+                                            <?php $dados = ListarCategoria($forms['CD_FORMULARIO']);
+                                             while ($dado = $dados->fetch_array()){
+                                             ?>
+                                                 <option value="<?php echo $dado['CD_CATEGORIA']; ?>" <?php if($forms['ID_CATEGORIA'] == $dado['CD_CATEGORIA']){ echo "selected"; } ?> id="categoria" class="form-control"> <?php echo $dado['NM_CATEGORIA']; ?></option>';
+                                             <?php
+                                                 
+                                             }
+                                          echo '</select>';
+                                              }     
                                 
                                 ListaPerguntasPorForm($formulario);
                             ?>

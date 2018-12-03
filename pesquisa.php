@@ -13,14 +13,13 @@ include('back_end/funcs.php');
 
 if(isset($_POST['pes'])){
     $sql = 'SELECT * FROM TB_FORMULARIO';
-    $sql.=' WHERE NM_FORMULARIO like"%'.$_POST['pes'].'%",
-    NM_CATEGORIA="'.$cat.'",
-    DS_FORMULARIO="'.$desc.'"';
+    $sql.=' WHERE NM_FORMULARIO like"%'.$_POST['pes'].'%"';
     
     
     $res = $conn->query($sql);
 while($form = $res->fetch_array()){
     echo "<li>".$form['NM_FORMULARIO']."</li>";
+}
 }
 // captura o valor do link asssim    $variavel ='AND ID_CATEGORIA ='.$_get['ovalor']
 ?>

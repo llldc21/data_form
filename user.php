@@ -199,7 +199,7 @@ if(isset($_POST['nome'])){
                     <?php
                     $dados = ListarForms($_SESSION['cd']);
                     while ($dado = $dados->fetch_array()){
-                        echo'<div class="col-md-4 offset-md-0 col-10 offset-1"> 
+                        echo'<div class="col-md-4 offset-md-0 col-10 offset-1" > 
                          <div class="card" style="width: 100%;">
                          <a href="exibir_resposta.php?cdform='.$dado['CD_FORMULARIO'].'">
                          <div class="card-body">
@@ -223,7 +223,7 @@ if(isset($_POST['nome'])){
             </div> <!-- col-md-10 -->
     </div>
 
-    
+ 
     
     
     <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>

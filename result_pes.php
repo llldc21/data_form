@@ -6,15 +6,6 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
    
 // }
 
-if(isset($_POST['pes'])){
-    $sql = 'SELECT * FROM TB_FORMULARIO';
-    $sql.=' WHERE NM_FORMULARIO like"%'.$_POST['pes'].'%"';
-    
-    $res = $conn->query($sql);
-while($form = $res->fetch_array()){
-    echo "<li>".$form['NM_FORMULARIO']."</li>";
-}
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +61,6 @@ while($form = $res->fetch_array()){
           <div class="tags">
             <a href="result_pes.php?palavra=<?php echo $_GET['palavra'];?>&cat=1" class="hash">       Sem classificação   <!--Tags a serem exibidas-->    </a>
           </div>
-      
-      
-        <input class="form-control form-control-lg" type="text" name="pes" placeholder="Pesquisa">
         
         </div>
           
@@ -88,7 +76,7 @@ while($form = $res->fetch_array()){
             $results = pesquisa($_GET['cat'],$_GET['palavra']);
             while($result = $results->fetch_array()){
               echo ' <div class="resu">
-            <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> '.$result['NM_FORMULARIO'].'  </a>    </div>
+            <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> '.$result['NM_FORMULARIO'].'  </a>              <!--Titulo do resultado das pesquisas-->   </div>
               '.$result['DS_DESCRICAO'].'
           </div>';  
             }
@@ -123,5 +111,4 @@ while($form = $res->fetch_array()){
 </html>
 <?php
 }
-
 ?>
