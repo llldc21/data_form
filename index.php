@@ -128,7 +128,7 @@ session_start();
   </section>
 
   <!-- Footer -->
-  <footer class="py-5" style="background-color: rgb(0,0,0);border-top:1px solid #000;">
+  <footer class="py-5 footer" style="background-color: rgb(0,0,0);border-top:1px solid #000;">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>

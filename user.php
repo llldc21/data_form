@@ -112,8 +112,8 @@ if(isset($_POST['nome'])){
                         <?php echo $nome[0].' '.$nome[1];?>
                 </h4>
 
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
+                <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal"><a href="#" style="color:white;"> Editar dados </a></button>
+                <button type="button" class="btn btn-dark btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
 
 
 

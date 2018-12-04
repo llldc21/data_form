@@ -40,6 +40,9 @@ h6 {
 .rounded-pill {
   border-radius: 5rem;
 }
+.footer{
+    background-color: rgb(36, 41, 46);
+}
 
 .navbar-custom {
   width: 100%;
