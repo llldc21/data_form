@@ -4,8 +4,8 @@ include 'funcs.php';
 if (isset($_POST['nome'])) {
     AtualizarForm($_POST['nome'],$_POST['descricao'],$_POST['categoria'],$_POST['abertura'],$_POST['fechamento'],$_POST['id_usuario'],$_POST['id_formulario']);
 }else if(isset($_POST['pergunta'])){
-    echo 'Pergunta inserida';
+    CadastraPerguntas($_POST['pergunta'], $_POST['tipo'],$_POST['id_form']);
 }else if(isset($_POST['alternativa'])){
-    echo 'Alternativa inserida';
+    CadastrarAlternativa($_POST['alternativa'], $_POST['id_formulario']);
 }
 ?>

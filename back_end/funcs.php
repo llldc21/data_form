@@ -120,7 +120,7 @@ function CadastraPerguntas($pergunta, $id_tipo_pergunta, $id_form){
     }
 };
 function CadastrarAlternativa($alternativa, $id_pergunta){
-    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'",'.$id_pergunta.')';
+    $sql = 'INSERT INTO `TB_ALTERNATIVA` VALUES (null,"'.$alternativa.'","'.$id_pergunta.'")';
     $res = $GLOBALS['conn']->query($sql);
     if ($res) {
         // echo 'OK';
