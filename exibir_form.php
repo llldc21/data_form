@@ -1,9 +1,12 @@
 <?php 
+session_start();
 include('back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
 if(isset($_GET['cdform']) && "" != $sera){
-  if(!(strtotime(date('Y-m-d')) >= strtotime($sera['DT_FECHAMENTO_FORM']) || strtotime(date('Y-m-d')) < strtotime($sera['DT_ABERTURA_FORM']))){
+    // if(!(strtotime(date('Y-m-d')) >= strtotime($sera['DT_FECHAMENTO_FORM']) || strtotime(date('Y-m-d')) < strtotime($sera['DT_ABERTURA_FORM']))){
+    if(!(("" == strtotime($sera['DT_FECHAMENTO_FORM']) ? false : strtotime(date('Y-m-d')) >= strtotime($sera['DT_FECHAMENTO_FORM'])) || strtotime(date('Y-m-d')) < strtotime($sera['DT_ABERTURA_FORM']))){
+        // if(!("" == strtotime($sera['DT_ABERTURA_FORM']))){
 ?>
 <html lang="en">
 
@@ -115,11 +118,14 @@ if(isset($_GET['cdform']) && "" != $sera){
 
 </html>
 <?php
-  }else{
-     header('location:front_end/fechado.php');
-  }
- }else{
-   header('location:front_end/nao_existe.php');
- }
+        // }else{
+        //     header('location:fechado.php');
+        // }
+    }else{
+        header('location:fechado.php');
+    }
+}else{
+    header('location:nao_existe.php');
+}
 
 ?>

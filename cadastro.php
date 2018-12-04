@@ -1,5 +1,6 @@
 <?php 
 include 'back_end/funcs.php';
+session_start();
 
 if (isset($_POST['nome'])) {
 	if('' == $_FILES['img_usuario']){

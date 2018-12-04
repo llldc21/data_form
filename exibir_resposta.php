@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
@@ -161,7 +162,7 @@ if(isset($_GET['cdform']) && "" != $sera){
 <?php
 
  }else{
-   include('nao_existe.php');
+    header('location:nao_existe.php');
  }
 
 ?>
