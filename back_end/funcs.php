@@ -271,6 +271,8 @@ function ExisteForm($cd){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 }
+
+
 function Pesquisa($cate,$pes){
     if($cate != ''){
          $cat ='AND ID_CATEGORIA = '.$cate;
