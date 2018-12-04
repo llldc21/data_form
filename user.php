@@ -112,8 +112,8 @@ if(isset($_POST['nome'])){
                         <?php echo $nome[0].' '.$nome[1];?>
                 </h4>
 
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
+                <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal"><a href="#" style="color:white;"> Editar dados </a></button>
+                <button type="button" class="btn btn-dark btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
 
 
 
@@ -141,7 +141,8 @@ if(isset($_POST['nome'])){
                     <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
                             <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" id="buc">
+                                 
                                     <option>Data de criação</option>
                                     <option>Ordem alfabética</option>
                                 </select>
@@ -157,13 +158,14 @@ if(isset($_POST['nome'])){
                     <?php
                     $dados = ListarForms($_SESSION['cd']);
                     while ($dado = $dados->fetch_array()){
+                        $date = $dado['DT_FECHAMENTO_FORM'];
                         echo'<div class="col-md-4 offset-md-0 col-10 offset-1" > 
                          <div class="card" style="width: 100%;">
                          <a href="exibir_resposta.php?cdform='.$dado['CD_FORMULARIO'].'">
                          <div class="card-body">
                          <h5 class="card-title">'.$dado['NM_FORMULARIO'].'</h5>
                          <p class="card-text">'.$dado['DS_FORMULARIO'].'</p>
-                          <p class="card-text">Data de fechamento: '.$dado['DT_FECHAMENTO_FORM'].'</p>
+                          <p class="card-text">Data de fechamento: '.$date.'</p>
                          <hr>
                          <a href="edit_form.php?form='.$dado['CD_FORMULARIO'].'" class="card-link btn btn-outline-dark">Editar</a>
                          <a href="excluir_form.php?cd='.$dado['CD_FORMULARIO'].'" class="btn btn-outline-dark">Excluir</a>

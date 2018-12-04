@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('back_end/funcs.php');
    $seras = ExisteForm($_GET['cdform']);
    $sera = $seras->fetch_array();
@@ -136,12 +137,16 @@ if(isset($_GET['cdform']) && "" != $sera){
       
     
   <!-- Footer -->
-  <footer class="py-5 fixed-bottom bg-black">
+  <footer class="footer py-5">
     <div class="container">
       <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
     </div>
-    <!-- /.container -->
   </footer>
+  
+  
+  
+  
+  
   <!--API GRAFICO-->
   <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
     <script type='text/javascript'>
@@ -161,7 +166,7 @@ if(isset($_GET['cdform']) && "" != $sera){
 <?php
 
  }else{
-   include('nao_existe.php');
+    header('location:nao_existe.php');
  }
 
 ?>

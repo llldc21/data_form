@@ -1,5 +1,6 @@
 <?php
 include ('back_end/funcs.php');
+session_start();
 
 if(isset($_GET['palavra']) && '' != $_GET['palavra']){
 // if(!(isset($_GET['cat']))){
@@ -54,14 +55,20 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
             
             
             <div class="col-6 main_res">
-              <div class=" ml-2">Resultados</div>
+              <div class=" ml-2"><h3>Resultados</h3></div>
               <?php
                 $results = pesquisa($_GET['cat'],$_GET['palavra']);
                 while($result = $results->fetch_array()){
                   echo ' <div class="resu">
-                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> <h5> '.$result['NM_FORMULARIO'].'</h5>  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-                  '.$result['DS_DESCRICAO'].'
+<<<<<<< HEAD
+                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> <h5> '.$result['NM_FORMULARIO'].'</h5>  </a>  </div>
+                  '.$result['DS_DESCRICAO']. '
               </div>';  
+=======
+                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result">  '.$result['NM_FORMULARIO'].'</a> </div>
+              </div>
+              <div class="descri">'.$result['DS_FORMULARIO'].'</div>';  
+>>>>>>> 04122018W
                 }
                 
                 
@@ -84,9 +91,9 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
 <!-- END THE CONTEUDO -->
 
       <!-- FOOTER -->
-      <footer class="navbar navbar-expand-lg navbar-light navbar-custom py-5" style="background-color: rgba(32, 153, 242, 0.8);border-top:1px solid #000;">
+      <footer class="footer py-5" style="background-color: white;  border-top:1px solid #000;">
     <div class="col-md-2 col-12 offset-md-5">
-      <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
+      <p class="m-0 text-center text-black small">Copyright &copy; Data Form 2018</p>
     </div>
     <!-- /.container -->
   </footer>
