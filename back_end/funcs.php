@@ -120,8 +120,8 @@ function CadastrarAlternativa($alternativa, $id_pergunta){
 };
 // -- Editar
 function EditarForm($nome,$dataa,$dataf,$id_cat,$ds,$cd,$cd_form){
-    $dataa = FormataData($dataa);
-    $dataf = FormataData($dataf);
+    // $dataa = FormataData($dataa);
+    // $dataf = FormataData($dataf);
     $sql = 'UPDATE TB_FORMULARIO SET NM_FORMULARIO ="'.$nome.'",
         DT_ABERTURA_FORM ="'.$dataa.'",
         DT_FECHAMENTO_FORM ="'.$dataf.'",
@@ -200,7 +200,7 @@ function Alert($msg){
 function FormataData($data){
     $edit = explode("-", $data);
     $date = $edit[2]."-".$edit[1]."-".$edit[0];
-    echo date('d-m-Y', strtotime($date)); 
+    return $date;
 }
 // -- resposta
 function ExibirTudoPeloForm($cd){
@@ -277,7 +277,7 @@ function Pesquisa($cate,$pes){
     }else{
         $cat = "";
     }
-     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" or DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
+     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" and DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
      $res = $GLOBALS['conn']->query($sql);
     return $res;
 }

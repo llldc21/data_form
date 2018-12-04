@@ -1,5 +1,6 @@
 <?php
 include ('back_end/funcs.php');
+session_start();
 
 if(isset($_GET['palavra']) && '' != $_GET['palavra']){
 // if(!(isset($_GET['cat']))){
@@ -59,8 +60,8 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
                 $results = pesquisa($_GET['cat'],$_GET['palavra']);
                 while($result = $results->fetch_array()){
                   echo ' <div class="resu">
-                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> <h5> '.$result['NM_FORMULARIO'].'</h5>  </a>              <!--Titulo do resultado das pesquisas-->   </div>
-                  '.$result['DS_DESCRICAO'].'
+                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> <h5> '.$result['NM_FORMULARIO'].'</h5>  </a>  </div>
+                  '.$result['DS_DESCRICAO']. '
               </div>';  
                 }
                 
