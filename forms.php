@@ -53,7 +53,7 @@ if (isset($_GET['criar'])) {
             $('#footer').parent().hide();
         })
     </script>
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -168,21 +168,18 @@ if (isset($_GET['criar'])) {
                     
                         <div class="wrap-input100 validate-input" data-validate="Data requerida">
 						    <span class="label-input100">Data de Abertura</span>
-						    <input class="input100" type="date" name="dataf">
+						    <input class="input100" type="date" id="abertura" name="dataf">
 						    <span class="focus-input100" data-symbol="&#10004;"></span>
 					    </div>
 					    <br>
 					    <br>
+                        <br>
 					    <div class="wrap-input100 validate-input" data-validate="Data requerida">
 						    <span class="label-input100">Data de Fechamento</span>
-						    <input class="input100" type="date" name="dataa">
+						    <input class="input100" type="date" id="fechamento" name="dataa">
 						    <span class="focus-input100" data-symbol="&#10006;"></span>
 					    </div>
-
-                            <a href="perguntas.php"><button type="button" class=" mt-5 btn btn-primary btn-block" id="criar">Perguntas</button></a>
-                            <a href="user.php"><button type="button" class="btn btn-success mt-1 btn-block" id="fin">Finalizar</button></a>                            
-
-                       
+                            <button type="button" class=" mt-5 btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal1" id="criar">Perguntas</button>                       
                         </div>
                         <br>
                         <br>
@@ -193,11 +190,30 @@ if (isset($_GET['criar'])) {
                     </div>
                 </div>
 
+    <!-- Inserindo modal para informar cadastro de formulario realizado com sucesso -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"  >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close"  id="#r" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h5>Cadastrado com sucesso!</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="r" >Perguntas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="ajax.js"></script>
+    <script src="front_end/form.js"></script>
 </body>
 
 </html>

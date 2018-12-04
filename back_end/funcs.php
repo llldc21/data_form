@@ -80,14 +80,24 @@ function AtualizarUsuario($nome,$data,$cd){
     $sql = 'UPDATE TB_USUARIO SET NM_USUARIO ="'.$nome.'",
     DT_NASCIMENTO="'.$data.'"
     WHERE CD_USUARIO='.$cd;
-    $res = $GLOBALS['conn']->query($sql);
-    
+    $res = $GLOBALS['conn']->query($sql); 
 }
-// function AtualizaForm($cd_usuario, $nm_form, $abertura, $fechamento, $id_usuario, $id_categoria, $descricao){
-//     $sql = "UPDATE `TB_FORMULARIO` SET `CD_FORMULARIO`=$cd_usuario,`NM_FORMULARIO`=$nm_form,`DT_ABERTURA_FORM`=$abertura,`DT_FECHAMENTO_FORM`=$fechamento, `ID_CATEGORIA`=$id_categoria,`DS_FORMULARIO`=$descricao WHERE `ID_USUARIO` =$id_usuario";
-//     echo $sql;
-// }
-// // --
+function AtualizarForm($nome, $descricao, $categoria, $abertura, $fechamento, $id_usuario, $cd_formulario){
+    $abertura_f = FormataData($abertura);
+    $fechamento_f = FormataData($fechamento);
+    $sql = "UPDATE `TB_FORMULARIO`
+    SET `NM_FORMULARIO` = '".$nome."',
+        `DS_FORMULARIO` = '".$descricao."',
+        `ID_CATEGORIA` = $categoria,
+        `DT_ABERTURA_FORM` = '".$abertura_f."',
+        `DT_FECHAMENTO_FORM` = '".$fechamento_f."'
+        WHERE `ID_USUARIO` = $id_usuario
+        AND `CD_FORMULARIO` = $cd_formulario
+    ";
+    $res = $GLOBALS['conn']->query($sql);
+    // echo var_dump($sql);
+    return $cd_formulario;
+}
 
 // FUNÇÕES PARA FORMULARIO
 // -- Cadastro
@@ -200,7 +210,8 @@ function Alert($msg){
 function FormataData($data){
     $edit = explode("-", $data);
     $date = $edit[2]."-".$edit[1]."-".$edit[0];
-    echo date('d-m-Y', strtotime($date)); 
+    $d = date('d/m/Y', strtotime($date));
+    return $d; 
 }
 // -- resposta
 function ExibirTudoPeloForm($cd){
@@ -213,7 +224,6 @@ function ExibirTudoPeloForm($cd){
     ON p.ID_FORMULARIO = f.CD_FORMULARIO
     WHERE f.CD_FORMULARIO = '.$cd;
 }
-
 function ContarAlternativa($cd){
     $sql = 'SELECT COUNT(CD_RESPOSTA) total FROM TB_RESPOSTA WHERE ID_ALTERNATIVA ='.$cd;
     //echo $sql;
@@ -222,9 +232,8 @@ function ContarAlternativa($cd){
 }
 function ResponderPergunta($cd){
     $sql = 'INSERT INTO TB_RESPOSTA VALUES(NULL,'.$cd.')';
-     $res = $GLOBALS['conn']->query($sql);
+    $res = $GLOBALS['conn']->query($sql);
 }
-
 function ResponderForm($cd){
     $form = ListaPerguntasPorForm($cd);
     while($forms = $form->fetch_array()){
@@ -265,7 +274,6 @@ function ResponderForm($cd){
         }
     }
 }
-
 function ExisteForm($cd){
     $sql = 'SELECT * FROM TB_FORMULARIO WHERE CD_FORMULARIO ='.$cd;
     $res = $GLOBALS['conn']->query($sql);
