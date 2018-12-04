@@ -131,7 +131,7 @@ if (isset($_GET['criar'])) {
         crossorigin="anonymous"></script>
     <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="front_end/ajax.js"></script>
+    <script src="front_end/form.js"></script>
 </body>
 </html>
 
