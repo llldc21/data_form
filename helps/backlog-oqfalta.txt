@@ -1,0 +1,5 @@
+1. Validar todas as inserções que o usuario possa fazer, ou seja desde o cadastro, criação do formulario, edição
+do formulario terminando nas perguntas.
+2. Falta função de pesquisa funcionar.
+3. Falta criar rotas para redirecionar o usuario quando tenta acessar uma pagina sem sessão, invez de exibir um 
+erro na pagina.

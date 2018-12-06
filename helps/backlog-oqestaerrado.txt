@@ -1,0 +1,34 @@
+## Já definido
+1. Recuperação de senha -> Alinhar pagina a ser exibida (Foi acordado que a validação será feita por CPF).
+2. Na pagina das perguntas, os botões estão sem icone (Já foi acordade que Wesllen me passaria o que é 
+necessario para correção)
+
+## Responsividade/Layout de página
+1. Página de login
+2. Página do usuario
+3. Modal "Editar dados", conta com o titulo apenas da troca de imagem de perfil, faltam os demais campos
+4. O Select "Data de criação/Ordem alfabetica" está sem especificação, o que ele faz? Pra que serve? Falta um 
+titulo
+5. Textos da index estão fora do padrão de escrita empresarial/técnica.
+6. Na pagina do usuario temos um botão de painel, já estamo no painel é necessario a continuidade do botão? 
+7. Pagina de criação de form.
+8. Modal de encerramento de edição do formulari não esta padronizado com o sistema.
+9. Na pagina de perguntas ajudar responsividade dos botões de inserção de perguntas.
+10. Na pagina de perguntas existe uma lixeira no meio da div onde as perguntas são impressas, corrigir ou tira-la 
+11. Na pagina de perguntas serie interessante exibir o nome do formulario que o usuario esta trabalhando.
+12. Na pagina de perguntas falta padronizar os campos que são impressos com as perguntas.
+13. Na pagina de perguntas falta uma mensagem indicando que as perguntas foram cadastradas com sucesso, algo do
+tipo
+14. Na pagina de editar falta padronizar o layout com o resto do sistema.
+
+## Alinhamento Front e Back
+1. Botão de manual do usuario não faz nada. (Avaliar a necessidade desse botão. Não poderia estar num possivel 
+footer?)
+2. Botão "Meus Formulários" não faz nada. (Avalisar a necessidade desse botão. Vai levar para um outro modo de 
+visualização, se não, a pagina do usuario já faz isso)
+
+## Back-End
+1. O Select "Data de criação/Ordem alfabetica" não faz nenhuma ação. Deveria ordenar os forms de acordo com 
+o que o Select diz.
+2. Função de pesquisa não pesquisa.
+3. Botão responder na pagina do usuario dentro do card do formulario, leva a uma pagina que não faz nada.
