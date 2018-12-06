@@ -60,15 +60,9 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
                 $results = pesquisa($_GET['cat'],$_GET['palavra']);
                 while($result = $results->fetch_array()){
                   echo ' <div class="resu">
-<<<<<<< HEAD
-                <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result"> <h5> '.$result['NM_FORMULARIO'].'</h5>  </a>  </div>
-                  '.$result['DS_DESCRICAO']. '
-              </div>';  
-=======
                 <div class="tig"> <a href="exibir_form.php?cdform='.$result['CD_FORMULARIO'].'" class="result">  '.$result['NM_FORMULARIO'].'</a> </div>
               </div>
               <div class="descri">'.$result['DS_FORMULARIO'].'</div>';  
->>>>>>> 04122018W
                 }
                 
                 
