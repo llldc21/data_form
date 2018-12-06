@@ -81,18 +81,18 @@ $(document).on('click', '.campo', function(){
     // Definindo variavel que escreve no perguntas.php
     var campo = '';
     switch (parseInt(tipo)) {
-        case 1:
+        case 5:
             var curta = prompt('Digite a pergunta?');
             InserePergunta(curta, tipo,id[1]);
             // Escrevendo no banco
             campo = '<div class="row pps"><form method="post" action="../back_end/processa.php"><h5 class="h5 text-left">' + curta + '</h5><div class="row"><input type="text" name="campo[]" class="form-control perguntasc" placeholder="' + curta + '" disabled></div></div><br>';
             break;
-        case 2:
+        case 6:
             var longa = prompt('Digite a pergunta?')
             InserePergunta(longa, tipo,id[1]);
             campo = '<div class="row"><h5 class="h5 text-left">' + longa + '</h5><div class="row pps"><textarea class="form-control perguntasl" name="campo[]" placeholder="' + longa + '" disabled></textarea></div></div><br>';
             break;
-        case 3:
+        case 7:
             var alternativa = prompt('Digite a pergunta?')
             InserePergunta(alternativa, tipo,id[1]);
             campo = '<h5 class="h5 text-left">' + alternativa + '</h5>';
@@ -104,7 +104,7 @@ $(document).on('click', '.campo', function(){
                 campo += '<div class="row ppz"><input type="radio" class="text-left" name="campo[]" disabled>' + ds_alternativa + '</div>';           
             }
             break;
-        case 4:
+        case 8:
             var escolha = prompt('Digite a pergunta?')
             InserePergunta(escolha, tipo,id[1]);
             campo = '<h5 class="h5 text-left">' + escolha + '</h5>';

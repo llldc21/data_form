@@ -7,7 +7,7 @@ include('conexao.php');
 
 // FUNÇÕES PARA USUARIO
 // -- Cadastro
-function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_usuario) {
+function CadastraUsuario($nome, $email, $nascimento, $senha, $img_usuario, $cpf) {
     $cadastrado = '';
     if ($img_usuario) {
         // Modificando a data
@@ -27,7 +27,7 @@ function CadastraUsuario($nome, $email, $nascimento, $senha, $email_rec, $img_us
         };
         
         // ------------------------
-        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `DS_EMAIL_RECUPERACAO`, `IMG_USUARIO`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$n_nascimento.'", "'.$encriptada.'", "'.$email_rec.'","'.$caminho.'")';
+        $sql = 'INSERT INTO `TB_USUARIO`(`CD_USUARIO`, `NM_USUARIO`, `DS_EMAIL`, `DT_NASCIMENTO`, `DS_SENHA`, `IMG_USUARIO`, `CPF`) VALUES (null, "'.$nome.'", "'.$email.'", "'.$n_nascimento.'", "'.$encriptada.'","'.$caminho.'", "'.$cpf.'")';
         $res = $GLOBALS['conn']->query($sql);
         if ($res) {
             echo "<script> alert('Cadastro realizado!') </script>";

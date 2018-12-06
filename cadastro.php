@@ -8,7 +8,7 @@ if (isset($_POST['nome'])) {
 	}else{
 		$img_usuario = $_FILES['img_usuario'];
 	} //Pegando extensão do arquivo
-	CadastraUsuario($_POST['nome'], $_POST['email'], $_POST['nascimento'], $_POST['senha'], $_POST['email_rec'], $img_usuario);
+	CadastraUsuario($_POST['nome'], $_POST['email'], $_POST['nascimento'], $_POST['senha'], $img_usuario, $_POST['cpf']);
 }
 ?>
 <!DOCTYPE html>
@@ -81,9 +81,9 @@ if (isset($_POST['nome'])) {
 							<!--FIm senha-->
 							
 							<!--Email recuperação-->
-					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
-						<span class="label-input100">Email Recuperação</span>
-						<input class="input100" type="text" name="email_rec" placeholder="Endereço de email...">
+					<div class="wrap-input100 validate-input" data-validate = "CPF valido Ex.: 671.890.626-07">
+						<span class="label-input100">CPF</span>
+						<input class="input100" type="text" name="cpf" placeholder="CPF...">
 						<span class="focus-input100"></span>
 					</div>
 							<!--Fim email-->
