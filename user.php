@@ -102,7 +102,7 @@ if(isset($_POST['nome'])){
                     
                     <div class="foto-user">
                     
-                    <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle img-responsive img-fluid">
+                    <img src="<?php echo $dado['IMG_USUARIO']?>" id = "testImage" class="rounded-circle img-responsive img-fluid">
                     
                     </div>
                     
