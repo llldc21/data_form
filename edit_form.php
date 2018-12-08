@@ -92,49 +92,7 @@ if($_POST){
         </div>
     </div>
     
-            <!-- Modal Perfil -->
-        <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header frescuras">
-                <h5 class="modal-title" id="exampleModalLabel"> <center>Perfil </center></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modper">
-                    
-                     <?php
-                        $dados = ListarDadosUsuario($_SESSION['cd']);
-                        while ($dado = $dados->fetch_array()){
-                            $nome = explode(' ', $dado['NM_USUARIO'])
-                        ?>
-                        <div class="foto">
-                            <center>
-                            <img src="<?php echo $dado['IMG_USUARIO']?>" class="rounded-circle" width="100%" height="50%">
-                            </center>
-                        </div>
-                        
-                        <div style="margin-top: 20px;"> 
-                            <h5 class="text-center" id="nome-user">
-                                <?php echo $nome[0].' '.$nome[1]?>
-                            </h5>
-                            
-                            <button type="button" class="btn frescuras-btn btn-block" data-toggle="modal" data-target="#exampleModal">Editar dados</button>
-                            <button type="button" class="btn frescuras-btn btn-block"><center> Gerenciar Formulários </center></button>
-                        </div>
-                        
-                    <?php };?>
-                    
-              </div>
-              <div class="modal-footer frescuras">
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
+         
             <!------ INCLUDE NAV BAR ------->
             
                 <?php include('navbar.php'); ?>
@@ -165,9 +123,9 @@ if($_POST){
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
-                <button onclick="user.php" type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a>  </button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
+                <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                <button onclick="user.php" type="button" class="btn btn-dark btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a>  </button>
+                <button type="button" class="btn btn-dark btn-block"> <a href="docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
                 
@@ -199,12 +157,39 @@ if($_POST){
                                 // }
                                 $form = ListarFormsEspecifico($usuario, $formulario);
                                     while ($forms = $form->fetch_array()) {
-                                        echo 'Nome do formulario:<br>
-                                        <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'"><br>
-                                        <input type="text" class="form-control" name="n"  value="'.$forms['NM_FORMULARIO'].'"><br>
-                                        <input type="text" class="form-control" name="ds" value="'.$forms['DS_FORMULARIO'].'"><br>
-                                        <input type="date" class="form-control" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'"><br>
-                                        <input type="date" class="form-control" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'">';
+                                        echo '
+                                        <input type="hidden" class="form-control" name="cd_form"  value="'.$forms['CD_FORMULARIO'].'">
+                                        
+                                        <div class="wrap-input100 validate-input m-b-23">
+                        						<span class="label-input100">Nome do Formulário</span>
+                        						<input class="input100" type="text" name="n"  value="'.$forms['NM_FORMULARIO'].'">
+                        						<span class="focus-input100" data-symbol="&#9776;"></span>
+                        				</div>
+                        				
+                        				<br>
+                                        
+                                        <div class="wrap-input100 validate-input m-b-23">
+                    						<span class="label-input100">Descrição do Formulário</span>
+                    						    <input class="input100" type="text" name="ds" value="'.$forms['DS_FORMULARIO'].'">
+                    						<span class="focus-input100" data-symbol="&#9776;"></span>
+                    					</div>
+                    					
+                    					<br>
+                    					
+                    					<div class="wrap-input100 validate-input" data-validate="Data requerida">
+                						    <span class="label-input100">Data de Abertura</span>
+                						    <input class="input100" type="date" name="dataa" value="'.$forms['DT_ABERTURA_FORM'].'">
+                						    <span class="focus-input100" data-symbol="&#10004;"></span>
+                					    </div>
+                    					
+                                        <br>
+                                        
+                                        <div class="wrap-input100 validate-input" data-validate="Data requerida">
+                						    <span class="label-input100">Data de Fechamento</span>
+                						    <input class="input100" type="date" name="dataf" value="'.$forms['DT_FECHAMENTO_FORM'].'">
+                						    <span class="focus-input100" data-symbol="&#10006;"></span>
+                					    </div>
+                                        ';
                                         
                                         ?>
                                         <select name="id_cat" class="form-control mt-3">
@@ -214,14 +199,16 @@ if($_POST){
                                                  <option value="<?php echo $dado['CD_CATEGORIA']; ?>" <?php if($forms['ID_CATEGORIA'] == $dado['CD_CATEGORIA']){ echo "selected"; } ?> id="categoria" class="form-control"> <?php echo $dado['NM_CATEGORIA']; ?></option>';
                                              <?php
                                                  
-                                             }
-                                          echo '</select>';
-                                              }     
-                                
-                                ListaPerguntasPorForm($formulario);
-                            ?>
-                    <a href="user.php"> <button  type="button" class="btn btn-danger" style="margin-top: 20px">Fechar</button> </a>    
-                        <button type="submit" class="btn btn-success" style="margin-top: 20px">Salvar</button>
+                                                 }
+                                              echo '</select>';
+                                                  }     
+                                                ListaPerguntasPorForm($formulario);
+                                            ?>
+                            
+                            
+                            <br>
+                    <a href="user.php"> <button  type="button" class="btn btn-outline-dark" style="margin-top: 20px">Fechar</button> </a>    
+                        <button type="submit" class="btn btn-outline-dark" style="margin-top: 20px">Salvar</button>
                         </form>
                     </div>
                 </div>

@@ -47,13 +47,17 @@ session_start();
         <h4 class="masthead-subheading mb-0">Crie formulários e compartilhe!</h4>
           <div class="wrap-login100-form-btn" style="width: 30%; margin-top: 60px;">
             <div class="login100-form-bgbtn"></div>
-
+            
+            
+            <a href="cadastro.php">
             <button href="./front_end/cadastro.php" class="login100-form-btn">
 
-            <a href="cadastro.php" class="login100-form-btn">
-
               Cadastro
+            
+            </button>
             </a>
+            
+            
           </div>
         </div>
       </div>
@@ -128,9 +132,19 @@ session_start();
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 footer" style="background-color: rgb(0,0,0);border-top:1px solid #000;">
-    <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; Data Form 2018</p>
+  <footer class="footer py-5" style="background-color: rgb(36, 41, 46);  border-top:1px solid #000;">
+    <div class="col-md-12 col-12">
+      <p class="text-black small" style="margin-left:43%;">Copyright &copy; Data Form 2018
+      
+        <i class="icon fab fa-facebook-square"></i>
+        <i class="icon fab fa-instagram"></i>
+        <i class="icon fab fa-youtube"></i>
+        <i class="icon fab fa-google-plus-g"></i>
+        <i class="icon fab fa-twitter-square"></i>
+        <i class="icon fab fa-github"></i>
+
+        </p>
+    
     </div>
     <!-- /.container -->
   </footer>

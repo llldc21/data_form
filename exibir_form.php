@@ -78,7 +78,11 @@ if(isset($_GET['cdform']) && "" != $sera){
                          echo $forms['NM_PERGUNTA'].'<br>';
                           while($alts = $alt->fetch_array()){
                             $i = 1;
-                            echo '<input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>';
+                            echo '
+                            
+                            <input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>
+                            
+                            ';
                             $i++;
                           }
                         }

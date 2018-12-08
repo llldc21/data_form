@@ -85,9 +85,19 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
 <!-- END THE CONTEUDO -->
 
       <!-- FOOTER -->
-      <footer class="footer py-5" style="background-color: white;  border-top:1px solid #000;">
-    <div class="col-md-2 col-12 offset-md-5">
-      <p class="m-0 text-center text-black small">Copyright &copy; Data Form 2018</p>
+      <footer class="footer py-5" style="background-color: rgb(36, 41, 46);  border-top:1px solid #000;">
+    <div class="col-md-12 col-12">
+      <p class="text-black small" style="margin-left:43%;">Copyright &copy; Data Form 2018
+      
+        <i class="icon fab fa-facebook-square"></i>
+        <i class="icon fab fa-instagram"></i>
+        <i class="icon fab fa-youtube"></i>
+        <i class="icon fab fa-google-plus-g"></i>
+        <i class="icon fab fa-twitter-square"></i>
+        <i class="icon fab fa-github"></i>
+
+        </p>
+    
     </div>
     <!-- /.container -->
   </footer>

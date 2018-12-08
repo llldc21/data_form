@@ -24,69 +24,16 @@
   margin-top: 20px;
 }
 
+.icon{
+  font-size: 20px;
+  margin-left: 30px;
+  color:white;
+}
 
 form{
   width:100%;  
 }
 
-input {
-	outline: none;
-	border: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
-}
-
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
-
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
-
-input::-webkit-input-placeholder { color: #adadad;}
-input:-moz-placeholder { color: #adadad;}
-input::-moz-placeholder { color: #adadad;}
-input:-ms-input-placeholder { color: #adadad;}
-
-textarea::-webkit-input-placeholder { color: #adadad;}
-textarea:-moz-placeholder { color: #adadad;}
-textarea::-moz-placeholder { color: #adadad;}
-textarea:-ms-input-placeholder { color: #adadad;}
-
-
-
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
-}
-
-
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
 
 .pergun{
   max-height: max-content;
@@ -139,14 +86,14 @@ textarea:-ms-input-placeholder { color: #adadad;}
   padding-top:10px;
   margin-left: 7%;
 }
-.foto-user img {
+.foto-user img{
+  height:220px;
   width:100%;
-  height:12%;
-  object-fit:cover;
-  background-size:cover; 
+  object-fit:cover; 
   margin-top:10px;
-  margin-left:5px;
+  margin-left:3px;
 }
+
 #user{
   height: 100%;
   background-color: rgba(67, 101, 127, 0.3);
@@ -593,38 +540,77 @@ iframe {
 .respo{
     display: none;
   }
+  
+  
+input {
+	outline: none;
+	border: none;
+}
 
-@media (max-width: 800px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-  h2{
-    width: 50%;
-  }
-  #user{
-    display: none;
-  }
-  .respo{
-    display:block;
-  }
-  #img-user{
-  height: 300px;
-  }
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #adadad;}
+input:-moz-placeholder { color: #adadad;}
+input::-moz-placeholder { color: #adadad;}
+input:-ms-input-placeholder { color: #adadad;}
+
+textarea::-webkit-input-placeholder { color: #adadad;}
+textarea:-moz-placeholder { color: #adadad;}
+textarea::-moz-placeholder { color: #adadad;}
+textarea:-ms-input-placeholder { color: #adadad;}
+
+
+
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/catamaran/Catamaran-Bold.ttf'); 
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@media only screen and (max-width: 1366px) {
   .rounded-circle{
     border: 4px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
   }
-  #conteudo{
-    background-color: white;
-    overflow-x: hidden;
-  }
-  body, html{
-    background-color: white;
-    overflow: hidden;
-  }
-  .card{
-    margin-bottom: 50px;
+  .foto-user img {
+  height:190px;
+  object-fit:cover; 
+  margin-top:10px;
+  margin-left:3px;
   }
 }
 
