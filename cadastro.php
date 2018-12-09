@@ -48,7 +48,7 @@ if (isset($_POST['nome'])) {
 							
 					<div class="wrap-input100 validate-input" data-validate="Nome requerido">
 						<span class="label-input100">Nome completo</span>
-						<input class="input100" type="text" name="nome" placeholder="Nome..." pattern="[a-zA-Z\s]+$" title="Não use caracteres especiais!">
+						<input class="input100" type="text" name="nome" placeholder="Nome" pattern="[a-zA-Z\s]+$" title="Não use caracteres especiais!">
 						<span class="focus-input100"></span>
 					</div>
 							<!--fim nome-->
@@ -65,7 +65,7 @@ if (isset($_POST['nome'])) {
 							<!--Email-->
 					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Endereço de email...">
+						<input class="input100" type="email" name="email" placeholder="Endereço de email">
 						<span class="focus-input100"></span>
 					</div>
 							<!--Fim email-->
@@ -81,9 +81,9 @@ if (isset($_POST['nome'])) {
 							<!--FIm senha-->
 							
 							<!--Email recuperação-->
-					<div class="wrap-input100 validate-input" data-validate = "CPF valido Ex.: 671.890.626-07">
+					<div class="wrap-input100 validate-input" data-validate = "CPF valido Ex.: 000.000.000-00">
 						<span class="label-input100">CPF</span>
-						<input class="input100" type="text" name="cpf" placeholder="CPF...">
+						<input class="input100" type="text" name="cpf" placeholder="CPF" maxlength="14">
 						<span class="focus-input100"></span>
 					</div>
 							<!--Fim email-->
@@ -106,7 +106,7 @@ if (isset($_POST['nome'])) {
 							<div class="container-login100-form-btn" style="margin-top: 15px">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+							<button class="login100-form-btn"  data-toggle="modal" data-target="#exampleModalCenter">
 								Termos de Usuário
 							</button>
 						</div>
@@ -135,32 +135,25 @@ if (isset($_POST['nome'])) {
 		</div>
 	</div>
 	
-	<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Termos de Uso</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p> A equipe do Data Form não se responsabiliza por propagação de informações falsas dentro da plataforma,
+         <p> A equipe do Data Form não se responsabiliza por propagação de informações falsas dentro da plataforma,
         apartir do momento de inscrição o usuário passa a ter total responsabilidade pelos formulários
         que ele gera e pelas informaçãoes que ele cativa.</p><br>
         
         Você aceitar o termo de responsabilidade de uso ?<br>
-        
-       <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Sim</label>
-      </div>
-      
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
