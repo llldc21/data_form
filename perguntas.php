@@ -83,7 +83,7 @@ if (isset($_GET['criar'])) {
                 <!-- FORMULARIO -->
                  <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid rgb(223,223,223)">
                      <div class="row">
-                         <h3 style="padding-top:10px;padding-left:20px;"> Criar Formularios</h3>
+                         <h3 style="padding-top:10px;padding-left:20px;"><?php echo $dado['NM_FORMULARIO'] ?></h3>
                          
                      </div><!-- row -->
                      <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
@@ -92,7 +92,6 @@ if (isset($_GET['criar'])) {
                         <div class="container-fluid">     
                             <div class="form-group" id="conteudo" >
                              <!-- forms vai aqui -->
-                             <i class="fas fa-trash lixeira"></i>
                              </div>
                         </div>     
                      </div>
@@ -116,10 +115,10 @@ if (isset($_GET['criar'])) {
                         $tipo = ListarTipoPergunta();
                         while($tipos = $tipo->fetch_array()){
                       ?>
-                      <button class="btn btn-dark mt-1 mb-1 btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="left" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"> <?php echo $tipos['NM_TIPO_PERGUNTA']?> </button>
+                      <button class="btn btn-outline-dark mt-1 mb-1 btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="left" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"> <?php echo $tipos['NM_TIPO_PERGUNTA']?> </button>
                         <?php };?>
                         <br>
-                      <a href="user.php"><button type="button" class="btn btn-success btn-block">Finalizar</button></a>
+                      <a href="user.php"><button type="button" class="btn btn-dark btn-block">Finalizar</button></a>
                         <br>
   
                 </div>

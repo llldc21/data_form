@@ -45,8 +45,6 @@ if(isset($_GET['cdform']) && "" != $sera){
             <!------ INCLUDE NAV BAR ------->
             
     
-<body>
-    
       
       <div class="container">
         <div class="row">

@@ -16,22 +16,39 @@
                             while ($dado = $dados->fetch_array()){
                             ?>
                     <div class="modal-body">
-                        <h3>Alterar foto</h3>
+        					<span class="label-input100">Editar foto</span>
+        					<br>
                         <div class="custom-file">
                             <!-- Passando e-mail para o Post, para mudar o nome da foto -->
                             <input type="hidden" name="email" value="<?php echo $dado['DS_EMAIL'];?>">
                             <input type="file" name="img_usuario" class="custom-file-input" id="customFileLang" lang="pt-br">
-                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>    
-                            <input class="form-control" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>" style="margin-top: 10px">
-                            <input class="form-control" name="data"  type="date" value="<?php echo $dado['DT_NASCIMENTO']?>" style="margin-top: 10px">    
-                        </div>
+                            <label class="custom-file-label" id="foto_nova" for="customFileLang">Selecione o arquivo...</label>
                         
+                        
+                        <br><br>
+                            
+                            <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">Editar Nome do Usuário</span>
+        						<input class="input100" name="nome" type="text" value="<?php echo $dado['NM_USUARIO']?>">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        				    </div>
+                            
+                        <br>
+                        
+                            <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">Editar Data de Nascimento</span>
+        						<input class="input100" name="data" type="date" value="<?php echo $dado['DT_NASCIMENTO']?>">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        				    </div>
+                                
                     </div>
                     <br>
                     <br>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <input type="submit" class="btn btn-success" value="salvar" />
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                        <input type="submit" class="btn btn-dark" value="salvar" />
+                        
+                    </div>
                         <?php
                             };
                         ?>

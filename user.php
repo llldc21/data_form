@@ -113,7 +113,7 @@ if(isset($_POST['nome'])){
                 </h4>
 
                 <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal"><a href="#" style="color:white;"> Editar dados </a></button>
-                <button type="button" class="btn btn-dark btn-block"> <a href="manual.php" style="color:white;"> Manual de Usuário</a></button>
+                <button type="button" class="btn btn-dark btn-block"> <a href="docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
 
 
 
@@ -130,7 +130,7 @@ if(isset($_POST['nome'])){
                 <div class="row">
                     <div class="col-md-4 col-10 offset-1 offset-md-0 form painel">
                         <div class="text-center">
-                            <a href="forms.php?criar" class="btn btn-success form-control align-items-center btn-block">Criar Formulário</a>
+                            <a href="forms.php?criar" class="btn btn-outline-dark form-control align-items-center btn-block">Criar Formulário</a>
                         </div>
                     </div>
                     <div class="col-md-4 col-10 offset-1 offset-md-0 painel">

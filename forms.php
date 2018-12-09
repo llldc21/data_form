@@ -100,9 +100,9 @@ if (isset($_GET['criar'])) {
                 <h4 class="h4 text-center " id="nome-user">
                         <?php echo $nome[0];?>
                 </h4>
-                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
-                <button type="button" class="btn btn-primary btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
-                <button type="button" class="btn btn-primary btn-block"> <a href="../docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
+                <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal" style="color:white;">Editar dados</button>
+                <button type="button" class="btn btn-dark btn-block" > <a href="user.php" style="color:white;" >Meus Formulários</a></button>
+                <button type="button" class="btn btn-dark btn-block"> <a href="docs/Manual do Usuario.docx" target="_blank" style="color:white;" > Manual de Usuário</a></button>
                 </div>
                 </div>
                 
@@ -149,7 +149,7 @@ if (isset($_GET['criar'])) {
                         
                         <br>
                             
-                            <span class="label-input100">Nome do Formulário</span>
+                            <span class="label-input100">categoria</span>
                             <select name="categoria" class="form-control mt-3">
                             <?php
                                 $dados = ListarCategoria($_SESSION['cd']);
@@ -179,7 +179,8 @@ if (isset($_GET['criar'])) {
 						    <input class="input100" type="date" id="fechamento" name="dataa">
 						    <span class="focus-input100" data-symbol="&#10006;"></span>
 					    </div>
-                            <button type="button" class=" mt-5 btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal1" id="criar">Perguntas</button>                       
+					        <br>
+                            <button type="button" class=" mt-5 btn btn-dark btn-block" data-toggle="modal" data-target="#exampleModal1" id="criar">Perguntas</button>                       
                         </div>
                         <br>
                         <br>
