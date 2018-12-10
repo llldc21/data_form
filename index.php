@@ -76,10 +76,9 @@ session_start();
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-5" id="cont">Criar</h2>
-            <p>Crie formularios para pesquisas de campo ou qualquer outro tipo de pesquisas.
-                construa graficos incriveis com respostas de usuarios ou dados que vc msm coletou.
-                Tudo isso de uma maneira rapida e facil com um conforto que o Data Form lhe fornece,
-                com total simplicidade rapidez.</p>
+            <p>Crie formulários para suas pesquisas.
+                Construa gráficos incríveis com os dados que você mesmo coletou.
+                Tudo isso de uma maneira rápida e intuitiva.</p>
           </div>
         </div>
       </div>
@@ -95,14 +94,11 @@ session_start();
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="p-5">
+          <div class="p-5"> 5730
             <h3 class="display-5">Pesquisar</h3>
-            <p>Trabalho de escola atrasado? tem prova no dia seguinte e n sabe nada?
-                que tal usar o Data Form para realizar suas pesquisas com total facilidade e rapidez?
-                busque e ache qualquer tipo de informaçao nescessaria para voce,
-                buscando pela informaçao desejada voce ira obter apenas aquela informaçao nescessaria.
-                nossa plataforma lhe garante uma super facilicade e conforto para realizar suas
-                pesquisas.</p>
+            <p>Trabalho de escola atrasado? Tem prova no dia seguinte e não tem base nenhuma sobre o assunto?
+                Que tal usar o Data Form para realizar suas pesquisas com total rápidez!
+                Procure por qualquer tipo de informação que você deseja.</p>
           </div>
         </div>
       </div>
@@ -120,11 +116,9 @@ session_start();
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
             <h2 class="display-5">Compartilhar</h2>
-            <p>A sua pesquisa pode ser compartilhada para qualquer outra pessoa q precise.
-                pesquisou! criou! compartilhe ! 
-                Com o Data Form vc tem a opçao de compartilhar a sua pesquisa como preferir, de uma maneira 
-                simples de entender.
-                Deixando a sua vida e a vida de outros usuarios mt mais facil.</p>
+            <p> Crie e Compartilhe !
+                Com as pesquisas compartilhadas você ajuda a comunidade a crescer cada vez mais,
+                além de contribuir com a educação de milhares de pessoas.</p>
           </div>
         </div>
       </div>
