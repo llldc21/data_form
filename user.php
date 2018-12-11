@@ -141,11 +141,7 @@ if(isset($_POST['nome'])){
                     <div class="col-md-4 col-10 offset-1 offset-md-0 painel">
                         <div class="text-center">
                             <div class="form-group">
-                                <select class="form-control" id="buc">
-                                 
-                                    <option>Data de criação</option>
-                                    <option>Ordem alfabética</option>
-                                </select>
+                                
                             </div>
                         </div>
                     </div>

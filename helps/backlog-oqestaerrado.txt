@@ -3,35 +3,7 @@
 
 ## Responsividade/Layout de página
 
-1. O Select "Data de criação/Ordem alfabetica" está sem especificação, o que ele faz? Pra que serve? Falta um 
-titulo
-
-2. Textos da index estão fora do padrão de escrita empresarial/técnica.
-
-3. Na pagina de perguntas serie interessante exibir o nome do formulario que o usuario esta trabalhando.
-
 4. Na pagina de perguntas falta padronizar os campos que são impressos com as perguntas.
 
-5. Na pagina de perguntas falta uma mensagem indicando que as perguntas foram cadastradas com sucesso, algo do
-tipo
-
-## Alinhamento Front e Back
-1. Botão de manual do usuario não faz nada. (Avaliar a necessidade desse botão. Não poderia estar num possivel 
-footer?) 
-R:Foi corrigido o link mas acredito que não pode ser num footer pois não tem footer em todas as paginas
 
 
-2. Botão "Meus Formulários" não faz nada. (Avalisar a necessidade desse botão. Vai levar para um outro modo de 
-visualização, se não, a pagina do usuario já faz isso)
-R: o botão "meus formulários" levam pra pagina de formulários que o mesmo só aparece quando não esta na pagina
-form
-
-## Back-End
-1. O Select "Data de criação/Ordem alfabetica" não faz nenhuma ação. Deveria ordenar os forms de acordo com 
-o que o Select diz.
-
-
-2. Função de pesquisa não pesquisa.
-R: Não existia nenhum formulario por isso não exibia um resultado na pesquisa.
-
-3. Botão responder na pagina do usuario dentro do card do formulario, leva a uma pagina que não faz nada.

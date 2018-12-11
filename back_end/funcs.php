@@ -61,6 +61,13 @@ function ListarDadosUsuario($cd){
     $res = $GLOBALS['conn']->query($sql);
     return $res;
 };
+
+function ListarNomeF($cd){
+    $sql = 'SELECT * FROM `TB_FORMULARIO` WHERE `CD_FORMULARIO`='.$cd;
+    $res = $GLOBALS['conn']->query($sql);
+    return $res;
+};
+
 // -- Atualizar dados
 function AtualizarImg($email,$img_usuario,$cd){
     if (isset($img_usuario['tmp_name'])) {
@@ -239,7 +246,7 @@ function ResponderForm($cd){
     $form = ListaPerguntasPorForm($cd);
     while($forms = $form->fetch_array()){
         switch($forms['CD_TIPO_PERGUNTA']){
-            case 1 :
+            case 5 :
                 if( "" != $_POST[$forms['CD_PERGUNTA']]){
                     $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
                     $GLOBALS['conn']->query($sql);
@@ -249,7 +256,7 @@ function ResponderForm($cd){
                     }
                 }          
             break;
-            case 2:
+            case 6:
                 if( "" != $_POST[$forms['CD_PERGUNTA']]){
                     $sql = "INSERT INTO TB_ALTERNATIVA  VALUES (NULL,'".$_POST[$forms['CD_PERGUNTA']]."','".$forms['CD_PERGUNTA']."')";
                     $GLOBALS['conn']->query($sql);
@@ -259,12 +266,12 @@ function ResponderForm($cd){
                     }
                 }
             break; 
-            case 3:
+            case 7:
             if(isset($_POST[$forms['CD_PERGUNTA']])){
                 ResponderPergunta($_POST[$forms['CD_PERGUNTA']]);
             }
             break;
-            case 4:
+            case 8:
             if(isset( $_POST['alternativa'])){
                 $a = $_POST['alternativa'];
                 for($i=0;$i<count($a);$i++){

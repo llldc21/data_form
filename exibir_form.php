@@ -57,13 +57,13 @@ if(isset($_GET['cdform']) && "" != $sera){
                  $form = ListaPerguntasPorForm($_GET['cdform']);
                  while($forms = $form->fetch_array()){
                   switch($forms['CD_TIPO_PERGUNTA']){
-                    case 1:
+                    case 5:
                       echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
                       break;
-                    case 2:
+                    case 6:
                       echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
                       break;
-                    case 3:
+                    case 7:
                        $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                        if(0 < $alt->num_rows){
                         echo $forms['NM_PERGUNTA'].'<br>';
@@ -72,7 +72,7 @@ if(isset($_GET['cdform']) && "" != $sera){
                         }
                        }
                       break;
-                    case 4:
+                    case 8:
                       $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                         if(0 < $alt->num_rows){
                          echo $forms['NM_PERGUNTA'].'<br>';
@@ -90,7 +90,7 @@ if(isset($_GET['cdform']) && "" != $sera){
                   }
                 
                  }
-                  echo '<input type="submit" name=""/>';
+                  echo '<input type="submit" >';
                 ?>
                 
                 </form>

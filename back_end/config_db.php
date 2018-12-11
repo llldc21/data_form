@@ -1,16 +1,16 @@
 <?php
 
-$host = 'llldc21.profrodolfo.com';
-$port = '2082';
-$user = 'llldc21';
-$password = 'Lucas@23';
+// $host = 'sql10.freemysqlhosting.net	';
+// $port = '3306';
+// $user = 'sql10269460';
+// $password = 'sypiTHnJ8y';
+// $db = 'sql10269460';
+
+
+$host = 'localhost';
+$user = 'wesllensf';
+$password = '';
 $db = 'llldc21_data_form';
-
-
-// $host = 'localhost';
-// $user = 'doutoruu';
-// $password = '';
-// $db = 'llldc21_data_form';
 
 
 

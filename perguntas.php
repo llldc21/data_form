@@ -5,6 +5,7 @@ include('back_end/funcs.php');
 if (isset($_GET['criar'])) {
     CadastrarFormulario();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,8 +84,12 @@ if (isset($_GET['criar'])) {
                 <!-- FORMULARIO -->
                  <div class="col-md-7 scrou offset-md-1" style="background-color:#fff;border-radius:5px;margin-bottom:20px; border:1px solid rgb(223,223,223)">
                      <div class="row">
-                         <h3 style="padding-top:10px;padding-left:20px;"><?php echo $dado['NM_FORMULARIO'] ?></h3>
-                         
+                  <?php
+                        $tipo = ListarNomeF($_GET['id']);
+                        while($tipos = $tipo->fetch_array()){
+                    ?>
+                         <h3 style="padding-top:10px;padding-left:20px;" ><?php echo $tipos['NM_FORMULARIO']; ?></h3>
+                          <?php };?>
                      </div><!-- row -->
                      <div style="padding-top:5px;border-bottom:1px solid #ccc;"></div>
                      
@@ -118,7 +123,7 @@ if (isset($_GET['criar'])) {
                       <button class="btn btn-outline-dark mt-1 mb-1 btn-block campo" id="<?echo $_SESSION['form']?>"   val="<?php echo $tipos['CD_TIPO_PERGUNTA']?>" data-toggle="tooltip" data-placement="left" title="<?php echo $tipos['NM_TIPO_PERGUNTA']?>"> <?php echo $tipos['NM_TIPO_PERGUNTA']?> </button>
                         <?php };?>
                         <br>
-                      <a href="user.php"><button type="button" class="btn btn-dark btn-block">Finalizar</button></a>
+                      <a href="user.php"><button type="button" onclick="myFunction()" class="btn btn-dark btn-block">Finalizar</button></a>
                         <br>
   
                 </div>
@@ -131,6 +136,11 @@ if (isset($_GET['criar'])) {
     <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="front_end/temas/startbootstrap-one-page-wonder-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="front_end/form.js"></script>
+    <script type="text/javascript">
+        function myFunction() {
+    alert("Perguntas cadastradas com sucesso");
+}
+    </script>
 </body>
 </html>
 
