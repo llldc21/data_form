@@ -48,7 +48,7 @@ if (isset($_POST['nome'])) {
 							
 					<div class="wrap-input100 validate-input" data-validate="Nome requerido">
 						<span class="label-input100">Nome completo</span>
-						<input class="input100" type="text" name="nome" placeholder="Nome" pattern="[a-zA-Z\s]+$" title="Não use caracteres especiais!">
+						<input class="input100" type="text" name="nome" placeholder="Nome" pattern="[a-zA-Z\s]+$" required title="Não use caracteres especiais!">
 						<span class="focus-input100"></span>
 					</div>
 							<!--fim nome-->
@@ -57,7 +57,7 @@ if (isset($_POST['nome'])) {
 							
 					<div class="wrap-input100 validate-input" data-validate="Data requerida">
 						<span class="label-input100">Data de nascimento</span>
-						<input class="input100" type="date" name="nascimento">
+						<input class="input100" type="date" name="nascimento" required>
 						<span class="focus-input100"></span>
 					</div>
 							<!--fim data-->
@@ -65,7 +65,7 @@ if (isset($_POST['nome'])) {
 							<!--Email-->
 					<div class="wrap-input100 validate-input" data-validate = "Endereço de email valido Ex.: ex@gmail.com">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="email" name="email" placeholder="Endereço de email">
+						<input class="input100" type="email" name="email" placeholder="Endereço de email" required>
 						<span class="focus-input100"></span>
 					</div>
 							<!--Fim email-->
@@ -74,7 +74,7 @@ if (isset($_POST['nome'])) {
 							
 					<div class="wrap-input100 validate-input" data-validate = "Senha requerida">
 						<span class="label-input100">Senha</span>
-						<input class="input100" type="password" name="senha" placeholder="*************">
+						<input class="input100" type="password" name="senha" placeholder="*************" required>
 						<span class="focus-input100"></span>
 					</div>
 							
@@ -83,7 +83,7 @@ if (isset($_POST['nome'])) {
 							<!--Email recuperação-->
 					<div class="wrap-input100 validate-input" data-validate = "CPF valido Ex.: 000.000.000-00">
 						<span class="label-input100">CPF</span>
-						<input class="input100" type="text" name="cpf" placeholder="CPF" maxlength="14">
+						<input class="input100" type="text" name="cpf" placeholder="CPF" maxlength="14" required>
 						<span class="focus-input100"></span>
 					</div>
 							<!--Fim email-->

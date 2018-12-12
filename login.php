@@ -46,13 +46,13 @@ if ($_POST){
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email requerido">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Digite seu Email">
+						<input class="input100" type="text" name="email" placeholder="Digite seu Email" required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Senha requerida">
 						<span class="label-input100">Senha</span>
-						<input class="input100" type="password" name="senha" placeholder="Digite sua senha">
+						<input class="input100" type="password" name="senha" placeholder="Digite sua senha" required>
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					
