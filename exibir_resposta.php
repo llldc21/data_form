@@ -55,7 +55,7 @@ if(isset($_GET['cdform']) && "" != $sera){
                  <?php
                 $pergunta = ListaPerguntasPorForm($_GET['cdform']);
                 while($perguntas = $pergunta->fetch_array()){
-                 echo '<h2>'.$perguntas['NM_PERGUNTA'].'</h2><br>';
+                 echo '<h5>'.$perguntas['NM_PERGUNTA'].'</h5><br>';
                       switch($perguntas['CD_TIPO_PERGUNTA']){
                         case 1:
                           $alt = ListarAlternativasPorPergunta($perguntas['CD_PERGUNTA']);

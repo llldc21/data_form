@@ -58,31 +58,39 @@ if(isset($_GET['cdform']) && "" != $sera){
                  while($forms = $form->fetch_array()){
                   switch($forms['CD_TIPO_PERGUNTA']){
                     case 5:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
+                      echo '
+                      <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">'.$forms['NM_PERGUNTA'].'</span>
+        						<input class="input100" name="'.$forms['CD_PERGUNTA'].'" type="text">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        			  </div> <br>';
                       break;
                     case 6:
-                      echo $forms['NM_PERGUNTA'].'<input type="text" style="form-control" name="'.$forms['CD_PERGUNTA'].'">  <br>';
+                      echo '
+                      <div class="wrap-input100 validate-input m-b-23">
+        						<span class="label-input100">'.$forms['NM_PERGUNTA'].'</span>
+        						<input class="input100" name="'.$forms['CD_PERGUNTA'].'" type="text">
+        						<span class="focus-input100" data-symbol="&#9776;"></span>
+        			  </div> <br>';
                       break;
                     case 7:
                        $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                        if(0 < $alt->num_rows){
-                        echo $forms['NM_PERGUNTA'].'<br>';
+                        echo '<span class="label-input100">'.$forms['NM_PERGUNTA'].'</span><br>';
                         while($alts = $alt->fetch_array()){
-                          echo '<input type="radio" style="form-control" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.$alts['NM_ALTERNATIVA'].'<br>';
+                          echo '
+                          <input type="radio" style="margin-left:30px;" value="'.$alts['CD_ALTERNATIVA'].'" name="'.$forms['CD_PERGUNTA'].'">'.$alts['NM_ALTERNATIVA'].'<br>';
                         }
                        }
                       break;
                     case 8:
                       $alt = ListarAlternativasPorPergunta($forms['CD_PERGUNTA']);
                         if(0 < $alt->num_rows){
-                         echo $forms['NM_PERGUNTA'].'<br>';
+                         echo '<br><span class="label-input100">'.$forms['NM_PERGUNTA'].'</span><br>';
                           while($alts = $alt->fetch_array()){
                             $i = 1;
                             echo '
-                            
-                            <input type="checkbox"  value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>
-                            
-                            ';
+                            <input type="checkbox" style="margin-left:30px;" value="'.$alts['CD_ALTERNATIVA'].'" name="alternativa[]">'.$alts['NM_ALTERNATIVA'].'<br>';
                             $i++;
                           }
                         }
@@ -90,7 +98,7 @@ if(isset($_GET['cdform']) && "" != $sera){
                   }
                 
                  }
-                  echo '<input type="submit" >';
+                  echo '<br> <button class="btn btn-outline-dark mt-5" type="submit">Enviar<button>';
                 ?>
                 
                 </form>

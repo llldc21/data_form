@@ -71,6 +71,10 @@ form{
   height: 20px;
   padding-right:10px;
 }
+input[type=radio], input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
 .ppz {
   width:100%;
   padding:10px;
