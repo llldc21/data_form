@@ -126,7 +126,7 @@ if($_POST){
                                         
                                         <div class="wrap-input100 validate-input m-b-23">
                         						<span class="label-input100">Nome do Formulário</span>
-                        						<input class="input100" type="text" name="n"  value="'.$forms['NM_FORMULARIO'].'">
+                        						<input class="input100" type="text" name="n" maxlength="140" value="'.$forms['NM_FORMULARIO'].'">
                         						<span class="focus-input100" data-symbol="&#9776;"></span>
                         				</div>
                         				

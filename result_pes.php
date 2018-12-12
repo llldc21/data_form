@@ -55,7 +55,7 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
             
             
             <div class="col-6 main_res">
-              <div class=" ml-2"><h3>Resultados</h3></div>
+              <div class="ml-2"><h3>Resultados</h3></div>
               <?php
                 $results = pesquisa($_GET['cat'],$_GET['palavra']);
                 while($result = $results->fetch_array()){
@@ -64,8 +64,7 @@ if(isset($_GET['palavra']) && '' != $_GET['palavra']){
               </div>
               <div class="descri">'.$result['DS_FORMULARIO'].'</div>';  
                 }
-                
-                
+              
               ?>  
             </div>
             

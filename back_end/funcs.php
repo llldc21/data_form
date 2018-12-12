@@ -295,7 +295,7 @@ function Pesquisa($cate,$pes){
     }else{
         $cat = "";
     }
-     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" and DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
+     $sql = 'SELECT * FROM TB_FORMULARIO WHERE (NM_FORMULARIO like "%'.$pes.'%" or DS_FORMULARIO like "%'.$pes.'%") '.$cat.' ORDER BY NM_FORMULARIO DESC ,DS_FORMULARIO DESC';
      $res = $GLOBALS['conn']->query($sql);
     return $res;
 }

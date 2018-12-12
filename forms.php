@@ -143,7 +143,7 @@ if (isset($_GET['criar'])) {
                           
                             <div class="wrap-input100 validate-input m-b-23">
         						<span class="label-input100">Descrição do Formulário</span>
-        						<input class="input100" type="text" id="desc_form" name="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
+        						<input class="input100" type="text" id="desc_form" maxlength="140" name="desc_form" cols="30" rows="1" require placeholder="Insira uma descrição">
         						<span class="focus-input100" data-symbol="&#9776;"></span>
         					</div>                        
                         
